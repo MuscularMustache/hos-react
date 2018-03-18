@@ -1,0 +1,11 @@
+.app-header {
+  width: 250px;
+  text-align: center;
+  margin: 40px auto; }
+  .app-header img {
+    max-width: 100%; }
+  .app-header .logo-hat {
+    width: 81px;
+    margin-bottom: 10px; }
+  .app-header .logo-text {
+    width: 248px; }

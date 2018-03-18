@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="252px" height="158px" viewBox="0 0 252 158" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.1 (51147) - http://www.bohemiancoding.com/sketch -->
+    <title>Hat</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M44.2539853,4.7528871 C81.3809532,22.8687349 151.154677,24.416361 194.459337,8.60361642 C230.561915,-9.05381122 238.613187,6.39494733 244.752151,12.4864352 C250.461439,18.2616123 257.43456,42.9382271 229.646327,57.0943839 C213.060603,64.5301004 207.296936,64.1439691 207.296936,64.1439691 C207.296936,64.1439691 207.332938,63.6308301 207.220139,62.7502269 C206.848808,59.2237494 196.914052,47.0761995 179.967593,41.8491631 C155.031905,34.1578956 94.4500509,35.890624 79.2602551,39.6487464 C64.0704594,43.4068687 48.9924151,49.6951674 43.4471981,64.8462687 C43.4471981,64.8462687 12.3753439,59.3879807 4.91964753,41.0478447 C1.14716762,30.7193571 -0.371032123,18.746621 10.9415078,8.13786154 C18.0892162,1.33882453 23.2742348,-3.2234739 44.2539853,4.7528871 Z" id="path-1"></path>
+        <linearGradient x1="0%" y1="0%" x2="132.597502%" y2="131.271903%" id="linearGradient-3">
+            <stop stop-color="#32C7FF" offset="0%"></stop>
+            <stop stop-color="#9013FE" offset="100%"></stop>
+        </linearGradient>
+        <path d="M0.601592651,78.8038241 C-5.36033488,20.010522 36.2855633,5.66380481 51.394154,2.71341264 C66.5027447,-0.236979523 86.2003384,-1.4792983 104.515795,2.62172861 C122.831252,6.72275552 158.180519,18.6820154 155.679017,78.0538487 C129.274483,91.2224262 88.6326897,97.1763908 74.2580447,96.1165198 C59.8833996,95.0566487 38.0549635,94.5120492 0.601592651,78.8038241 Z" id="path-4"></path>
+    </defs>
+    <g id="Hat" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-4-Copy-3" transform="translate(0.000000, 2.000000)">
+            <g id="Group-5" transform="translate(0.000000, 89.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" fill="#FFFFFF" xlink:href="#path-1"></use>
+                <g mask="url(#mask-2)">
+                    <g transform="translate(-529.591837, -422.448980)">
+                        <rect id="Rectangle-3-Copy" fill="url(#linearGradient-3)" x="76.5306122" y="91.8367347" width="1147.95918" height="2041.83673"></rect>
+                        <rect id="orange-copy" fill="#FFE075" opacity="0.170009328" x="0" y="0" width="1294.89796" height="2378.57143"></rect>
+                    </g>
+                </g>
+            </g>
+            <g id="Group-5" transform="translate(48.000000, 0.000000)">
+                <mask id="mask-5" fill="white">
+                    <use xlink:href="#path-4"></use>
+                </mask>
+                <use id="Mask" fill="#FFFFFF" xlink:href="#path-4"></use>
+                <g mask="url(#mask-5)">
+                    <g transform="translate(-577.510204, -333.673469)">
+                        <rect id="Rectangle-3-Copy" fill="url(#linearGradient-3)" x="76.5306122" y="91.8367347" width="1147.95918" height="2041.83673"></rect>
+                        <rect id="orange-copy" fill="#FFE075" opacity="0.170009328" x="0" y="0" width="1294.89796" height="2378.57143"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
