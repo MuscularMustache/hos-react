@@ -8,6 +8,8 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import App from './components/App';
+import Login from './components/LoginForm';
+import Signup from './components/SignupForm';
 import registerServiceWorker from './registerServiceWorker';
 
 // NOTE: if i pass id back from requests, dataIdFromObject will update data without having to re-request it
@@ -30,6 +32,8 @@ const Root = () => {
           <Switch>
             <App>
               <Route path="/about" component={About} />
+              <Route path="/login" component={Login} />
+              <Route path="/signup" component={Signup} />
             </App>
           </Switch>
         </div>
