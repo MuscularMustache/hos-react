@@ -10,6 +10,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import App from './components/App';
 import Login from './components/LoginForm';
 import Signup from './components/SignupForm';
+import UserNav from './components/UserNav';
 import registerServiceWorker from './registerServiceWorker';
 
 // NOTE: if i pass id back from requests, dataIdFromObject will update data without having to re-request it
@@ -19,11 +20,6 @@ const client = new ApolloClient({
   dataIdFromObject: o => o.id
 });
 
-// test component for routing
-const About = () => {
-  return <h1>About</h1>;
-};
-
 const Root = () => {
   return (
     <ApolloProvider client={client}>
@@ -31,7 +27,7 @@ const Root = () => {
         <div>
           <Switch>
             <App>
-              <Route path="/about" component={About} />
+              <Route path="/" exact component={UserNav} />
               <Route path="/login" component={Login} />
               <Route path="/signup" component={Signup} />
             </App>

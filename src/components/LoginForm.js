@@ -23,7 +23,7 @@ class LoginForm extends Component {
     if (!this.props.data.user && nextProps.data.user) {
       // redirect to about for now
       // NOTE: not sure if this is the right way to do it
-      this.props.history.push('/about');
+      this.props.history.push('/');
     }
   }
 
