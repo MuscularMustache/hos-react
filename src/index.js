@@ -11,6 +11,7 @@ import App from './components/App';
 import Login from './components/LoginForm';
 import Signup from './components/SignupForm';
 import UserNav from './components/UserNav';
+import requireAuth from './components/requireAuth';
 import registerServiceWorker from './registerServiceWorker';
 
 // NOTE: if i pass id back from requests, dataIdFromObject will update data without having to re-request it
@@ -27,7 +28,7 @@ const Root = () => {
         <div>
           <Switch>
             <App>
-              <Route path="/" exact component={UserNav} />
+              <Route path="/" exact component={requireAuth(UserNav)} />
               <Route path="/login" component={Login} />
               <Route path="/signup" component={Signup} />
             </App>
