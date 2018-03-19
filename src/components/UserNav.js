@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import LoadingIndicator from './LoadingIndicator';
 
 class UserNav extends Component {
   render() {
-    // NOTE: ADD A UNIVERSAL LOADING INDICATOR COMPONENT
-    if (this.props.data.loading) { return <div>Loading...</div>; }
+    if (this.props.data.loading) { return <LoadingIndicator />; }
 
     return <div>User Landing Page</div>
   }
