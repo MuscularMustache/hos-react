@@ -12,19 +12,24 @@ body {
   background: -ms-linear-gradient(top, #54cbe8 0%, #8f59e7 100%);
   background: linear-gradient(to bottom, #54cbe8 0%, #8f59e7 100%); }
   body * {
-    font-family: 'Roboto', sans-serif; }
+    font-family: 'Roboto', sans-serif;
+    color: white; }
 
 .standard-btn {
   background: transparent;
-  width: 100%;
-  border-radius: 5px;
   border: 2px solid white;
-  font-weight: 300;
+  border-radius: 5px;
+  box-sizing: border-box;
   color: white;
+  display: block;
   font-size: 18px;
-  padding: 10px 0;
+  font-weight: 300;
   margin: 10px 0;
-  outline: none; }
+  outline: none;
+  padding: 10px 0;
+  text-align: center;
+  text-decoration: none;
+  width: 100%; }
   .standard-btn:active {
     background: white;
     color: #7291e8; }
@@ -55,3 +60,6 @@ body {
     .input-field input:focus + label, .input-field input.has-text + label {
       bottom: 30px;
       font-size: 12px; }
+
+.content {
+  margin: 0 10%; }
