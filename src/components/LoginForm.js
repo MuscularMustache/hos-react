@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import AuthForm from './AuthForm';
 import { graphql } from 'react-apollo';
 import { Link } from 'react-router-dom';
+import '../styles/login.css';
 import Login from '../mutations/Login';
 import CurrentUser from '../queries/CurrentUser';
 
@@ -41,11 +42,11 @@ class LoginForm extends Component {
   // NOTE: very similar to signup form, look into refactoring these 2 components
   render() {
     return (
-      <div>
+      <div className="login-content">
         <AuthForm errors={this.state.errors} onSubmit={this.onSubmit.bind(this)} formType="login" />
         <img src={facebookIcon} className="login-icon" alt="facebook login" />
         <img src={googleIcon} className="login-icon" alt="google login" />
-        <Link to="/signup">Sign Up</Link>
+        <p className="login-link">Don't have an account? <Link to="/signup">Sign Up</Link></p>
       </div>
     );
   }

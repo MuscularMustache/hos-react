@@ -1,0 +1,29 @@
+.login-content {
+  text-align: center;
+  margin: 0 10%;
+  .standard-btn {
+    margin: 50px 0;
+  }
+}
+
+.login-icon {
+  width: 60px;
+  margin: 20px 0 20px;
+  &:first-of-type {
+    margin-right: 20px;
+  }
+}
+
+.login-link {
+  color: white;
+  display: block;
+  text-align: center;
+  a {
+    color: white;
+    font-weight: bold;
+  }
+}
+
+.login-form .input-field:first-of-type {
+  margin-bottom: 30px;
+}

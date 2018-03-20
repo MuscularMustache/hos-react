@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import AuthForm from './AuthForm';
 import { graphql } from 'react-apollo';
 import { Link } from 'react-router-dom';
+import '../styles/login.css';
 import Signup from '../mutations/Signup';
 import CurrentUser from '../queries/CurrentUser';
 
@@ -37,11 +38,11 @@ class SignupForm extends Component {
   // since we're maping over errors, we have to pass in errors when calling AuthForm
   render() {
     return (
-      <div>
+      <div className="login-content">
         <AuthForm errors={this.state.errors} onSubmit={this.onSubmit.bind(this)} formType="sign up" />
         <img src={facebookIcon} className="login-icon" alt="facebook login" />
         <img src={googleIcon} className="login-icon" alt="google login" />
-        <Link to="/login">Login</Link>
+        <p className="login-link">Already have an account? <Link to="/login">Login</Link></p>
       </div>
     );
   }

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 html {
   height: 100%;
   overflow: hidden;
@@ -12,4 +14,62 @@ body {
   background: -o-linear-gradient(top, #54cbe8 0%, #8f59e7 100%);
   background: -ms-linear-gradient(top, #54cbe8 0%, #8f59e7 100%);
   background: linear-gradient(to bottom, #54cbe8 0%, #8f59e7 100%);
+  * {
+    font-family: 'Roboto', sans-serif;
+  }
+}
+
+// generic custom button styles
+.standard-btn {
+  background: transparent;
+  width: 100%;
+  border-radius: 5px;
+  border: 2px solid white;
+  font-weight: 300;
+  color: white;
+  font-size: 18px;
+  padding: 10px 0;
+  margin: 10px 0;
+  outline: none;
+  &:active{
+    background: white;
+    color: #7291e8;
+  }
+}
+
+.input-field {
+  height: 30px;
+  text-align: left;
+  position: relative;
+  input {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid white;
+    box-sizing: border-box;
+    color: white;
+    height: 30px;
+    margin-bottom: 0;
+    outline: none;
+    width: 100%;
+    + label {
+      color: white;
+      pointer-events: none; // double check to see if this still causes issues in older safari
+      transition: .2s;
+      position: absolute;
+      left: 0px;
+    }
+    // if input is blank
+    &[value=""] + label {
+      bottom: 6px;
+      font-size: 16px;
+    }
+    // if input has text or focusing on input
+    &:focus,
+    &.has-text {
+      + label {
+        bottom: 30px;
+        font-size: 12px;
+      }
+    }
+  }
 }

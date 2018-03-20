@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
 html {
   height: 100%;
   overflow: hidden; }
@@ -10,3 +11,47 @@ body {
   background: -o-linear-gradient(top, #54cbe8 0%, #8f59e7 100%);
   background: -ms-linear-gradient(top, #54cbe8 0%, #8f59e7 100%);
   background: linear-gradient(to bottom, #54cbe8 0%, #8f59e7 100%); }
+  body * {
+    font-family: 'Roboto', sans-serif; }
+
+.standard-btn {
+  background: transparent;
+  width: 100%;
+  border-radius: 5px;
+  border: 2px solid white;
+  font-weight: 300;
+  color: white;
+  font-size: 18px;
+  padding: 10px 0;
+  margin: 10px 0;
+  outline: none; }
+  .standard-btn:active {
+    background: white;
+    color: #7291e8; }
+
+.input-field {
+  height: 30px;
+  text-align: left;
+  position: relative; }
+  .input-field input {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid white;
+    box-sizing: border-box;
+    color: white;
+    height: 30px;
+    margin-bottom: 0;
+    outline: none;
+    width: 100%; }
+    .input-field input + label {
+      color: white;
+      pointer-events: none;
+      transition: .2s;
+      position: absolute;
+      left: 0px; }
+    .input-field input[value=""] + label {
+      bottom: 6px;
+      font-size: 16px; }
+    .input-field input:focus + label, .input-field input.has-text + label {
+      bottom: 30px;
+      font-size: 12px; }
