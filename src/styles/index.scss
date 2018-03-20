@@ -20,6 +20,13 @@ body {
   }
 }
 
+::selection {
+  background: #fff; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: #fff; /* Gecko Browsers */
+}
+
 // generic custom button styles
 .standard-btn {
   background: transparent;

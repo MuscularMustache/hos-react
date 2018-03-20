@@ -1,0 +1,21 @@
+.collection {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  .collection-item {
+    // margin-bottom: 20px;
+    width: 50%;
+    margin: 0 auto 20px;
+    img {
+      width: 32px;
+      height: 32px;
+    }
+    span {
+      font-size: 18px;
+      display: inline-block;
+      line-height: 32px;
+      margin-left: 15px;
+      vertical-align: top;
+    }
+  }
+}

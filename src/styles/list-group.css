@@ -1,0 +1,16 @@
+.collection {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+  .collection .collection-item {
+    width: 50%;
+    margin: 0 auto 20px; }
+    .collection .collection-item img {
+      width: 32px;
+      height: 32px; }
+    .collection .collection-item span {
+      font-size: 18px;
+      display: inline-block;
+      line-height: 32px;
+      margin-left: 15px;
+      vertical-align: top; }
