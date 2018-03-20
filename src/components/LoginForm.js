@@ -42,8 +42,7 @@ class LoginForm extends Component {
   render() {
     return (
       <div>
-        <h5>Login</h5>
-        <AuthForm errors={this.state.errors} onSubmit={this.onSubmit.bind(this)} />
+        <AuthForm errors={this.state.errors} onSubmit={this.onSubmit.bind(this)} formType="login" />
         <img src={facebookIcon} className="login-icon" alt="facebook login" />
         <img src={googleIcon} className="login-icon" alt="google login" />
         <Link to="/signup">Sign Up</Link>

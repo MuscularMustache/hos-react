@@ -5,6 +5,9 @@ import { Link } from 'react-router-dom';
 import Signup from '../mutations/Signup';
 import CurrentUser from '../queries/CurrentUser';
 
+import facebookIcon from '../assets/images/icons/facebook_white.svg';
+import googleIcon from '../assets/images/icons/google_white.svg';
+
 class SignupForm extends Component {
   constructor(props) {
     super(props);
@@ -35,8 +38,9 @@ class SignupForm extends Component {
   render() {
     return (
       <div>
-        <h5>Sign Up</h5>
-        <AuthForm errors={this.state.errors} onSubmit={this.onSubmit.bind(this)} />
+        <AuthForm errors={this.state.errors} onSubmit={this.onSubmit.bind(this)} formType="sign up" />
+        <img src={facebookIcon} className="login-icon" alt="facebook login" />
+        <img src={googleIcon} className="login-icon" alt="google login" />
         <Link to="/login">Login</Link>
       </div>
     );
