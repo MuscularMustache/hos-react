@@ -15,6 +15,10 @@
       margin-left: 15px;
       vertical-align: top;
       text-decoration: none; }
+      .collection .collection-item a.inactive {
+        opacity: .5; }
+        .collection .collection-item a.inactive + a {
+          opacity: .5; }
 
 form {
   margin: 35px 0; }

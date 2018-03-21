@@ -4,16 +4,28 @@ import { Link } from 'react-router-dom';
 import LoadingIndicator from './LoadingIndicator';
 import ListCreate from './ListCreate';
 import FetchLists from '../queries/FetchLists';
+import ToggleList from '../mutations/ToggleList';
 import userIcon from '../assets/images/icons/list_icon_user.svg';
 import '../styles/list-group.css';
 
 class ListGroup extends Component {
+  onToggleList(id) {
+    this.props.mutate({
+        variables: { id },
+        refetchQueries: [{ query: FetchLists }]
+      }).catch(res => {
+        // gotta handle errors - I should be doing this everywhere
+      });
+  }
+
   renderLists() {
     // TODO break this into its own component
-    return this.props.data.lists.map(({ id, title }) => {
+    return this.props.data.lists.map(({ id, title, pullForGame }) => {
       return (
         <li key={id} className="collection-item">
-          <img src={userIcon} className="list-icon" alt="user icon" />
+          <a onClick={() => this.onToggleList(id)} className={pullForGame ? "active" : "inactive"}>
+            <img src={userIcon} className="list-icon" alt="user icon" />
+          </a>
           <Link to={`lists/${id}`}>
             {title}
           </Link>
@@ -38,4 +50,6 @@ class ListGroup extends Component {
   }
 }
 
-export default graphql(FetchLists)(ListGroup);
+export default graphql(ToggleList)(
+  graphql(FetchLists)(ListGroup)
+);

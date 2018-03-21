@@ -17,6 +17,12 @@
       margin-left: 15px;
       vertical-align: top;
       text-decoration: none;
+      &.inactive {
+        opacity: .5;
+        + a {
+          opacity: .5;
+        }
+      }
     }
   }
 }

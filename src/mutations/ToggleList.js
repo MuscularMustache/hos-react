@@ -1,11 +1,9 @@
 import gql from 'graphql-tag';
 
 export default gql`
-  {
-    lists {
+  mutation ToggleListPull($id: ID) {
+    toggleListPull(id: $id) {
       id
-      title
-      pullForGame
     }
   }
 `;
