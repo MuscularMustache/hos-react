@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import { Link } from 'react-router-dom';
 import LoadingIndicator from './LoadingIndicator';
+import ListCreate from './ListCreate';
 import FetchLists from '../queries/FetchLists';
 import userIcon from '../assets/images/icons/list_icon_user.svg';
 import '../styles/list-group.css';
@@ -13,11 +14,9 @@ class ListGroup extends Component {
       return (
         <li key={id} className="collection-item">
           <img src={userIcon} className="list-icon" alt="user icon" />
-          <span>
-            <Link to={`lists/${id}`}>
-              {title}
-            </Link>
-          </span>
+          <Link to={`lists/${id}`}>
+            {title}
+          </Link>
         </li>
       );
     });
@@ -32,6 +31,7 @@ class ListGroup extends Component {
         <ul className="collection">
           {this.renderLists()}
         </ul>
+        <ListCreate />
         <Link className="standard-btn" to="/">Back</Link>
       </div>
     );

@@ -4,18 +4,23 @@
   list-style: none;
   .collection-item {
     // margin-bottom: 20px;
-    width: 50%;
+    width: 80%;
     margin: 0 auto 20px;
     img {
       width: 32px;
       height: 32px;
     }
-    span {
+    a {
       font-size: 18px;
       display: inline-block;
       line-height: 32px;
       margin-left: 15px;
       vertical-align: top;
+      text-decoration: none;
     }
   }
+}
+
+form {
+  margin: 35px 0;
 }
