@@ -5,6 +5,7 @@ import FetchLists from '../queries/FetchLists';
 import DeleteList from '../mutations/DeleteList';
 import { Link } from 'react-router-dom';
 import ConsequenceList from './ConsequenceList';
+import ConsequenceCreate from './ConsequenceCreate';
 import LoadingIndicator from './LoadingIndicator';
 
 class ListDetail extends Component {
@@ -29,6 +30,7 @@ class ListDetail extends Component {
         <h2>{list.title}</h2>
         <a onClick={() => this.onListDelete(list.id)}>delete list</a>
         <ConsequenceList consequences={list.consequences} />
+        <ConsequenceCreate listId={list.id} />
         <Link className="standard-btn" to="/lists">Back</Link>
       </div>
     );
