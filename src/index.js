@@ -13,6 +13,7 @@ import Signup from './components/SignupForm';
 import UserNav from './components/UserNav';
 import Settings from './components/Settings';
 import ListGroup from './components/ListGroup';
+import ListDetail from './components/ListDetail';
 import requireAuth from './components/requireAuth';
 import registerServiceWorker from './registerServiceWorker';
 
@@ -34,7 +35,8 @@ const Root = () => {
               <Route path="/login" component={Login} />
               <Route path="/signup" component={Signup} />
               <Route path="/settings" component={requireAuth(Settings)} />
-              <Route path="/lists" component={requireAuth(ListGroup)} />
+              <Route path="/lists" exact component={requireAuth(ListGroup)} />
+              <Route path="/lists/:id" component={requireAuth(ListDetail)} />
             </App>
           </Switch>
         </div>

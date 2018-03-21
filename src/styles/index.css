@@ -29,10 +29,11 @@ body {
   border-radius: 5px;
   box-sizing: border-box;
   color: white;
+  cursor: pointer;
   display: block;
   font-size: 18px;
   font-weight: 300;
-  margin: 10px 0;
+  margin: 0 0 30px;
   outline: none;
   padding: 10px 0;
   text-align: center;
@@ -41,6 +42,9 @@ body {
   .standard-btn:active {
     background: white;
     color: #7291e8; }
+  .standard-btn[disabled] {
+    opacity: .5;
+    pointer-events: none; }
 
 .input-field {
   height: 30px;

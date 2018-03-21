@@ -8,8 +8,9 @@ class UserNav extends Component {
 
     return (
       <div className="content">
-        <Link className="standard-btn" to="/lists">Edit Lists</Link>
-        <Link className="standard-btn" to="/settings">Settings</Link>
+        <Link className="standard-btn" to="/lists" disabled>play</Link>
+        <Link className="standard-btn" to="/lists">edit consequences</Link>
+        <Link className="standard-btn" to="/settings">settings</Link>
       </div>
     );
   }

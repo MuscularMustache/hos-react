@@ -7,17 +7,16 @@ import userIcon from '../assets/images/icons/list_icon_user.svg';
 import '../styles/list-group.css';
 
 class ListGroup extends Component {
-  // TODO: wrap title in renderLists with this link after setting up
-  // <Link to={`lists/${id}`}></Link>
-  // also add the icon before hand
-
   renderLists() {
+    // TODO break this into its own component
     return this.props.data.lists.map(({ id, title }) => {
       return (
         <li key={id} className="collection-item">
           <img src={userIcon} className="list-icon" alt="user icon" />
           <span>
-            {title}
+            <Link to={`lists/${id}`}>
+              {title}
+            </Link>
           </span>
         </li>
       );
