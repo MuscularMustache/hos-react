@@ -1,0 +1,19 @@
+.container.signup {
+  background: white; }
+  .container.signup .input-field:first-of-type label {
+    color: #69A3E8; }
+  .container.signup .input-field:first-of-type input {
+    color: #6AA1E7;
+    border-color: #6AA1E7; }
+  .container.signup .input-field label {
+    color: #6E9BE8; }
+  .container.signup .input-field input {
+    color: #6F98E7;
+    border-color: #6F98E7; }
+  .container.signup .standard-btn {
+    border-color: #7885E7;
+    color: #7688E7; }
+  .container.signup .login-link {
+    color: #8A63E7; }
+    .container.signup .login-link a {
+      color: #8A63E7; }
