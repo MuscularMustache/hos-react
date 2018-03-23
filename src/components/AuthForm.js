@@ -13,6 +13,9 @@ class AuthForm extends Component {
     this.props.onSubmit({ email, password });
   }
 
+  // the bind method is only used because we're using a preventDefault because the delayed invoction
+  // so if i change the form to a div i can use a fat arrow function and not have to bind this -
+  // when refactoring, remvove the form and add onSubmit to be on the button click
   render() {
     return (
       <div className="login-form-wrapper">

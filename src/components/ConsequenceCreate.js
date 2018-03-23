@@ -20,6 +20,7 @@ class ConsequenceCreate extends Component {
     }).then(() => this.setState({ content: '' }));
   }
 
+  // when this gets restructured to have a button, remove the form and the bind
   render() {
     return (
       <form onSubmit={this.onSubmit.bind(this)}>

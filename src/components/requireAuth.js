@@ -8,7 +8,6 @@ export default (WrappedComponent) => {
     componentWillUpdate(nextProps) {
       // if its not loading and the user doesnt exist aka not logged in
       if (!nextProps.data.loading && !nextProps.data.user) {
-        // NOTE: still not sure if this is the right way to do it
         this.props.history.push('/login');
       }
     }

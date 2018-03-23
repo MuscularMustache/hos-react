@@ -22,7 +22,6 @@ class LoginForm extends Component {
     // nextProps is the props that will be placed on our component the next time it re-renders
     // this.props is the old props and nextProps are the new props
     if (!this.props.data.user && nextProps.data.user) {
-      // NOTE: not sure if this is the right way to do it
       this.props.history.push('/');
     }
   }

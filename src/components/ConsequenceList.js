@@ -1,24 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class ConsequenceList extends Component {
-  renderConsequences() {
-    // destructuring id and content off of each consequence
-    return this.props.consequences.map(({id, content}) => {
-      return (
-        <li key={id} className="collection-item">
-          {content}
-        </li>
-      );
-    });
-  }
-
-  render() {
-    return (
-      <ul className="collection">
-        {this.renderConsequences()}
-      </ul>
-    )
-  }
+const ConsequenceList = props => {
+  return (
+    <ul className="collection">
+      {props.consequences.map(({id, content}) => {
+          return (
+            <li key={id} className="collection-item">
+              {content}
+            </li>
+          );
+        })}
+    </ul>
+  );
 }
 
 export default ConsequenceList;

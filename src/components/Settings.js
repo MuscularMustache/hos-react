@@ -16,7 +16,7 @@ class Settings extends Component {
       <div className="content">
         <h2>Settings</h2>
         <Link className="standard-btn" to="/">Back</Link>
-        <a className="standard-btn" onClick={this.onLogoutClick.bind(this)}>logout</a>
+        <a className="standard-btn" onClick={() => this.onLogoutClick()}>logout</a>
       </div>
     );
   }

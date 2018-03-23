@@ -15,7 +15,6 @@ class ListDetail extends Component {
         refetchQueries: [{ query: FetchLists }]
       })
       .then(() => {
-        // NOTE: not sure if this is the right way to do it
         this.props.history.push('/lists');
       });
   }
@@ -38,5 +37,5 @@ class ListDetail extends Component {
 }
 
 export default graphql(DeleteList)(graphql(FetchList, {
-  options: (props) => { return { variables: { id: props.match.params.id } } }
+  options: props => ({ variables: { id: props.match.params.id } })
 })(ListDetail));
