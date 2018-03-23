@@ -28,7 +28,7 @@ class ListDetail extends Component {
       <div className="content">
         <h2>{list.title}</h2>
         <a onClick={() => this.onListDelete(list.id)}>delete list</a>
-        <ConsequenceList consequences={list.consequences} />
+        <ConsequenceList consequences={list.consequences} refetchConequences={() => this.props.data.refetch() } />
         <ConsequenceCreate listId={list.id} />
         <Link className="standard-btn" to="/lists">Back</Link>
       </div>
