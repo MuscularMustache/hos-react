@@ -13,6 +13,9 @@
   .container.signup .standard-btn {
     border-color: #7885E7;
     color: #7688E7; }
+    .container.signup .standard-btn:active {
+      background: #7885E7;
+      color: white; }
   .container.signup .login-link {
     color: #8A63E7; }
     .container.signup .login-link a {

@@ -23,6 +23,10 @@
   .standard-btn {
     border-color: #7885E7;
     color: #7688E7;
+    &:active {
+      background: #7885E7;
+      color: white;
+    }
   }
 
   .login-link {
