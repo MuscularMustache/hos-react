@@ -8,6 +8,7 @@
     "apollo-link-http": "^1.5.3",
     "graphql": "^0.13.2",
     "graphql-tag": "^2.8.0",
+    "lodash": "^4.17.5",
     "node-sass-chokidar": "^1.1.2",
     "npm-run-all": "^4.1.2",
     "react": "^16.2.0",
