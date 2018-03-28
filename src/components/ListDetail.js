@@ -12,7 +12,10 @@ class ListDetail extends Component {
   onListDelete(id) {
     this.props.mutate({
         variables: { id },
-        refetchQueries: [{ query: FetchLists }]
+        refetchQueries: [{
+          query: FetchLists,
+          variables: { userId: this.props.userId }
+        }]
       })
       .then(() => {
         this.props.history.push('/lists');

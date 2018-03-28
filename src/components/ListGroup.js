@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import _ from 'lodash';
 import { graphql } from 'react-apollo';
 import { Link } from 'react-router-dom';
 import LoadingIndicator from './LoadingIndicator';
@@ -12,7 +13,10 @@ class ListGroup extends Component {
   onToggleList(id) {
     this.props.mutate({
         variables: { id },
-        refetchQueries: [{ query: FetchLists }]
+        refetchQueries: [{
+          query: FetchLists,
+          variables: { userId: this.props.userId }
+        }]
       }).catch(res => {
         // gotta handle errors - I should be doing this everywhere
       });
@@ -20,6 +24,10 @@ class ListGroup extends Component {
 
   renderLists() {
     // TODO break this into its own component
+    if (_.get(this.props, 'data.error.message')) {
+      return <p>There was an error retrieving the lists</p>;
+    }
+
     return this.props.data.lists.map(({ id, title, pullForGame }) => {
       return (
         <li key={id} className="collection-item">
@@ -43,13 +51,13 @@ class ListGroup extends Component {
         <ul className="collection">
           {this.renderLists()}
         </ul>
-        <ListCreate />
+        <ListCreate userId={this.props.userId} />
         <Link className="standard-btn" to="/">Back</Link>
       </div>
     );
   }
 }
 
-export default graphql(ToggleList)(
-  graphql(FetchLists)(ListGroup)
-);
+export default graphql(ToggleList)(graphql(FetchLists, {
+  options: props => ({ variables: { userId: props.userId } })
+})(ListGroup));

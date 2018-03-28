@@ -14,8 +14,14 @@ class ListCreate extends Component {
     event.preventDefault();
 
     this.props.mutate({
-      variables: { title: this.state.title },
-      refetchQueries: [{ query: FetchLists }]
+      variables: {
+        title: this.state.title,
+        userId: this.props.userId
+      },
+      refetchQueries: [{
+        query: FetchLists,
+        variables: { userId: this.props.userId }
+      }]
     }).then(() => this.setState({ title: '' }));
   }
 
