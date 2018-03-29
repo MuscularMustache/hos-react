@@ -6,7 +6,7 @@ class ConsequenceCreate extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { content: '' };
+    this.state = { content: '', errors: [] };
   }
 
   onSubmit(event) {
@@ -17,7 +17,11 @@ class ConsequenceCreate extends Component {
         content: this.state.content,
         listId: this.props.listId
       }
-    }).then(() => this.setState({ content: '' }));
+    }).then(() => this.setState({ content: '', errors: [] }))
+      .catch(res => {
+        const errors = res.graphQLErrors.map(err => err.message);
+        this.setState({ errors });
+      });
   }
 
   // when this gets restructured to have a button, remove the form and the bind
@@ -31,6 +35,9 @@ class ConsequenceCreate extends Component {
             onChange={event => this.setState({ content: event.target.value })}
           />
           <label>Add a consequence</label>
+        </div>
+        <div className="errors">
+          {this.state.errors.map(error => <p className="error" key={error}>{error}</p>)}
         </div>
       </form>
     );

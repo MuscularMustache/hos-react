@@ -7,7 +7,7 @@ class ListCreate extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { title: '' };
+    this.state = { title: '', errors: [] };
   }
 
   onSubmit(event) {
@@ -22,7 +22,11 @@ class ListCreate extends Component {
         query: FetchLists,
         variables: { userId: this.props.userId }
       }]
-    }).then(() => this.setState({ title: '' }));
+    }).then(() => this.setState({ title: '', errors: [] }))
+      .catch(res => {
+        const errors = res.graphQLErrors.map(err => err.message);
+        this.setState({ errors });
+      });
   }
 
   render() {
@@ -35,6 +39,9 @@ class ListCreate extends Component {
             value={this.state.title}
           />
           <label>Create New List</label>
+        </div>
+        <div className="errors">
+          {this.state.errors.map(error => <p className="error" key={error}>{error}</p>)}
         </div>
       </form>
     );
