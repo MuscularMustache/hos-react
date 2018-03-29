@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
-import FetchLists from '../queries/FetchLists';
-import AddList from '../mutations/AddList';
+import FetchLists from '../../queries/FetchLists';
+import AddList from '../../mutations/AddList';
 
 class ListCreate extends Component {
   constructor(props) {

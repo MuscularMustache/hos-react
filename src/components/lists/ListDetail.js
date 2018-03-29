@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
-import FetchList from '../queries/FetchList';
-import FetchLists from '../queries/FetchLists';
-import DeleteList from '../mutations/DeleteList';
+import FetchList from '../../queries/FetchList';
+import FetchLists from '../../queries/FetchLists';
+import DeleteList from '../../mutations/DeleteList';
 import { Link } from 'react-router-dom';
-import ConsequenceList from './ConsequenceList';
-import ConsequenceCreate from './ConsequenceCreate';
-import LoadingIndicator from './LoadingIndicator';
+import ConsequenceList from '../consequences/ConsequenceList';
+import ConsequenceCreate from '../consequences/ConsequenceCreate';
+import LoadingIndicator from '../LoadingIndicator';
 
 class ListDetail extends Component {
   onListDelete(id) {

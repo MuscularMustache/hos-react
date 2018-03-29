@@ -8,12 +8,12 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import App from './components/App';
-import Login from './components/LoginForm';
-import Signup from './components/SignupForm';
+import Login from './components/login/LoginForm';
+import Signup from './components/login/SignupForm';
 import UserNav from './components/UserNav';
-import Settings from './components/Settings';
-import ListGroup from './components/ListGroup';
-import ListDetail from './components/ListDetail';
+import Settings from './components/settings/Settings';
+import ListGroup from './components/lists/ListGroup';
+import ListDetail from './components/lists/ListDetail';
 import requireAuth from './components/requireAuth';
 import registerServiceWorker from './registerServiceWorker';
 

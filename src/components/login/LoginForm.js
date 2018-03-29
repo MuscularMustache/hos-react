@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import AuthForm from './AuthForm';
 import { graphql } from 'react-apollo';
 import { Link } from 'react-router-dom';
-import '../styles/login.css';
-import Login from '../mutations/Login';
-import CurrentUser from '../queries/CurrentUser';
+import '../../styles/login.css';
+import Login from '../../mutations/Login';
+import CurrentUser from '../../queries/CurrentUser';
 
-import facebookIcon from '../assets/images/icons/facebook_white.svg';
-import googleIcon from '../assets/images/icons/google_white.svg';
+import facebookIcon from '../../assets/images/icons/facebook_white.svg';
+import googleIcon from '../../assets/images/icons/google_white.svg';
 
 class LoginForm extends Component {
   constructor(props) {

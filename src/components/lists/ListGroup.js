@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import _ from 'lodash';
 import { graphql } from 'react-apollo';
 import { Link } from 'react-router-dom';
-import LoadingIndicator from './LoadingIndicator';
+import LoadingIndicator from '../LoadingIndicator';
 import ListCreate from './ListCreate';
-import FetchLists from '../queries/FetchLists';
-import ToggleList from '../mutations/ToggleList';
-import userIcon from '../assets/images/icons/list_icon_user.svg';
-import '../styles/list-group.css';
+import FetchLists from '../../queries/FetchLists';
+import ToggleList from '../../mutations/ToggleList';
+import userIcon from '../../assets/images/icons/list_icon_user.svg';
+import '../../styles/list-group.css';
 
 class ListGroup extends Component {
   onToggleList(id) {

@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import AuthForm from './AuthForm';
 import { graphql } from 'react-apollo';
 import { Link } from 'react-router-dom';
-import '../styles/login.css';
-import '../styles/signup.css';
-import Signup from '../mutations/Signup';
-import CurrentUser from '../queries/CurrentUser';
+import '../../styles/login.css';
+import '../../styles/signup.css';
+import Signup from '../../mutations/Signup';
+import CurrentUser from '../../queries/CurrentUser';
 
-import facebookIcon from '../assets/images/icons/facebook_blue.svg';
-import googleIcon from '../assets/images/icons/google_blue.svg';
+import facebookIcon from '../../assets/images/icons/facebook_blue.svg';
+import googleIcon from '../../assets/images/icons/google_blue.svg';
 
 class SignupForm extends Component {
   constructor(props) {

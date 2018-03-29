@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'react-apollo';
-import DeleteConsequence from '../mutations/DeleteConsequence';
+import DeleteConsequence from '../../mutations/DeleteConsequence';
 
 const ConsequenceList = props => {
   return (

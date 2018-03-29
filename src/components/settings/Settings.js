@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { graphql } from 'react-apollo';
-import CurrentUser from '../queries/CurrentUser';
-import Logout from '../mutations/Logout';
+import CurrentUser from '../../queries/CurrentUser';
+import Logout from '../../mutations/Logout';
 
 class Settings extends Component {
   onLogoutClick() {

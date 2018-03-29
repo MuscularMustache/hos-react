@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
-import AddConsequence from '../mutations/AddConsequence';
+import AddConsequence from '../../mutations/AddConsequence';
 
 class ConsequenceCreate extends Component {
   constructor(props) {
