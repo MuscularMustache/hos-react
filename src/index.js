@@ -14,6 +14,7 @@ import UserNav from './components/UserNav';
 import Settings from './components/settings/Settings';
 import ListGroup from './components/lists/ListGroup';
 import ListDetail from './components/lists/ListDetail';
+import StartGame from './components/game/StartGame';
 import requireAuth from './components/requireAuth';
 import registerServiceWorker from './registerServiceWorker';
 
@@ -37,6 +38,7 @@ const Root = () => {
               <Route path="/settings" component={requireAuth(Settings)} />
               <Route path="/lists" exact component={requireAuth(ListGroup)} />
               <Route path="/lists/:id" component={requireAuth(ListDetail)} />
+              <Route path="/game" component={requireAuth(StartGame)} />
             </App>
           </Switch>
         </div>
