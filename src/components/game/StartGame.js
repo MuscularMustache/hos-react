@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { graphql } from 'react-apollo';
+import ResetGame from './ResetGame';
 import mutation from '../../mutations/StartGame';
 import FetchGame from '../../queries/FetchGame';
 import '../../styles/game.css';
@@ -48,6 +49,7 @@ class StartGame extends Component {
           {this.displayConsequences()}
         </ul>
         <Link className="standard-btn" to="/">Back</Link>
+        <ResetGame game={this.props.data.game} refetchGame={() => this.props.data.refetch()} />
       </div>
     );
   }
