@@ -4,7 +4,7 @@ import DeleteGame from '../../mutations/DeleteGame';
 import _ from 'lodash';
 
 const ResetGame = props => {
-  if (!_.get(props, 'game[0].id')) { return; }
+  if (!_.get(props, 'game[0].id')) { return <div/>; }
 
   let id = props.game[0].id;
 
