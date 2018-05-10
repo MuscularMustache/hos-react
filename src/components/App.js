@@ -5,7 +5,7 @@ const App = props => {
   let isSignup = props.location.pathname === '/signup';
 
   return(
-    <div className={isSignup ? "container signup" : "container"}>
+    <div className={`container ${props.location.pathname.substr(1)}`}>
       <Header isSignup={isSignup} />
       {props.children}
     </div>
