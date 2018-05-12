@@ -4,15 +4,12 @@ import hat from '../../assets/images/hat.svg';
 class ConsequenceChoice extends Component {
   constructor(props) {
     super(props);
-
-    // const storedConsequences = JSON.parse(localStorage.getItem('activeGame'));
-
-    // when i used storedConsequences as the state then edited the state it cleared the consequence out immediately on click
-    // conequences isn't used at all anymore
+    // when i used storedConsequences as the state then edited the state
+    //- it cleared the consequence out immediately on click
     this.state = {
-      consequences: [],
       randomNumbers: [],
-      unselectedConsequence: false
+      unselectedConsequence: false,
+      activeConsequence: false
     };
   }
 
@@ -34,7 +31,11 @@ class ConsequenceChoice extends Component {
     }
 
     arr.sort(function(a, b){return b - a});
-    this.setState({ randomNumbers: arr, unselectedConsequence: true, consequences: storedConsequences });
+    this.setState({
+      randomNumbers: arr,
+      unselectedConsequence: true,
+      consequences: storedConsequences,
+      activeConsequence: false });
   }
 
   displayConsequences() {
@@ -44,7 +45,7 @@ class ConsequenceChoice extends Component {
         return (<li
           key={i}
           onClick={() => this.selectConsequence(i)}
-          className="collection-item game-consequence">
+          className={ this.state.activeConsequence === i ? "game-consequence active" : "game-consequence" }>
           {consequences[i].content}
         </li>);
       });
@@ -64,6 +65,7 @@ class ConsequenceChoice extends Component {
     storedConsequences.splice(i, 1);
     localStorage.setItem('activeGame', JSON.stringify(storedConsequences));
 
+    this.setState({ activeConsequence: i });
     // NOTE: set timeout is just so people don't tab a consequence and immediately choose something else
     // - increase time when done testing
     setTimeout(() => {
@@ -74,7 +76,7 @@ class ConsequenceChoice extends Component {
   render() {
     return (
       <div className="game-consequences">
-        <ul className="collection">
+        <ul className={ this.state.activeConsequence !== false ? "collection active-consequence" : "collection" }>
           {this.displayConsequences()}
         </ul>
         <a
