@@ -17,13 +17,13 @@ class ConsequenceChoice extends Component {
   getRandomConsequences() {
     const storedConsequences = JSON.parse(localStorage.getItem('activeGame'));
     let whileLength = 2;
+    let arr = [];
 
     // if no more consequences then go to "end game screen"
     if (storedConsequences.length < whileLength) {
       whileLength = storedConsequences.length;
     }
 
-    let arr = [];
     while(arr.length < whileLength) {
       const randomnumber = Math.floor(Math.random()*storedConsequences.length);
       if (arr.indexOf(randomnumber) > -1) { continue };
@@ -31,10 +31,10 @@ class ConsequenceChoice extends Component {
     }
 
     arr.sort(function(a, b){return b - a});
+
     this.setState({
       randomNumbers: arr,
       unselectedConsequence: true,
-      consequences: storedConsequences,
       activeConsequence: false });
   }
 
