@@ -36,7 +36,7 @@ body {
 }
 
 // generic custom button styles
-.standard-btn {
+.standard-btn, .game-consequence {
   background: transparent;
   border: 2px solid white;
   border-radius: 5px;
@@ -47,12 +47,12 @@ body {
   font-size: 18px;
   margin: 0 0 30px;
   outline: none;
-  padding: 10px 0;
+  padding: 10px;
   text-align: center;
   text-decoration: none;
   width: 100%;
   -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
-  &:active{
+  &:active, &.active {
     background: white;
     color: #7291e8;
   }
