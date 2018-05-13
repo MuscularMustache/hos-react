@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { graphql } from 'react-apollo';
 import ResetGame from './ResetGame';
 import ConsequenceChoice from './ConsequenceChoice';
+import Menu from '../Menu';
 import mutation from '../../mutations/StartGame';
 import FetchGame from '../../queries/FetchGame';
 import '../../styles/game.css';
@@ -53,8 +54,11 @@ class StartGame extends Component {
       <div className="content">
         {this.initializeGame()}
         <ConsequenceChoice />
-        <ResetGame game={this.props.data.game} refetchGame={() => this.resetGame()} />
-        <Link className="standard-btn" to="/">Back</Link>
+
+        <Menu>
+          <ResetGame game={this.props.data.game} refetchGame={() => this.resetGame()} />
+          <Link className="standard-btn" to="/">Back</Link>
+        </Menu>
       </div>
     );
   }

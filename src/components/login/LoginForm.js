@@ -16,6 +16,7 @@ class LoginForm extends Component {
     this.state = { errors: [] };
   }
 
+  // NOTE: THIS WILL NEED UPDATED IN REACT 17
   // react lifecycle hook
   // when our component is about to update this will be called
   componentWillUpdate(nextProps) {
