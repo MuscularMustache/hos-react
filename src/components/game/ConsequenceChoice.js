@@ -7,6 +7,7 @@ class ConsequenceChoice extends Component {
     // when i used storedConsequences as the state then edited the state
     //- it cleared the consequence out immediately on click
     this.state = {
+      consequences: [],
       randomNumbers: [],
       unselectedConsequence: false,
       activeConsequence: false
@@ -33,6 +34,7 @@ class ConsequenceChoice extends Component {
     arr.sort(function(a, b){return b - a});
 
     this.setState({
+      consequences: storedConsequences,
       randomNumbers: arr,
       unselectedConsequence: true,
       activeConsequence: false });
