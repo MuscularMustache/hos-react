@@ -20,19 +20,24 @@
 .menu-items {
   position: absolute;
   z-index: 10;
-  bottom: 105px;
+  bottom: 42px;
   right: 40px; }
   .menu-items li {
     display: flex;
     margin-top: 20px;
     justify-content: flex-end; }
+    .menu-items li:last-of-type {
+      margin-top: 30px; }
     .menu-items li i.material-icons {
       background: #8963e7;
       border-radius: 50%;
       font-size: 24px;
       margin-left: 25px;
       padding: 5px; }
-    .menu-items li .standard-btn {
+    .menu-items li .close-tag {
+      margin-right: 59px;
+      border-radius: 5px; }
+    .menu-items li .standard-btn, .menu-items li .close-tag {
       background: #8963e7;
       border: 0;
       font-size: 16px;
@@ -43,5 +48,5 @@
       padding: 0 10px;
       text-transform: lowercase;
       width: auto; }
-      .menu-items li .standard-btn:active {
+      .menu-items li .standard-btn:active, .menu-items li .close-tag:active {
         color: white; }

@@ -91,6 +91,9 @@ ul {
     text-align: center;
     font-size: 22px; }
 
+.hidden {
+  display: none !important; }
+
 .no-select {
   -webkit-touch-callout: none;
   /* iOS Safari */
