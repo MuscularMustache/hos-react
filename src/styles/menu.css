@@ -1,0 +1,47 @@
+.bg-cover.active {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: .5;
+  background: -webkit-radial-gradient(calc(100% - 55px) calc(100% - 55px), circle, transparent 30px, #fff 30px);
+  background: -moz-radial-gradient(calc(100% - 55px) calc(100% - 55px), circle, transparent 30px, #fff 30px);
+  background: radial-gradient(calc(100% - 55px) calc(100% - 55px), circle, transparent 30px, #fff 30px);
+  z-index: 5; }
+
+.material-icons.menu-btn {
+  font-size: 40px;
+  position: absolute;
+  bottom: 35px;
+  right: 35px;
+  z-index: 10; }
+
+.menu-items {
+  position: absolute;
+  z-index: 10;
+  bottom: 105px;
+  right: 40px; }
+  .menu-items li {
+    display: flex;
+    margin-top: 20px;
+    justify-content: flex-end; }
+    .menu-items li i.material-icons {
+      background: #8963e7;
+      border-radius: 50%;
+      font-size: 24px;
+      margin-left: 25px;
+      padding: 5px; }
+    .menu-items li .standard-btn {
+      background: #8963e7;
+      border: 0;
+      font-size: 16px;
+      margin-bottom: 0;
+      height: 28px;
+      line-height: 28px;
+      margin-top: 3px;
+      padding: 0 10px;
+      text-transform: lowercase;
+      width: auto; }
+      .menu-items li .standard-btn:active {
+        color: white; }

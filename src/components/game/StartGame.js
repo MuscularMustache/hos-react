@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { graphql } from 'react-apollo';
 import ResetGame from './ResetGame';
 import ConsequenceChoice from './ConsequenceChoice';
-import Menu from '../Menu';
+import Menu from '../menu/Menu';
 import mutation from '../../mutations/StartGame';
 import FetchGame from '../../queries/FetchGame';
 import '../../styles/game.css';
@@ -28,7 +28,7 @@ class StartGame extends Component {
     // this.props.data.refetch();
   }
 
-  // TODO: REFACTOR THIS - looks like crap
+  // TODO: REFACTOR THIS - looks like crap - should this be its own component?
   initializeGame() {
     const { game, loading } = this.props.data;
     const storedConsequences = JSON.parse(localStorage.getItem('activeGame'));
@@ -56,8 +56,8 @@ class StartGame extends Component {
         <ConsequenceChoice />
 
         <Menu>
-          <ResetGame game={this.props.data.game} refetchGame={() => this.resetGame()} />
-          <Link className="standard-btn" to="/">Back</Link>
+          <ResetGame icon="sync" game={this.props.data.game} refetchGame={() => this.resetGame()} />
+          <Link icon="arrow_back" className="standard-btn" to="/">back to menu</Link>
         </Menu>
       </div>
     );
