@@ -17,8 +17,8 @@ class Menu extends Component {
     return (
       <div className="menu-wrapper" onClick={() => this.toggleMenu()}>
 
+        <div className={ isOpen ? 'bg-cover active' : 'bg-cover hidden' }></div>
         <i className="material-icons menu-btn no-select">{ isOpen ? 'close' : 'more_vert' }</i>
-        <div className={ isOpen ? 'bg-cover active' : 'hidden' }></div>
 
         <ul className="menu-items">
           <MenuItems isOpen={isOpen} children={this.props.children} />

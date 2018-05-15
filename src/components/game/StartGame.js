@@ -49,6 +49,7 @@ class StartGame extends Component {
     localStorage.setItem('activeGame', JSON.stringify(consequences));
   }
 
+  // NOTE: menu items need to be .standard-btn and have inner spans along with an icon class
   render() {
     return (
       <div className="content">
@@ -57,7 +58,7 @@ class StartGame extends Component {
 
         <Menu>
           <ResetGame icon="sync" game={this.props.data.game} refetchGame={() => this.resetGame()} />
-          <Link icon="arrow_back" className="standard-btn" to="/">back to menu</Link>
+          <Link icon="arrow_back" className="standard-btn" to="/"><span>back to menu</span></Link>
         </Menu>
       </div>
     );

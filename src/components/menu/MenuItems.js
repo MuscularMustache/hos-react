@@ -6,7 +6,6 @@ const MenuItems = props => {
       return (
         <li key={child.props.icon}>
           {child}
-          {/* NOTE: FIX THE CLICK / TAP FOR THIS */}
           <i className="material-icons">{child.props.icon}</i>
         </li>
       );
