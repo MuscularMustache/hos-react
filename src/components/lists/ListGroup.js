@@ -4,6 +4,7 @@ import { graphql } from 'react-apollo';
 import { Link } from 'react-router-dom';
 import LoadingIndicator from '../LoadingIndicator';
 import ListCreate from './ListCreate';
+import Menu from '../menu/Menu';
 import FetchLists from '../../queries/FetchLists';
 import ToggleList from '../../mutations/ToggleList';
 import userIcon from '../../assets/images/icons/list_icon_user.svg';
@@ -52,7 +53,11 @@ class ListGroup extends Component {
           {this.renderLists()}
         </ul>
         <ListCreate userId={this.props.userId} />
-        <Link className="standard-btn" to="/">Back</Link>
+
+        <Menu>
+          <Link icon="add" className="standard-btn" to="/"><span>placeholder - create new list</span></Link>
+          <Link icon="arrow_back" className="standard-btn" to="/"><span>back to menu</span></Link>
+        </Menu>
       </div>
     );
   }
