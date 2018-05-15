@@ -8,6 +8,7 @@ import Menu from '../menu/Menu';
 import FetchLists from '../../queries/FetchLists';
 import ToggleList from '../../mutations/ToggleList';
 import userIcon from '../../assets/images/icons/list_icon_user.svg';
+import userIconActive from '../../assets/images/icons/list_icon_user_checked.svg';
 import '../../styles/list-group.css';
 
 class ListGroup extends Component {
@@ -33,7 +34,7 @@ class ListGroup extends Component {
       return (
         <li key={id} className="collection-item">
           <a onClick={() => this.onToggleList(id)} className={pullForGame ? "active" : "inactive"}>
-            <img src={userIcon} className="list-icon" alt="user icon" />
+            <img src={pullForGame ? userIconActive : userIcon} className="list-icon" alt="user icon" />
           </a>
           <Link to={`lists/${id}`}>
             {title}
