@@ -1,3 +1,6 @@
+$bg: #8963e7;
+$shadow: 0px 2px 6px rgba(0,0,0,0.5);
+
 .bg-cover.active {
   background: white;
   position: absolute;
@@ -15,8 +18,8 @@
 }
 
 .material-icons.menu-btn {
-  background: #8963e7;
-  box-shadow: 0px 2px 6px rgba(0,0,0,0.5);
+  background: $bg;
+  box-shadow: $shadow;
   font-size: 40px;
   position: absolute;
   bottom: 25px;
@@ -40,12 +43,15 @@
     display: flex;
     margin-top: 20px;
     justify-content: flex-end;
+    position: relative;
+    animation: fadeIn 0.5s cubic-bezier(0.3, 0.27, 0.07, 1.64);
+    animation-fill-mode: both;
     &:last-of-type {
       margin-top: 30px;
     }
     i.material-icons {
-      background: #8963e7;
-      box-shadow: 0px 2px 6px rgba(0,0,0,0.5);
+      background: $bg;
+      box-shadow: $shadow;
       border-radius: 50%;
       font-size: 24px;
       margin-left: 25px;
@@ -67,8 +73,8 @@
       }
     }
     .standard-btn span, .close-tag {
-      background: #8963e7;
-      box-shadow: 0px 2px 6px rgba(0,0,0,0.5);
+      background: $bg;
+      box-shadow: $shadow;
       border: 0;
       border-radius: 4px;
       display: block;
@@ -81,5 +87,30 @@
       text-transform: lowercase;
       white-space: nowrap;
     }
+  }
+}
+
+// set higher because it doesn't effect anything below 6
+$total-items: 6;
+
+// Set delay per List Item - NOTE: edit this delay and animation length in LI to change animation
+@for $i from 1 through $total-items {
+  .menu-items li:nth-child(#{$i}) {
+    animation-delay: .2s * $i;
+  }
+}
+
+// Keyframe animation
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    top: 100px;
+  }
+  60% {
+    opacity: 0.5;
+    top: 0px;
+  }
+  100% {
+    opacity: 1;
   }
 }

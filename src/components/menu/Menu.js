@@ -22,7 +22,7 @@ class Menu extends Component {
 
         <ul className="menu-items">
           <MenuItems isOpen={isOpen} children={this.props.children} />
-          <li><span className={ isOpen ? 'close-tag no-select' : 'hidden' }>close options</span></li>
+          <li className={ isOpen ? 'acitve' : 'hidden' }><span className="close-tag no-select">close options</span></li>
         </ul>
       </div>
     );
