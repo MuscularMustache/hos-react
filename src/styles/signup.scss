@@ -1,7 +1,9 @@
-// create gradient effect with solid colors
+@import 'variables';
+
+// create gradient effect with solid colors - does not change based on theme
 .container.signup {
   // background: white;
-  background: #272F46;
+  background: $dark-grey;
   .input-field:first-of-type {
     label {
       color: #69A3E8;

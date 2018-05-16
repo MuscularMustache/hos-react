@@ -1,5 +1,4 @@
-$bg: #8963e7;
-$shadow: 0px 2px 6px rgba(0,0,0,0.5);
+@import 'variables';
 
 .bg-cover.active {
   background: white;
@@ -18,7 +17,7 @@ $shadow: 0px 2px 6px rgba(0,0,0,0.5);
 }
 
 .material-icons.menu-btn {
-  background: $bg;
+  background: $tertiary;
   box-shadow: $shadow;
   font-size: 40px;
   position: absolute;
@@ -33,7 +32,6 @@ $shadow: 0px 2px 6px rgba(0,0,0,0.5);
 }
 
 
-// bg will need changed for theme
 .menu-items {
   position: absolute;
   z-index: 10;
@@ -50,7 +48,7 @@ $shadow: 0px 2px 6px rgba(0,0,0,0.5);
       margin-top: 30px;
     }
     i.material-icons {
-      background: $bg;
+      background: $tertiary;
       box-shadow: $shadow;
       border-radius: 50%;
       font-size: 24px;
@@ -73,7 +71,7 @@ $shadow: 0px 2px 6px rgba(0,0,0,0.5);
       }
     }
     .standard-btn span, .close-tag {
-      background: $bg;
+      background: $tertiary;
       box-shadow: $shadow;
       border: 0;
       border-radius: 4px;

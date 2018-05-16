@@ -1,3 +1,5 @@
+@import 'variables';
+
 .collection {
   .collection-item {
     // margin-bottom: 20px;
@@ -24,9 +26,7 @@
   }
 }
 
-// will have to replace when adding themes
 .add-list {
-
   .bg-cover {
     opacity: .65;
     background: white;
@@ -41,7 +41,7 @@
   // NOTE: shouldn't do a solid bg color - should be gradient
   .add-list-content {
     position: absolute;
-    background: #8963e7;
+    background: $tertiary;
     height: 160px;
     z-index: 15;
     bottom: 0;

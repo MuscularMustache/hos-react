@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
+@import 'variables';
 
 html {
   height: 100%;
@@ -12,16 +13,15 @@ body {
   }
 }
 
-// will need changed when adding themes
 .container {
   // currently vertical
-  background: #54cbe8;
-  background: -moz-linear-gradient(top, #54cbe8 0%, #8f59e7 100%);
-  background: -webkit-gradient(left top, left bottom, color-stop(0%, #54cbe8), color-stop(100%, #8f59e7));
-  background: -webkit-linear-gradient(top, #54cbe8 0%, #8f59e7 100%);
-  background: -o-linear-gradient(top, #54cbe8 0%, #8f59e7 100%);
-  background: -ms-linear-gradient(top, #54cbe8 0%, #8f59e7 100%);
-  background: linear-gradient(to bottom, #54cbe8 0%, #8f59e7 100%);
+  background: $gradient-top;
+  background: -moz-linear-gradient(top, $gradient-top 0%, $gradient-bottom 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, $gradient-top), color-stop(100%, $gradient-bottom));
+  background: -webkit-linear-gradient(top, $gradient-top 0%, $gradient-bottom 100%);
+  background: -o-linear-gradient(top, $gradient-top 0%, $gradient-bottom 100%);
+  background: -ms-linear-gradient(top, $gradient-top 0%, $gradient-bottom 100%);
+  background: linear-gradient(to bottom, $gradient-top 0%, $gradient-bottom 100%);
   position: absolute;
   width: 100%;
   top: 0;
@@ -52,10 +52,10 @@ body {
   text-align: center;
   text-decoration: none;
   width: 100%;
-  -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   &:active, &.active {
     background: white;
-    color: #7291e8;
+    color: $active;
   }
   &[disabled] {
     opacity: .5;
@@ -65,7 +65,7 @@ body {
 
 .submit-btn {
   cursor: pointer;
-  color: #8963e7;
+  color: $tertiary;
   display: block;
   background: white;
   border-radius: 18px;
@@ -79,12 +79,12 @@ body {
   justify-content: center;
   align-items: center;
   .material-icons {
-    color: #8963e7;
+    color: $tertiary;
   }
   &.cancel {
-    color: #D04444;
+    color: $red;
     .material-icons {
-      color: #D04444;
+      color: $red;
     }
   }
 }
