@@ -42,7 +42,7 @@
     margin-top: 20px;
     justify-content: flex-end;
     position: relative;
-    animation: fadeIn 0.5s cubic-bezier(0.3, 0.27, 0.07, 1.64);
+    animation: $fadeIn;
     animation-fill-mode: both;
     &:last-of-type {
       margin-top: 30px;
