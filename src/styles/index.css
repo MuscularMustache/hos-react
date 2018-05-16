@@ -52,6 +52,28 @@ body * {
     opacity: .5;
     pointer-events: none; }
 
+.submit-btn {
+  cursor: pointer;
+  color: #8963e7;
+  display: block;
+  background: white;
+  border-radius: 18px;
+  font-size: 16px;
+  height: 36px;
+  line-height: 36px;
+  padding: 0 20px;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .submit-btn .material-icons {
+    color: #8963e7; }
+  .submit-btn.cancel {
+    color: #D04444; }
+    .submit-btn.cancel .material-icons {
+      color: #D04444; }
+
 ul {
   list-style: none;
   margin: 0;
@@ -84,10 +106,19 @@ ul {
       bottom: 30px;
       font-size: 12px; }
 
+textarea, .standard-input {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid white;
+  border-radius: 5px;
+  box-sizing: border-box;
+  resize: none;
+  outline: none;
+  padding: 10px; }
+
 .content {
   margin: 0 10%; }
   .content h2 {
-    font-weight: 200;
+    font-weight: 400;
     text-align: center;
     font-size: 22px; }
 
@@ -107,3 +138,8 @@ ul {
   /* Internet Explorer/Edge */
   user-select: none;
   /* Non-prefixed version, currently supported by Chrome and Opera */ }
+
+.flex-row {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex; }

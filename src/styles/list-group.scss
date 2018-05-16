@@ -24,6 +24,40 @@
   }
 }
 
-form {
-  margin: 35px 0;
+// will have to replace when adding themes
+.add-list {
+
+  .bg-cover {
+    opacity: .65;
+    background: white;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 11; // set above menu btn
+  }
+
+  // NOTE: shouldn't do a solid bg color - should be gradient
+  .add-list-content {
+    position: absolute;
+    background: #8963e7;
+    height: 160px;
+    z-index: 15;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding: 0 10% 15px;
+    .standard-input {
+      width: 100%;
+      margin-bottom: 20px;
+      padding: 6px 10px;
+    }
+    .submit-btn {
+      width: 100%;
+      &.cancel {
+        margin-right: 20px;
+      }
+    }
+  }
 }

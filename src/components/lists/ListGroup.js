@@ -12,6 +12,12 @@ import userIconActive from '../../assets/images/icons/list_icon_user_checked.svg
 import '../../styles/list-group.css';
 
 class ListGroup extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { addListOpen: false };
+  }
+
   onToggleList(id) {
     this.props.mutate({
         variables: { id },
@@ -53,10 +59,14 @@ class ListGroup extends Component {
         <ul className="collection">
           {this.renderLists()}
         </ul>
-        <ListCreate userId={this.props.userId} />
+        <ListCreate
+          userId={this.props.userId}
+          isOpen={this.state.addListOpen} 
+          closeAddList={() => this.setState({ addListOpen: false })} />
 
         <Menu>
-          <Link icon="add" className="standard-btn" to="/"><span>placeholder - create new list</span></Link>
+          <a icon="add" className="standard-btn"
+            onClick={() => this.setState({ addListOpen: true })}><span>create new list</span></a>
           <Link icon="arrow_back" className="standard-btn" to="/"><span>back to menu</span></Link>
         </Menu>
       </div>

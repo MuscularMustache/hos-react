@@ -84,7 +84,7 @@ class ConsequenceChoice extends Component {
         <a
           onClick={() => this.getRandomConsequences()}
           disabled={this.state.unselectedConsequence}
-          className="hat-btn"
+          className="hat-btn no-select"
         >
           <img src={hat} alt="logo" />
         </a>

@@ -12,6 +12,7 @@ body {
   }
 }
 
+// will need changed when adding themes
 .container {
   // currently vertical
   background: #54cbe8;
@@ -62,6 +63,32 @@ body {
   }
 }
 
+.submit-btn {
+  cursor: pointer;
+  color: #8963e7;
+  display: block;
+  background: white;
+  border-radius: 18px;
+  font-size: 16px;
+  height: 36px;
+  line-height: 36px;
+  padding: 0 20px;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .material-icons {
+    color: #8963e7;
+  }
+  &.cancel {
+    color: #D04444;
+    .material-icons {
+      color: #D04444;
+    }
+  }
+}
+
 ul {
   list-style: none;
   margin: 0;
@@ -105,10 +132,20 @@ ul {
   }
 }
 
+textarea, .standard-input {
+  background: rgba(255,255,255,.1);
+  border: 2px solid white;
+  border-radius: 5px;
+  box-sizing: border-box;
+  resize: none;
+  outline: none;
+  padding: 10px;
+}
+
 .content {
   margin: 0 10%;
   h2 {
-    font-weight: 200;
+    font-weight: 400;
     text-align: center;
     font-size: 22px;
   }
@@ -125,4 +162,10 @@ ul {
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+
+.flex-row {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
 }

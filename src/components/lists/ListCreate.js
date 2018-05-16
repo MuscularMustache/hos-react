@@ -10,9 +10,7 @@ class ListCreate extends Component {
     this.state = { title: '', errors: [] };
   }
 
-  onSubmit(event) {
-    event.preventDefault();
-
+  onSubmit() {
     this.props.mutate({
       variables: {
         title: this.state.title,
@@ -22,28 +20,46 @@ class ListCreate extends Component {
         query: FetchLists,
         variables: { userId: this.props.userId }
       }]
-    }).then(() => this.setState({ title: '', errors: [] }))
-      .catch(res => {
-        const errors = res.graphQLErrors.map(err => err.message);
-        this.setState({ errors });
-      });
+    }).then(() => {
+      this.setState({ title: '', errors: [] });
+      this.props.closeAddList();
+    }).catch(res => {
+      const errors = res.graphQLErrors.map(err => err.message);
+      this.setState({ errors });
+    });
   }
 
   render() {
+    if (!this.props.isOpen) {
+      return <div className="hidden"/>
+    }
+
     return (
-      <form onSubmit={this.onSubmit.bind(this)}>
-        <div className="input-field">
+      <div className="add-list">
+        <div className="bg-cover" />
+
+        <div className="add-list-content">
+          <h2>Create New List</h2>
           <input
-            className={this.state.title ? "has-text" : "empty"}
             onChange={event => this.setState({ title: event.target.value })}
             value={this.state.title}
+            className="standard-input"
           />
-          <label>Create New List</label>
+          <div className="errors">
+            {this.state.errors.map(error => <p className="error" key={error}>{error}</p>)}
+          </div>
+          <div className="flex-row">
+            <a className="submit-btn cancel no-select" onClick={() => this.props.closeAddList()}>
+              <i className="material-icons">close</i>
+              cancel
+            </a>
+            <a className="submit-btn no-select" onClick={() => this.onSubmit()}>
+              add list
+              <i className="material-icons">add</i>
+            </a>
+          </div>
         </div>
-        <div className="errors">
-          {this.state.errors.map(error => <p className="error" key={error}>{error}</p>)}
-        </div>
-      </form>
+      </div>
     );
   }
 }

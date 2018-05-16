@@ -16,5 +16,30 @@
       .collection .collection-item a.inactive + a {
         opacity: .5; }
 
-form {
-  margin: 35px 0; }
+.add-list .bg-cover {
+  opacity: .65;
+  background: white;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 11; }
+
+.add-list .add-list-content {
+  position: absolute;
+  background: #8963e7;
+  height: 160px;
+  z-index: 15;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  padding: 0 10% 15px; }
+  .add-list .add-list-content .standard-input {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 6px 10px; }
+  .add-list .add-list-content .submit-btn {
+    width: 100%; }
+    .add-list .add-list-content .submit-btn.cancel {
+      margin-right: 20px; }
