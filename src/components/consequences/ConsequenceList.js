@@ -1,8 +1,14 @@
 import React from 'react';
 import { graphql } from 'react-apollo';
 import DeleteConsequence from '../../mutations/DeleteConsequence';
+import '../../styles/consequences.css';
 
 const ConsequenceList = props => {
+  if (props.consequences.length === 0) {
+    return (
+      <h4 className="no-consequences">It seems you have no consequences. Click the options button below to start adding them</h4>
+    );
+  }
   return (
     <ul className="collection">
       {props.consequences.map(({id, content}) => {

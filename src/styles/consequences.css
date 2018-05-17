@@ -1,0 +1,11 @@
+.add-consequence .add-content {
+  height: 240px; }
+  .add-consequence .add-content textarea {
+    height: 72px; }
+
+.no-consequences {
+  font-size: 18px;
+  text-align: center;
+  line-height: 22px;
+  margin-top: 40px;
+  font-weight: 300; }

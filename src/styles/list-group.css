@@ -16,7 +16,7 @@
       .collection .collection-item a.inactive + a {
         opacity: .5; }
 
-.add-list .bg-cover {
+.add-list .bg-cover, .add-consequence .bg-cover {
   opacity: .65;
   background: white;
   position: absolute;
@@ -26,7 +26,7 @@
   left: 0;
   z-index: 11; }
 
-.add-list .add-list-content {
+.add-list .add-content, .add-consequence .add-content {
   animation: fadeInBottom 0.5s cubic-bezier(0.3, 0.27, 0.07, 1.64);
   position: absolute;
   background: #8963e7;
@@ -36,18 +36,18 @@
   right: 0;
   left: 0;
   padding: 0 10% 15px; }
-  .add-list .add-list-content .errors:not(:empty) {
+  .add-list .add-content .errors:not(:empty), .add-consequence .add-content .errors:not(:empty) {
     margin: -13px 0 6px 0; }
-    .add-list .add-list-content .errors:not(:empty) .error {
+    .add-list .add-content .errors:not(:empty) .error, .add-consequence .add-content .errors:not(:empty) .error {
       text-align: center;
       margin: 0; }
-  .add-list .add-list-content .standard-input {
+  .add-list .add-content .standard-input, .add-consequence .add-content .standard-input {
     width: 100%;
     margin-bottom: 20px;
     padding: 6px 10px; }
-  .add-list .add-list-content .submit-btn {
+  .add-list .add-content .submit-btn, .add-consequence .add-content .submit-btn {
     width: 100%; }
-    .add-list .add-list-content .submit-btn.cancel {
+    .add-list .add-content .submit-btn.cancel, .add-consequence .add-content .submit-btn.cancel {
       margin-right: 20px; }
 
 @-webkit-keyframes fadeInBottom {

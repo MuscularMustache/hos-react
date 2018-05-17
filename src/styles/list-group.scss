@@ -26,7 +26,7 @@
   }
 }
 
-.add-list {
+.add-list, .add-consequence {
   .bg-cover {
     opacity: .65;
     background: white;
@@ -38,8 +38,8 @@
     z-index: 11; // set above menu btn
   }
 
-  // NOTE: shouldn't do a solid bg color - should be gradient
-  .add-list-content {
+  // NOTE: probably shouldn't do a solid bg color - should be gradient
+  .add-content {
     animation: $fadeInBottom;
     position: absolute;
     background: $tertiary;

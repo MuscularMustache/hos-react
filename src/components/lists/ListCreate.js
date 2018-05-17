@@ -29,6 +29,11 @@ class ListCreate extends Component {
     });
   }
 
+  cancel() {
+    this.props.closeAddList();
+    this.setState({ title: '', errors: [] });
+  }
+
   render() {
     if (!this.props.isOpen) {
       return <div className="hidden"/>
@@ -38,7 +43,7 @@ class ListCreate extends Component {
       <div className="add-list">
         <div className="bg-cover" />
 
-        <div className="add-list-content">
+        <div className="add-content">
           <h2>Create New List</h2>
           <input
             onChange={event => this.setState({ title: event.target.value })}
@@ -49,7 +54,7 @@ class ListCreate extends Component {
             {this.state.errors.map(error => <p className="error" key={error}>{error}</p>)}
           </div>
           <div className="flex-row">
-            <a className="submit-btn cancel no-select" onClick={() => this.props.closeAddList()}>
+            <a className="submit-btn cancel no-select" onClick={() => this.cancel()}>
               <i className="material-icons">close</i>
               cancel
             </a>

@@ -61,9 +61,9 @@ class ListGroup extends Component {
         </ul>
         <ListCreate
           userId={this.props.userId}
-          isOpen={this.state.addListOpen} 
-          closeAddList={() => this.setState({ addListOpen: false })} />
-
+          isOpen={this.state.addListOpen}
+          closeAddList={() => this.setState({ addListOpen: false })}
+        />
         <Menu>
           <a icon="add" className="standard-btn"
             onClick={() => this.setState({ addListOpen: true })}><span>create new list</span></a>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import AddConsequence from '../../mutations/AddConsequence';
+import '../../styles/consequences.css';
 
 class ConsequenceCreate extends Component {
   constructor(props) {
@@ -9,37 +10,57 @@ class ConsequenceCreate extends Component {
     this.state = { content: '', errors: [] };
   }
 
-  onSubmit(event) {
-    event.preventDefault();
-
+  onSubmit() {
     this.props.mutate({
       variables: {
         content: this.state.content,
         listId: this.props.listId
       }
-    }).then(() => this.setState({ content: '', errors: [] }))
-      .catch(res => {
-        const errors = res.graphQLErrors.map(err => err.message);
-        this.setState({ errors });
-      });
+    }).then(() => {
+      this.setState({ content: '', errors: [] });
+      this.props.closeAddConsequence();
+    }).catch(res => {
+      const errors = res.graphQLErrors.map(err => err.message);
+      this.setState({ errors });
+    });
   }
 
-  // when this gets restructured to have a button, remove the form and the bind
+  cancel() {
+    this.props.closeAddConsequence();
+    this.setState({ content: '', errors: [] });
+  }
+
   render() {
+    if (!this.props.isOpen) {
+      return <div className="hidden"/>
+    }
+
     return (
-      <form onSubmit={this.onSubmit.bind(this)}>
-        <div className="input-field">
-          <input
-            className={this.state.content ? "has-text" : "empty"}
-            value={this.state.content}
+      <div className="add-consequence">
+        <div className="bg-cover" />
+
+        <div className="add-content">
+          <h2>Create New Consequence</h2>
+          <textarea
             onChange={event => this.setState({ content: event.target.value })}
+            value={this.state.content}
+            className="standard-input"
           />
-          <label>Add a consequence</label>
+          <div className="errors">
+            {this.state.errors.map(error => <p className="error" key={error}>{error}</p>)}
+          </div>
+          <div className="flex-row">
+            <a className="submit-btn cancel no-select" onClick={() => this.cancel()}>
+              <i className="material-icons">close</i>
+              cancel
+            </a>
+            <a className="submit-btn no-select" onClick={() => this.onSubmit()}>
+              add
+              <i className="material-icons">add</i>
+            </a>
+          </div>
         </div>
-        <div className="errors">
-          {this.state.errors.map(error => <p className="error" key={error}>{error}</p>)}
-        </div>
-      </form>
+      </div>
     );
   }
 }
