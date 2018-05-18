@@ -35,13 +35,13 @@ class StartGame extends Component {
 
     if (!game || loading) { return; }
 
-    if (game.length === 0) { this.startGame(this.props.userId);}
+    if (game.length === 0) { this.startGame(this.props.userId); }
 
     // NOTE: the only reason this isn't consolodated with the !game || loading if is because if theres no game but there are stored consequences reset game doesn't appear (only happens if i manually delete the game out of the database)
     if (storedConsequences && storedConsequences.length !== 0) { return; }
 
     const consequences = game[0] && game[0].lists.reduce((arr, list) => {
-      return [ ...arr, ...list.consequences ];
+      return [...arr, ...list.consequences];
     }, []);
 
     if (consequences === undefined) { return; }

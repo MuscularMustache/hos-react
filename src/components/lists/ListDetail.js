@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
+import { Link } from 'react-router-dom';
 import FetchList from '../../queries/FetchList';
 import FetchLists from '../../queries/FetchLists';
 import DeleteList from '../../mutations/DeleteList';
-import { Link } from 'react-router-dom';
 import ConsequenceList from '../consequences/ConsequenceList';
 import ConsequenceCreate from '../consequences/ConsequenceCreate';
 import LoadingIndicator from '../LoadingIndicator';
