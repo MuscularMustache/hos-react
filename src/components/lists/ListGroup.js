@@ -20,12 +20,12 @@ class ListGroup extends Component {
 
   onToggleList(id) {
     this.props.mutate({
-        variables: { id },
-        refetchQueries: [{
-          query: FetchLists,
-          variables: { userId: this.props.userId }
-        }]
-      }).catch(res => {
+      variables: { id },
+      refetchQueries: [{
+        query: FetchLists,
+        variables: { userId: this.props.userId }
+      }]
+    }).catch(res => {
         // gotta handle errors - I should be doing this everywhere
       });
   }
@@ -65,8 +65,7 @@ class ListGroup extends Component {
           closeAddList={() => this.setState({ addListOpen: false })}
         />
         <Menu>
-          <a icon="add" className="standard-btn"
-            onClick={() => this.setState({ addListOpen: true })}><span>create new list</span></a>
+          <button icon="add" className="standard-btn" onClick={() => this.setState({ addListOpen: true })}><span>create new list</span></button>
           <Link icon="arrow_back" className="standard-btn" to="/"><span>back to menu</span></Link>
         </Menu>
       </div>

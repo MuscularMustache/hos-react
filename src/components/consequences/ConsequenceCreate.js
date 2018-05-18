@@ -32,7 +32,7 @@ class ConsequenceCreate extends Component {
 
   render() {
     if (!this.props.isOpen) {
-      return <div className="hidden"/>
+      return <div className="hidden" />;
     }
 
     return (
@@ -50,21 +50,20 @@ class ConsequenceCreate extends Component {
             {this.state.errors.map(error => <p className="error" key={error}>{error}</p>)}
           </div>
           <div className="flex-row">
-            <a className="submit-btn cancel no-select" onClick={() => this.cancel()}>
+            <button className="submit-btn cancel no-select" onClick={() => this.cancel()}>
               <i className="material-icons">close</i>
               cancel
-            </a>
-            <a className="submit-btn no-select" onClick={() => this.onSubmit()}>
+            </button>
+            <button className="submit-btn no-select" onClick={() => this.onSubmit()}>
               add
               <i className="material-icons">add</i>
-            </a>
+            </button>
           </div>
         </div>
       </div>
     );
   }
 }
-
 
 
 export default graphql(AddConsequence)(ConsequenceCreate);

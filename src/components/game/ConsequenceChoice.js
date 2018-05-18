@@ -5,7 +5,7 @@ class ConsequenceChoice extends Component {
   constructor(props) {
     super(props);
     // when i used storedConsequences as the state then edited the state
-    //- it cleared the consequence out immediately on click
+    // - it cleared the consequence out immediately on click
     this.state = {
       consequences: [],
       randomNumbers: [],
@@ -16,28 +16,33 @@ class ConsequenceChoice extends Component {
 
   // TODO: REFACTOR THIS
   getRandomConsequences() {
+    // eslint-disable-next-line no-undef
     const storedConsequences = JSON.parse(localStorage.getItem('activeGame'));
+    const arr = [];
     let whileLength = 2;
-    let arr = [];
 
     // if no more consequences then go to "end game screen"
     if (storedConsequences.length < whileLength) {
       whileLength = storedConsequences.length;
     }
 
-    while(arr.length < whileLength) {
-      const randomnumber = Math.floor(Math.random()*storedConsequences.length);
-      if (arr.indexOf(randomnumber) > -1) { continue };
+    while (arr.length < whileLength) {
+      const randomnumber = Math.floor(Math.random() * storedConsequences.length);
+
+      // NOTE: come back to this continue
+      // eslint-disable-next-line no-continue
+      if (arr.indexOf(randomnumber) > -1) { continue; }
       arr[arr.length] = randomnumber;
     }
 
-    arr.sort(function(a, b){return b - a});
+    arr.sort((a, b) => b - a);
 
     this.setState({
       consequences: storedConsequences,
       randomNumbers: arr,
       unselectedConsequence: true,
-      activeConsequence: false });
+      activeConsequence: false
+    });
   }
 
   displayConsequences() {

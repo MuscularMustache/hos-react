@@ -2,14 +2,14 @@ import React from 'react';
 import Header from './Header';
 
 const App = props => {
-  let isSignup = props.location.pathname === '/signup';
+  const isSignup = props.location.pathname === '/signup';
 
-  return(
+  return (
     <div className={`container ${props.location.pathname.substr(1)}`}>
       <Header isSignup={isSignup} />
       {props.children}
     </div>
   );
-}
+};
 
 export default App;
