@@ -36,7 +36,7 @@ class ListCreate extends Component {
 
   render() {
     if (!this.props.isOpen) {
-      return <div className="hidden"/>
+      return <div className="hidden" />;
     }
 
     return (

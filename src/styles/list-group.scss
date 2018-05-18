@@ -9,7 +9,7 @@
       width: 32px;
       height: 32px;
     }
-    a {
+    button, a {
       font-size: 18px;
       display: inline-block;
       line-height: 32px;
@@ -20,6 +20,7 @@
         opacity: .5;
         + a {
           opacity: .5;
+          text-decoration: none;
         }
       }
     }

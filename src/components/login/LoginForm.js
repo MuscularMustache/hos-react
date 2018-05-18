@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import AuthForm from './AuthForm';
 import { graphql } from 'react-apollo';
 import { Link } from 'react-router-dom';
+import AuthForm from './AuthForm';
 import '../../styles/login.css';
 import Login from '../../mutations/Login';
 import CurrentUser from '../../queries/CurrentUser';
@@ -45,14 +45,12 @@ class LoginForm extends Component {
         <AuthForm errors={this.state.errors} onSubmit={this.onSubmit.bind(this)} formType="login" />
         <img src={facebookIcon} className="login-icon" alt="facebook login" />
         <img src={googleIcon} className="login-icon" alt="google login" />
-        <p className="login-link">Don't have an account? <Link to="/signup">Sign Up</Link></p>
+        <p className="login-link">Don&apos;t have an account? <Link to="/signup">Sign Up</Link></p>
       </div>
     );
   }
 }
 
 // CurrentUser is now assocaited with the component
-//- so when CurrentUser query gets updated it will be on this.props.data
-export default graphql(CurrentUser)(
-  graphql(Login)(LoginForm)
-);
+// - so when CurrentUser query gets updated it will be on this.props.data
+export default graphql(CurrentUser)(graphql(Login)(LoginForm));

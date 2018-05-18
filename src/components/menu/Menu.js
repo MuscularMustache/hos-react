@@ -13,21 +13,21 @@ class Menu extends Component {
   }
 
   render() {
-    let { isOpen } = this.state;
+    const { isOpen } = this.state;
     return (
       <div className="menu-wrapper" onClick={() => this.toggleMenu()}>
 
-        <div className={ isOpen ? 'bg-cover active' : 'bg-cover hidden' }></div>
-        <i className="material-icons menu-btn no-select">{ isOpen ? 'close' : 'more_vert' }</i>
+        <div className={isOpen ? 'bg-cover active' : 'bg-cover hidden'} />
+        <i className="material-icons menu-btn no-select">{isOpen ? 'close' : 'more_vert'}</i>
 
         <ul className="menu-items">
-          <MenuItems isOpen={isOpen} children={this.props.children} />
-          <li className={ isOpen ? 'acitve' : 'hidden' }><span className="close-tag no-select">close options</span></li>
+          <MenuItems isOpen={isOpen} items={this.props.children} />
+          <li className={isOpen ? 'acitve' : 'hidden'}><span className="close-tag no-select">close options</span></li>
         </ul>
       </div>
     );
   }
-};
+}
 
 export default Menu;
 

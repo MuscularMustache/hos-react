@@ -4,17 +4,18 @@
   .collection .collection-item img {
     width: 32px;
     height: 32px; }
-  .collection .collection-item a {
+  .collection .collection-item button, .collection .collection-item a {
     font-size: 18px;
     display: inline-block;
     line-height: 32px;
     margin-left: 15px;
     vertical-align: top;
     text-decoration: none; }
-    .collection .collection-item a.inactive {
+    .collection .collection-item button.inactive, .collection .collection-item a.inactive {
       opacity: .5; }
-      .collection .collection-item a.inactive + a {
-        opacity: .5; }
+      .collection .collection-item button.inactive + a, .collection .collection-item a.inactive + a {
+        opacity: .5;
+        text-decoration: none; }
 
 .add-list .bg-cover, .add-consequence .bg-cover {
   opacity: .65;

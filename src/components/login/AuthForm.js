@@ -22,7 +22,7 @@ class AuthForm extends Component {
         <form onSubmit={this.onSubmit.bind(this)} className="login-form" >
           <div className="input-field">
             <input
-              className={this.state.email ? "has-text" : "empty"}
+              className={this.state.email ? 'has-text' : 'empty'}
               type="email"
               value={this.state.email}
               onChange={e => this.setState({ email: e.target.value })}
@@ -31,7 +31,7 @@ class AuthForm extends Component {
           </div>
           <div className="input-field">
             <input
-              className={this.state.password ? "has-text" : "empty"}
+              className={this.state.password ? 'has-text' : 'empty'}
               type="password"
               value={this.state.password}
               onChange={e => this.setState({ password: e.target.value })}

@@ -36,18 +36,16 @@ class ListGroup extends Component {
       return <p>There was an error retrieving the lists</p>;
     }
 
-    return this.props.data.lists.map(({ id, title, pullForGame }) => {
-      return (
-        <li key={id} className="collection-item">
-          <a onClick={() => this.onToggleList(id)} className={pullForGame ? "active" : "inactive"}>
-            <img src={pullForGame ? userIconActive : userIcon} className="list-icon" alt="user icon" />
-          </a>
-          <Link to={`lists/${id}`}>
-            {title}
-          </Link>
-        </li>
-      );
-    });
+    return this.props.data.lists.map(({ id, title, pullForGame }) => (
+      <li key={id} className="collection-item">
+        <button onClick={() => this.onToggleList(id)} className={pullForGame ? 'active' : 'inactive'}>
+          <img src={pullForGame ? userIconActive : userIcon} className="list-icon" alt="user icon" />
+        </button>
+        <Link to={`lists/${id}`}>
+          {title}
+        </Link>
+      </li>
+    ));
   }
 
   render() {

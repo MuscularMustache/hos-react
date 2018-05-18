@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import AuthForm from './AuthForm';
 import { graphql } from 'react-apollo';
 import { Link } from 'react-router-dom';
+import AuthForm from './AuthForm';
 import '../../styles/login.css';
 import '../../styles/signup.css';
 import Signup from '../../mutations/Signup';
@@ -48,6 +48,4 @@ class SignupForm extends Component {
 }
 
 // order doesn't matter
-export default graphql(CurrentUser)(
-  graphql(Signup)(SignupForm)
-);
+export default graphql(CurrentUser)(graphql(Signup)(SignupForm));

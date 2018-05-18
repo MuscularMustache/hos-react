@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import LoadingIndicator from './LoadingIndicator';
-import '../styles/user-nav.css'
+import '../styles/user-nav.css';
 
 const UserNav = props => {
   if (props.data.loading) { return <LoadingIndicator />; }

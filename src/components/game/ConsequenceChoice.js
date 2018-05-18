@@ -48,51 +48,52 @@ class ConsequenceChoice extends Component {
   displayConsequences() {
     const { randomNumbers, consequences } = this.state;
     if (randomNumbers.length !== 0) {
-      return randomNumbers.map(i => {
-        return (<li
+      return randomNumbers.map(i => (
+        <li
           key={i}
           onClick={() => this.selectConsequence(i)}
           className={ this.state.activeConsequence === i ? "game-consequence active" : "game-consequence" }>
           {consequences[i].content}
-        </li>);
-      });
-    } else {
-      return (
-        <div className="game-directions">
-          <p>tap on the hat to draw <br/> a consequence for sucking...</p>
-          <p>...at whatever you're doing right now</p>
-          <p>ya scrub</p>
-        </div>
-      );
+        </li>
+      ));
     }
+    return (
+      <div className="game-directions">
+        <p>tap on the hat to draw <br /> a consequence for sucking...</p>
+        <p>...at whatever you&apos;re doing right now</p>
+        <p>ya scrub</p>
+      </div>
+    );
   }
 
   selectConsequence(i) {
+    /* eslint-disable no-undef */
     const storedConsequences = JSON.parse(localStorage.getItem('activeGame'));
     storedConsequences.splice(i, 1);
     localStorage.setItem('activeGame', JSON.stringify(storedConsequences));
+    /* eslint-enable no-undef */
 
     this.setState({ activeConsequence: i });
-    // NOTE: set timeout is just so people don't tab a consequence and immediately choose something else
-    // - increase time when done testing
+    // NOTE: set timeout is just so people don't tab a consequence then immediately
+    // - choose something else, increase time when done testing
     setTimeout(() => {
-      this.setState({ unselectedConsequence: false })
+      this.setState({ unselectedConsequence: false });
     }, 100);
   }
 
   render() {
     return (
       <div className="game-consequences">
-        <ul className={ this.state.activeConsequence !== false ? "collection active-consequence" : "collection" }>
+        <ul className={this.state.activeConsequence !== false ? 'collection active-consequence' : 'collection'}>
           {this.displayConsequences()}
         </ul>
-        <a
+        <button
           onClick={() => this.getRandomConsequences()}
           disabled={this.state.unselectedConsequence}
           className="hat-btn no-select"
         >
           <img src={hat} alt="logo" />
-        </a>
+        </button>
       </div>
     );
   }

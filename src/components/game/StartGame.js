@@ -23,6 +23,7 @@ class StartGame extends Component {
 
   // remove game and go back to menu - currently doesn't clear out cache and it probably should
   resetGame() {
+    // eslint-disable-next-line no-undef
     localStorage.removeItem('activeGame');
     this.props.history.push('/');
     // this.props.data.refetch();
@@ -31,13 +32,16 @@ class StartGame extends Component {
   // TODO: REFACTOR THIS - looks like crap - should this be its own component?
   initializeGame() {
     const { game, loading } = this.props.data;
+    // eslint-disable-next-line no-undef
     const storedConsequences = JSON.parse(localStorage.getItem('activeGame'));
 
     if (!game || loading) { return; }
 
     if (game.length === 0) { this.startGame(this.props.userId); }
 
-    // NOTE: the only reason this isn't consolodated with the !game || loading if is because if theres no game but there are stored consequences reset game doesn't appear (only happens if i manually delete the game out of the database)
+    // NOTE: the only reason this isn't consolodated with the !game || loading
+    // - is because if theres no game but there are stored consequences reset game doesn't appear
+    // - (only happens if i manually delete the game out of the database)
     if (storedConsequences && storedConsequences.length !== 0) { return; }
 
     const consequences = game[0] && game[0].lists.reduce((arr, list) => {
@@ -46,6 +50,7 @@ class StartGame extends Component {
 
     if (consequences === undefined) { return; }
 
+    // eslint-disable-next-line no-undef
     localStorage.setItem('activeGame', JSON.stringify(consequences));
   }
 
