@@ -52,7 +52,8 @@ class ConsequenceChoice extends Component {
         <li
           key={i}
           onClick={() => this.selectConsequence(i)}
-          className={ this.state.activeConsequence === i ? "game-consequence active" : "game-consequence" }>
+          className={this.state.activeConsequence === i ? 'game-consequence active' : 'game-consequence'}
+        >
           {consequences[i].content}
         </li>
       ));

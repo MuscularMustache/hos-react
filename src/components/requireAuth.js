@@ -5,7 +5,7 @@ import { graphql } from 'react-apollo';
 import CurrentUser from '../queries/CurrentUser';
 import LoadingIndicator from './LoadingIndicator';
 
-export default (WrappedComponent) => {
+export default WrappedComponent => {
   class RequireAuth extends Component {
     componentWillUpdate(nextProps) {
       // if its not loading and the user doesnt exist aka not logged in
@@ -20,9 +20,9 @@ export default (WrappedComponent) => {
       if (!_.get(this.props, 'data.user.id')) {
         return <LoadingIndicator />;
       }
-      return <WrappedComponent {...this.props} userId={_.get(this.props, 'data.user.id')} />
+      return <WrappedComponent {...this.props} userId={_.get(this.props, 'data.user.id')} />;
     }
   }
 
   return graphql(CurrentUser)(RequireAuth);
-}
+};
