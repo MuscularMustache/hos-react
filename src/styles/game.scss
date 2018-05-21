@@ -58,6 +58,11 @@
         pointer-events: none;
       }
     }
+    &:only-of-type {
+      &::after, &::before {
+        display: none;
+      }
+    }
   }
 
   .game-directions {

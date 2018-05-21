@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import hat from '../../assets/images/hat.svg';
+import EndGame from './EndGame';
 
 class ConsequenceChoice extends Component {
   constructor(props) {
@@ -10,7 +11,8 @@ class ConsequenceChoice extends Component {
       consequences: [],
       randomNumbers: [],
       unselectedConsequence: false,
-      activeConsequence: false
+      activeConsequence: false,
+      endGame: false
     };
   }
 
@@ -26,10 +28,12 @@ class ConsequenceChoice extends Component {
       whileLength = storedConsequences.length;
     }
 
+    if (whileLength === 0) {
+      this.setState({ endGame: true });
+    }
+
     while (arr.length < whileLength) {
       const randomnumber = Math.floor(Math.random() * storedConsequences.length);
-
-      // NOTE: come back to this continue
       // eslint-disable-next-line no-continue
       if (arr.indexOf(randomnumber) > -1) { continue; }
       arr[arr.length] = randomnumber;
@@ -82,12 +86,24 @@ class ConsequenceChoice extends Component {
     }, 100);
   }
 
+  gameBoard() {
+    if (this.state.endGame) {
+      // gotta run 'reset game' here - or have them click on a button
+      return <EndGame />;
+    }
+    return (
+      <ul className={this.state.activeConsequence !== false ? 'collection active-consequence' : 'collection'}>
+        {this.displayConsequences()}
+      </ul>
+    );
+  }
+
   render() {
     return (
       <div className="game-consequences">
-        <ul className={this.state.activeConsequence !== false ? 'collection active-consequence' : 'collection'}>
-          {this.displayConsequences()}
-        </ul>
+
+        {this.gameBoard()}
+
         <button
           onClick={() => this.getRandomConsequences()}
           disabled={this.state.unselectedConsequence}

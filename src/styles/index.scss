@@ -37,6 +37,7 @@ body {
 }
 
 button {
+  -webkit-tap-highlight-color: transparent;
   background: transparent;
   outline: none;
   border: 0;

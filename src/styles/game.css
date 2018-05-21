@@ -45,6 +45,8 @@
       border-bottom: 1px solid white;
       line-height: 0px;
       pointer-events: none; }
+  .container.game .game-consequence:only-of-type::after, .container.game .game-consequence:only-of-type::before {
+    display: none; }
 
 .container.game .game-directions p {
   text-align: center;
