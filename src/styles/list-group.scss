@@ -31,7 +31,7 @@
   .bg-cover {
     opacity: .65;
     background: white;
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
@@ -42,7 +42,7 @@
   // NOTE: probably shouldn't do a solid bg color - should be gradient
   .add-content {
     animation: $fadeInBottom;
-    position: absolute;
+    position: fixed;
     background: $tertiary;
     height: 200px;
     z-index: 15;

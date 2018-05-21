@@ -2,7 +2,7 @@
 
 .bg-cover.active {
   background: white;
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
@@ -20,7 +20,7 @@
   background: $tertiary;
   box-shadow: $shadow;
   font-size: 40px;
-  position: absolute;
+  position: fixed;
   bottom: 25px;
   right: 25px;
   width: 60px;
@@ -33,7 +33,7 @@
 
 
 .menu-items {
-  position: absolute;
+  position: fixed;
   z-index: 10;
   bottom: 42px;
   right: 40px;
