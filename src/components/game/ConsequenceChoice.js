@@ -89,7 +89,7 @@ class ConsequenceChoice extends Component {
   gameBoard() {
     if (this.state.endGame) {
       // gotta run 'reset game' here - or have them click on a button
-      return <EndGame />;
+      return <EndGame game={this.props.game} />;
     }
     return (
       <ul className={this.state.activeConsequence !== false ? 'collection active-consequence' : 'collection'}>

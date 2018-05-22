@@ -53,7 +53,7 @@ class StartGame extends Component {
   render() {
     return (
       <div className="content">
-        <ConsequenceChoice />
+        <ConsequenceChoice game={this.props.data.game} />
 
         <Menu>
           <ResetGame icon="sync" game={this.props.data.game} refetchGame={() => this.resetGame()} />
