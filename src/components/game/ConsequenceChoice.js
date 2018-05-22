@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { graphql } from 'react-apollo';
 import hat from '../../assets/images/hat.svg';
 import EndGame from './EndGame';
+import DeleteGame from '../../mutations/DeleteGame';
 
 class ConsequenceChoice extends Component {
   constructor(props) {
@@ -88,8 +90,10 @@ class ConsequenceChoice extends Component {
 
   gameBoard() {
     if (this.state.endGame) {
-      // gotta run 'reset game' here - or have them click on a button
-      return <EndGame game={this.props.game} />;
+      const { id } = this.props.game[0];
+
+      this.props.mutate({ variables: { id } });
+      return <EndGame />;
     }
     return (
       <ul className={this.state.activeConsequence !== false ? 'collection active-consequence' : 'collection'}>
@@ -116,4 +120,5 @@ class ConsequenceChoice extends Component {
   }
 }
 
-export default ConsequenceChoice;
+// export default ConsequenceChoice;
+export default graphql(DeleteGame)(ConsequenceChoice);
