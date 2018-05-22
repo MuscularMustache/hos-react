@@ -34,6 +34,7 @@
       display: block; }
     .container.game .game-consequence:first-of-type::after {
       content: "or";
+      color: white;
       bottom: -45px;
       display: block;
       background: grey;

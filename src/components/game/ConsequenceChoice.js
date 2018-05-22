@@ -120,5 +120,4 @@ class ConsequenceChoice extends Component {
   }
 }
 
-// export default ConsequenceChoice;
 export default graphql(DeleteGame)(ConsequenceChoice);
