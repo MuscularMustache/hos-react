@@ -48,7 +48,7 @@ class ListDetail extends Component {
           isOpen={this.state.addConsequenceOpen}
           closeAddConsequence={() => this.setState({ addConsequenceOpen: false })}
         />
-        <Menu>
+        <Menu highlight={!list.consequences.length}>
           <button icon="delete_forever" className="standard-btn" onClick={() => this.onListDelete(list)}><span>delete list</span></button>
           <button icon="add" className="standard-btn" onClick={() => this.setState({ addConsequenceOpen: true })}><span>create new consequence</span></button>
           <Link icon="first_page" className="standard-btn" to="/lists"><span>back to lists</span></Link>

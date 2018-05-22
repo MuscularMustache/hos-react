@@ -36,6 +36,10 @@ class ListGroup extends Component {
       return <p>There was an error retrieving the lists</p>;
     }
 
+    if (!this.props.data.lists.length) {
+      return <h4 className="no-data">There are no lists. Click on the options button below start adding them.</h4>;
+    }
+
     return this.props.data.lists.map(({ id, title, pullForGame }) => (
       <li key={id} className="collection-item">
         <button onClick={() => this.onToggleList(id)} className={pullForGame ? 'active' : 'inactive'}>
@@ -62,7 +66,7 @@ class ListGroup extends Component {
           isOpen={this.state.addListOpen}
           closeAddList={() => this.setState({ addListOpen: false })}
         />
-        <Menu>
+        <Menu highlight={!this.props.data.lists.length}>
           <button icon="add" className="standard-btn" onClick={() => this.setState({ addListOpen: true })}><span>create new list</span></button>
           <Link icon="arrow_back" className="standard-btn" to="/"><span>back to menu</span></Link>
         </Menu>

@@ -11,6 +11,13 @@
   z-index: 5;
 }
 
+.highlight {
+  .bg-cover.hidden + .material-icons.menu-btn {
+    animation: $highlightItem;
+    box-shadow: $shadow;
+  }
+}
+
 .bg-cover.hidden + .material-icons.menu-btn {
   background: transparent;
   box-shadow: none;
@@ -110,5 +117,18 @@ $total-items: 6;
   }
   100% {
     opacity: 1;
+  }
+}
+
+
+@-webkit-keyframes highlightItem {
+  0% {
+    box-shadow: $shadow;
+  }
+  50% {
+    box-shadow: none;
+  }
+  100% {
+    box-shadow: $shadow;
   }
 }
