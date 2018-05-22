@@ -16,9 +16,12 @@ class StartGame extends Component {
     // eslint-disable-next-line no-undef
     const storedConsequences = JSON.parse(localStorage.getItem('activeGame'));
 
-    if (!game || loading || _.get(storedConsequences, '', []).length !== 0) { return; }
+    if (!game || loading) { return; }
 
     if (game.length === 0) { this.startGame(this.props.userId); }
+
+    // prevents game from resetting whenever leaving and coming back
+    if (storedConsequences && storedConsequences.length !== 0) { return; }
 
     const consequences = _.get(game, '[0].lists', []).reduce((arr, list) => [...arr, ...list.consequences], []);
 
