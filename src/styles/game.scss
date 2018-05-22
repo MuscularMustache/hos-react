@@ -35,27 +35,26 @@
       margin-bottom: 80px;
       &::before {
         content: "";
-        width: 30px;
-        height: 30px;
-        background: white;
+        border-bottom: 1px solid white;
+        width: 35%;
         position: absolute;
-        bottom: -59px;
-        left: calc(50% - 15px);
-        border-radius: 50%;
+        bottom: -45px;
+        right: 5%;
         pointer-events: none;
+        display: block;
       }
       &::after {
         content: "or";
-        color: $active;
         bottom: -45px;
         display: block;
         background: grey;
         position: absolute;
-        width: 90%;
+        width: 35%;
         left: 5%;
         border-bottom: 1px solid white;
         line-height: 0px;
         pointer-events: none;
+        text-indent: 45%;
       }
     }
     &:only-of-type {

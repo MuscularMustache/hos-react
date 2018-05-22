@@ -25,26 +25,25 @@
     margin-bottom: 80px; }
     .container.game .game-consequence:first-of-type::before {
       content: "";
-      width: 30px;
-      height: 30px;
-      background: white;
+      border-bottom: 1px solid white;
+      width: 35%;
       position: absolute;
-      bottom: -59px;
-      left: calc(50% - 15px);
-      border-radius: 50%;
-      pointer-events: none; }
+      bottom: -45px;
+      right: 5%;
+      pointer-events: none;
+      display: block; }
     .container.game .game-consequence:first-of-type::after {
       content: "or";
-      color: #7291e8;
       bottom: -45px;
       display: block;
       background: grey;
       position: absolute;
-      width: 90%;
+      width: 35%;
       left: 5%;
       border-bottom: 1px solid white;
       line-height: 0px;
-      pointer-events: none; }
+      pointer-events: none;
+      text-indent: 45%; }
   .container.game .game-consequence:only-of-type::after, .container.game .game-consequence:only-of-type::before {
     display: none; }
 
