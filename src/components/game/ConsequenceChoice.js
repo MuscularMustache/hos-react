@@ -3,6 +3,7 @@ import { graphql } from 'react-apollo';
 import hat from '../../assets/images/hat.svg';
 import EndGame from './EndGame';
 import DeleteGame from '../../mutations/DeleteGame';
+import { AppProvider, AppContext } from '../AppProvider';
 
 class ConsequenceChoice extends Component {
   constructor(props) {
@@ -102,19 +103,39 @@ class ConsequenceChoice extends Component {
     );
   }
 
+  hatBtn() {
+    const message = 'you must select a consequence before selecting pulling more items';
+    if (this.state.unselectedConsequence) {
+      return (
+        <AppContext.Consumer>
+          {context => (
+            <button
+              onClick={context.updateMessage.bind(AppProvider, message)}
+              data-disabled={this.state.unselectedConsequence}
+              className="hat-btn no-select"
+            >
+              <img src={hat} alt="logo" />
+            </button>
+          )}
+        </AppContext.Consumer>
+      );
+    }
+    return (
+      <button
+        onClick={() => this.getRandomConsequences()}
+        data-disabled={this.state.unselectedConsequence}
+        className="hat-btn no-select"
+      >
+        <img src={hat} alt="logo" />
+      </button>
+    );
+  }
+
   render() {
     return (
       <div className="game-consequences">
-
         {this.gameBoard()}
-
-        <button
-          onClick={() => this.getRandomConsequences()}
-          disabled={this.state.unselectedConsequence}
-          className="hat-btn no-select"
-        >
-          <img src={hat} alt="logo" />
-        </button>
+        {this.hatBtn()}
       </div>
     );
   }

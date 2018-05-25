@@ -90,9 +90,8 @@
     position: absolute;
     bottom: 0;
     left: calc(50% - 42px);
-    &[disabled] {
+    &[data-disabled=true] {
       opacity: .5;
-      pointer-events: none;
     }
     img {
       max-width: 100%;
