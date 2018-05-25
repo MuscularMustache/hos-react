@@ -20,7 +20,8 @@
 
 .container.game .game-consequence {
   width: 100%;
-  position: relative; }
+  position: relative;
+  line-height: 130%; }
   .container.game .game-consequence:first-of-type {
     margin-bottom: 80px; }
     .container.game .game-consequence:first-of-type::before {

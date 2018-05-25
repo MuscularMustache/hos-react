@@ -104,7 +104,7 @@ class ConsequenceChoice extends Component {
   }
 
   hatBtn() {
-    const message = 'you must select a consequence before selecting pulling more items';
+    const message = 'you must select a consequence before pulling from the hat again';
     if (this.state.unselectedConsequence) {
       return (
         <AppContext.Consumer>
