@@ -10,19 +10,10 @@ export class AppProvider extends Component {
     this.state = {
       message: '',
       viewSnackbar: false,
-      updateMessage: message => {
-        this.setState({ message, viewSnackbar: true });
-        this.autoClose();
-      },
+      updateMessage: message => this.setState({ message, viewSnackbar: true }),
       toggleSnackbar: () => this.setState({ viewSnackbar: !this.state.viewSnackbar })
     };
     /* eslint-enable react/no-unused-state */
-
-    this.autoClose = () => {
-      setTimeout(() => {
-        this.setState({ viewSnackbar: false });
-      }, 5000);
-    };
   }
 
   render() {
