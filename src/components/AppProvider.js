@@ -11,7 +11,8 @@ export class AppProvider extends Component {
       message: '',
       viewSnackbar: false,
       updateMessage: message => this.setState({ message, viewSnackbar: true }),
-      toggleSnackbar: () => this.setState({ viewSnackbar: !this.state.viewSnackbar })
+      toggleSnackbar: () => this.setState({ viewSnackbar: !this.state.viewSnackbar }),
+      hideSnackbar: () => this.setState({ viewSnackbar: false })
     };
     /* eslint-enable react/no-unused-state */
   }

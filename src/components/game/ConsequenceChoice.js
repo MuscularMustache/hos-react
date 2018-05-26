@@ -56,13 +56,16 @@ class ConsequenceChoice extends Component {
     const { randomNumbers, consequences } = this.state;
     if (randomNumbers.length !== 0) {
       return randomNumbers.map(i => (
-        <li
-          key={i}
-          onClick={() => this.selectConsequence(i)}
-          className={`game-consequence ${this.state.activeConsequence === i ? 'active' : ''}`}
-        >
-          {consequences[i].content}
-        </li>
+        <AppContext.Consumer key={i}>
+          {context => (
+            <li
+              onClick={() => { context.hideSnackbar(); this.selectConsequence(i); }}
+              className={`game-consequence ${this.state.activeConsequence === i ? 'active' : ''}`}
+            >
+              {consequences[i].content}
+            </li>
+          )}
+        </AppContext.Consumer>
       ));
     }
     return (
