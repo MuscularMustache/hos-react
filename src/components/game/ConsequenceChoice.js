@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import hat from '../../assets/images/hat.svg';
 import EndGame from './EndGame';
+import Snackbar from '../Snackbar';
 import DeleteGame from '../../mutations/DeleteGame';
 
 class ConsequenceChoice extends Component {
@@ -14,12 +15,17 @@ class ConsequenceChoice extends Component {
       randomNumbers: [],
       unselectedConsequence: false,
       activeConsequence: false,
-      endGame: false
+      endGame: false,
+      snackbarMessage: ''
     };
   }
 
   // TODO: REFACTOR THIS
   getRandomConsequences() {
+    if (this.state.unselectedConsequence) {
+      this.setState({ snackbarMessage: 'you must select a consequence before pulling from the hat again' });
+      return;
+    }
     // eslint-disable-next-line no-undef
     const storedConsequences = JSON.parse(localStorage.getItem('activeGame'));
     const arr = [];
@@ -81,11 +87,11 @@ class ConsequenceChoice extends Component {
     /* eslint-enable no-undef */
 
     this.setState({ activeConsequence: i });
-    // NOTE: set timeout is just so people don't tab a consequence then immediately
-    // - choose something else, increase time when done testing
-    setTimeout(() => {
-      this.setState({ unselectedConsequence: false });
-    }, 100);
+
+    this.setState({
+      unselectedConsequence: false,
+      snackbarMessage: ''
+    });
   }
 
   gameBoard() {
@@ -110,11 +116,13 @@ class ConsequenceChoice extends Component {
 
         <button
           onClick={() => this.getRandomConsequences()}
-          disabled={this.state.unselectedConsequence}
+          data-disabled={this.state.unselectedConsequence}
           className="hat-btn no-select"
         >
           <img src={hat} alt="logo" />
         </button>
+
+        <Snackbar message={this.state.snackbarMessage} resetMessage={() => this.setState({ snackbarMessage: '' })} />
       </div>
     );
   }
