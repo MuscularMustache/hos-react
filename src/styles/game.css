@@ -20,7 +20,8 @@
 
 .container.game .game-consequence {
   width: 100%;
-  position: relative; }
+  position: relative;
+  line-height: 130%; }
   .container.game .game-consequence:first-of-type {
     margin-bottom: 80px; }
     .container.game .game-consequence:first-of-type::before {
@@ -69,8 +70,7 @@
   position: absolute;
   bottom: 0;
   left: calc(50% - 42px); }
-  .container.game .hat-btn[disabled] {
-    opacity: .5;
-    pointer-events: none; }
+  .container.game .hat-btn[data-disabled=true] {
+    opacity: .5; }
   .container.game .hat-btn img {
     max-width: 100%; }
