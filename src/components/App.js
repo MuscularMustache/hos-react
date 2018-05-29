@@ -5,7 +5,6 @@ import Header from './Header';
 import CurrentUser from '../queries/CurrentUser';
 
 const App = props => {
-  console.log('called');
   const isSignup = props.location.pathname === '/signup';
   let theme = '';
 
