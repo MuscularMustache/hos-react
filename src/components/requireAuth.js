@@ -20,6 +20,7 @@ export default WrappedComponent => {
       if (!_.get(this.props, 'data.user.id')) {
         return <LoadingIndicator />;
       }
+      console.log('also called');
       return <WrappedComponent {...this.props} userId={_.get(this.props, 'data.user.id')} />;
     }
   }

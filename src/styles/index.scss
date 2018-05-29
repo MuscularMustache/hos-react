@@ -22,6 +22,15 @@ body {
   background: -o-linear-gradient(top, $gradient-top 0%, $gradient-bottom 100%);
   background: -ms-linear-gradient(top, $gradient-top 0%, $gradient-bottom 100%);
   background: linear-gradient(to bottom, $gradient-top 0%, $gradient-bottom 100%);
+  @include themify($themes) {
+    background: themed('gradientTop');
+    background: -moz-linear-gradient(top, themed('gradientTop') 0%, themed('gradientBottom') 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, themed('gradientTop')), color-stop(100%, themed('gradientBottom')));
+    background: -webkit-linear-gradient(top, themed('gradientTop') 0%, themed('gradientBottom') 100%);
+    background: -o-linear-gradient(top, themed('gradientTop') 0%, themed('gradientBottom') 100%);
+    background: -ms-linear-gradient(top, themed('gradientTop') 0%, themed('gradientBottom') 100%);
+    background: linear-gradient(to bottom, themed('gradientTop') 0%, themed('gradientBottom') 100%);
+  }
   position: absolute;
   width: 100%;
   top: 0;
@@ -64,6 +73,9 @@ button {
   &:active, &.active {
     background: white;
     color: $active;
+    @include themify($themes) {
+      color: themed('active');
+    }
   }
   &[disabled] {
     opacity: .5;
@@ -74,6 +86,9 @@ button {
 .submit-btn {
   cursor: pointer;
   color: $tertiary;
+  @include themify($themes) {
+    color: themed('tertiary');
+  }
   display: block;
   background: white;
   border-radius: 18px;
@@ -88,6 +103,9 @@ button {
   align-items: center;
   .material-icons {
     color: $tertiary;
+    @include themify($themes) {
+      color: themed('tertiary');
+    }
   }
   &.cancel {
     color: $red;
@@ -176,4 +194,13 @@ textarea, .standard-input {
   display: -webkit-flex;
   display: -ms-flex;
   display: flex;
+  &.between {
+    justify-content: space-between;
+  }
+  &.around {
+    justify-content: space-around;
+  }
+  &.mb {
+    margin-bottom: 20px;
+  }
 }

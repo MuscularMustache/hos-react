@@ -5,6 +5,8 @@ export default gql`
     user {
       id
       email
+      theme
+      premiumMember
     }
   }
 `;

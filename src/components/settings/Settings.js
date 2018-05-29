@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { graphql } from 'react-apollo';
+import Themes from './Themes';
 import CurrentUser from '../../queries/CurrentUser';
 import Logout from '../../mutations/Logout';
 
@@ -15,8 +16,9 @@ class Settings extends Component {
     return (
       <div className="content">
         <h2>Settings</h2>
-        <Link className="standard-btn" to="/">Back</Link>
         <a className="standard-btn" onClick={() => this.onLogoutClick()}>logout</a>
+        <Themes userId={this.props.userId} />
+        <Link className="standard-btn" to="/">Back</Link>
       </div>
     );
   }

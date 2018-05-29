@@ -15,3 +15,47 @@ $bounce: cubic-bezier(0.3, 0.27, 0.07, 1.64);
 $fadeIn: fadeIn 0.5s $bounce;
 $fadeInBottom: fadeInBottom 0.5s $bounce;
 $highlightItem: highlightItem 3s infinite;
+
+
+$themes: (
+  default: (
+    gradientTop: $gradient-top,
+    gradientBottom: $gradient-bottom,
+    tertiary: $tertiary,
+    active: $active,
+  ),
+  orange: (
+    gradientTop: #FFD177,
+    gradientBottom: #FF6E00,
+    tertiary: #ff7614,
+    active: #ffa249,
+  ),
+  teal: (
+    gradientTop: #A4E79C,
+    gradientBottom: #00C1f2,
+    tertiary: #1ac5eb,
+    active: #59d4cb,
+  ),
+);
+
+
+@mixin themify($themes: $themes) {
+  @each $theme, $map in $themes {
+
+    .theme-#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), '#{$key}');
+        $theme-map: map-merge($theme-map, ($key: $value)) !global;
+      }
+
+      @content;
+      $theme-map: null !global;
+    }
+
+  }
+}
+
+@function themed($key) {
+  @return map-get($theme-map, $key);
+}

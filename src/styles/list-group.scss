@@ -44,6 +44,9 @@
     animation: $fadeInBottom;
     position: fixed;
     background: $tertiary;
+    @include themify($themes) {
+      background: themed('tertiary');
+    }
     height: 200px;
     z-index: 15;
     bottom: -40px;
