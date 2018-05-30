@@ -39,8 +39,8 @@
   padding: 0 10% 15px; }
   .theme-default .add-list .add-content, .theme-default .add-consequence .add-content {
     background: #8963e7; }
-  .theme-orange .add-list .add-content, .theme-orange .add-consequence .add-content {
-    background: #ff7614; }
+  .theme-orange-pink .add-list .add-content, .theme-orange-pink .add-consequence .add-content {
+    background: #c13aa1; }
   .theme-teal .add-list .add-content, .theme-teal .add-consequence .add-content {
     background: #1ac5eb; }
   .add-list .add-content .errors:not(:empty), .add-consequence .add-content .errors:not(:empty) {

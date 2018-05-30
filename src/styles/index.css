@@ -28,14 +28,14 @@ body * {
     background: -o-linear-gradient(top, #54cbe8 0%, #8f59e7 100%);
     background: -ms-linear-gradient(top, #54cbe8 0%, #8f59e7 100%);
     background: linear-gradient(to bottom, #54cbe8 0%, #8f59e7 100%); }
-  .theme-orange .container {
-    background: #FFD177;
-    background: -moz-linear-gradient(top, #FFD177 0%, #FF6E00 100%);
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, #FFD177), color-stop(100%, #FF6E00));
-    background: -webkit-linear-gradient(top, #FFD177 0%, #FF6E00 100%);
-    background: -o-linear-gradient(top, #FFD177 0%, #FF6E00 100%);
-    background: -ms-linear-gradient(top, #FFD177 0%, #FF6E00 100%);
-    background: linear-gradient(to bottom, #FFD177 0%, #FF6E00 100%); }
+  .theme-orange-pink .container {
+    background: #FFCE40;
+    background: -moz-linear-gradient(top, #FFCE40 0%, #BB29AA 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, #FFCE40), color-stop(100%, #BB29AA));
+    background: -webkit-linear-gradient(top, #FFCE40 0%, #BB29AA 100%);
+    background: -o-linear-gradient(top, #FFCE40 0%, #BB29AA 100%);
+    background: -ms-linear-gradient(top, #FFCE40 0%, #BB29AA 100%);
+    background: linear-gradient(to bottom, #FFCE40 0%, #BB29AA 100%); }
   .theme-teal .container {
     background: #A4E79C;
     background: -moz-linear-gradient(top, #A4E79C 0%, #00C1f2 100%);
@@ -81,8 +81,8 @@ button {
     color: #7291e8; }
     .theme-default .standard-btn:active, .theme-default .standard-btn.active, .theme-default .game-consequence:active, .theme-default .game-consequence.active {
       color: #7291e8; }
-    .theme-orange .standard-btn:active, .theme-orange .standard-btn.active, .theme-orange .game-consequence:active, .theme-orange .game-consequence.active {
-      color: #ffa249; }
+    .theme-orange-pink .standard-btn:active, .theme-orange-pink .standard-btn.active, .theme-orange-pink .game-consequence:active, .theme-orange-pink .game-consequence.active {
+      color: #dd7e79; }
     .theme-teal .standard-btn:active, .theme-teal .standard-btn.active, .theme-teal .game-consequence:active, .theme-teal .game-consequence.active {
       color: #59d4cb; }
   .standard-btn[disabled], .game-consequence[disabled] {
@@ -106,16 +106,16 @@ button {
   align-items: center; }
   .theme-default .submit-btn {
     color: #8963e7; }
-  .theme-orange .submit-btn {
-    color: #ff7614; }
+  .theme-orange-pink .submit-btn {
+    color: #c13aa1; }
   .theme-teal .submit-btn {
     color: #1ac5eb; }
   .submit-btn .material-icons {
     color: #8963e7; }
     .theme-default .submit-btn .material-icons {
       color: #8963e7; }
-    .theme-orange .submit-btn .material-icons {
-      color: #ff7614; }
+    .theme-orange-pink .submit-btn .material-icons {
+      color: #c13aa1; }
     .theme-teal .submit-btn .material-icons {
       color: #1ac5eb; }
   .submit-btn.cancel {

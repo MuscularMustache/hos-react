@@ -31,8 +31,8 @@
   z-index: 10; }
   .theme-default .material-icons.menu-btn {
     background: #8963e7; }
-  .theme-orange .material-icons.menu-btn {
-    background: #ff7614; }
+  .theme-orange-pink .material-icons.menu-btn {
+    background: #c13aa1; }
   .theme-teal .material-icons.menu-btn {
     background: #1ac5eb; }
 
@@ -59,8 +59,8 @@
       padding: 5px; }
       .theme-default .menu-items li i.material-icons {
         background: #8963e7; }
-      .theme-orange .menu-items li i.material-icons {
-        background: #ff7614; }
+      .theme-orange-pink .menu-items li i.material-icons {
+        background: #c13aa1; }
       .theme-teal .menu-items li i.material-icons {
         background: #1ac5eb; }
     .menu-items li .close-tag {
@@ -91,8 +91,8 @@
       white-space: nowrap; }
       .theme-default .menu-items li .standard-btn span, .theme-default .menu-items li .close-tag {
         background: #8963e7; }
-      .theme-orange .menu-items li .standard-btn span, .theme-orange .menu-items li .close-tag {
-        background: #ff7614; }
+      .theme-orange-pink .menu-items li .standard-btn span, .theme-orange-pink .menu-items li .close-tag {
+        background: #c13aa1; }
       .theme-teal .menu-items li .standard-btn span, .theme-teal .menu-items li .close-tag {
         background: #1ac5eb; }
 

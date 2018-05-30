@@ -24,8 +24,8 @@
     margin-right: 10px; }
     .theme-default .snackbar span {
       color: #aa8fee; }
-    .theme-orange .snackbar span {
-      color: #ff9447; }
+    .theme-orange-pink .snackbar span {
+      color: #cf5fb4; }
     .theme-teal .snackbar span {
       color: #49d1ef; }
   .snackbar i.material-icons {
@@ -39,8 +39,8 @@
     max-height: 24px; }
     .theme-default .snackbar i.material-icons {
       background: #aa8fee; }
-    .theme-orange .snackbar i.material-icons {
-      background: #ff9447; }
+    .theme-orange-pink .snackbar i.material-icons {
+      background: #cf5fb4; }
     .theme-teal .snackbar i.material-icons {
       background: #49d1ef; }
 

@@ -21,7 +21,7 @@ class Themes extends Component {
         <div className="flex-row between mb">
           <a onClick={() => this.onSetTheme('default')}>default</a>
           <a onClick={() => this.onSetTheme('teal')}>blue</a>
-          <a onClick={() => this.onSetTheme('orange')}>orange</a>
+          <a onClick={() => this.onSetTheme('orange-pink')}>orange/pink</a>
         </div>
       </div>
     );
