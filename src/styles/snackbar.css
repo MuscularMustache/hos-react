@@ -22,6 +22,12 @@
     display: block;
     width: 100%;
     margin-right: 10px; }
+    .theme-default .snackbar span {
+      color: #aa8fee; }
+    .theme-orange .snackbar span {
+      color: #ff9447; }
+    .theme-teal .snackbar span {
+      color: #49d1ef; }
   .snackbar i.material-icons {
     background: #aa8fee;
     border-radius: 50%;
@@ -31,6 +37,12 @@
     max-width: 24px;
     min-height: 24px;
     max-height: 24px; }
+    .theme-default .snackbar i.material-icons {
+      background: #aa8fee; }
+    .theme-orange .snackbar i.material-icons {
+      background: #ff9447; }
+    .theme-teal .snackbar i.material-icons {
+      background: #49d1ef; }
 
 @-webkit-keyframes slideInBottom {
   0% {

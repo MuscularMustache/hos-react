@@ -23,6 +23,9 @@
   }
   span {
     color: lighten( $tertiary, 10% );
+    @include themify($themes) {
+      color: lighten(themed('tertiary'), 10%);
+    }
     display: block;
     width: 100%;
     margin-right: 10px;
@@ -30,6 +33,9 @@
   i.material-icons {
     // background: white;
     background: lighten( $tertiary, 10% );
+    @include themify($themes) {
+      background: lighten(themed('tertiary'), 10%);
+    }
     border-radius: 50%;
     color: $dark-grey;
     line-height: 24px;
