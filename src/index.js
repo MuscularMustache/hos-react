@@ -16,6 +16,7 @@ import ListGroup from './components/lists/ListGroup';
 import ListDetail from './components/lists/ListDetail';
 import StartGame from './components/game/StartGame';
 import requireAuth from './components/requireAuth';
+import { AppProvider } from './components/AppProvider';
 import registerServiceWorker from './registerServiceWorker';
 
 // NOTE: if i pass id back from requests
@@ -30,17 +31,19 @@ const Root = () => (
   <ApolloProvider client={client}>
     <BrowserRouter>
       <div>
-        <Switch>
-          <App>
-            <Route path="/" exact component={requireAuth(UserNav)} />
-            <Route path="/login" component={Login} />
-            <Route path="/signup" component={Signup} />
-            <Route path="/settings" component={requireAuth(Settings)} />
-            <Route path="/lists" exact component={requireAuth(ListGroup)} />
-            <Route path="/lists/:id" component={requireAuth(ListDetail)} />
-            <Route path="/game" component={requireAuth(StartGame)} />
-          </App>
-        </Switch>
+        <AppProvider>
+          <Switch>
+            <App>
+              <Route path="/" exact component={requireAuth(UserNav)} />
+              <Route path="/login" component={Login} />
+              <Route path="/signup" component={Signup} />
+              <Route path="/settings" component={requireAuth(Settings)} />
+              <Route path="/lists" exact component={requireAuth(ListGroup)} />
+              <Route path="/lists/:id" component={requireAuth(ListDetail)} />
+              <Route path="/game" component={requireAuth(StartGame)} />
+            </App>
+          </Switch>
+        </AppProvider>
       </div>
     </BrowserRouter>
   </ApolloProvider>

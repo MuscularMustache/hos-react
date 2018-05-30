@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
-import hat from '../../assets/images/hat.svg';
 import EndGame from './EndGame';
+import HatButton from './HatButton';
 import DeleteGame from '../../mutations/DeleteGame';
+import { AppProvider, AppContext } from '../AppProvider';
 
 class ConsequenceChoice extends Component {
   constructor(props) {
@@ -55,13 +56,16 @@ class ConsequenceChoice extends Component {
     const { randomNumbers, consequences } = this.state;
     if (randomNumbers.length !== 0) {
       return randomNumbers.map(i => (
-        <li
-          key={i}
-          onClick={() => this.selectConsequence(i)}
-          className={`game-consequence ${this.state.activeConsequence === i ? 'active' : ''}`}
-        >
-          {consequences[i].content}
-        </li>
+        <AppContext.Consumer key={i}>
+          {context => (
+            <li
+              onClick={() => { context.hideSnackbar(); this.selectConsequence(i); }}
+              className={`game-consequence ${this.state.activeConsequence === i ? 'active' : ''}`}
+            >
+              {consequences[i].content}
+            </li>
+          )}
+        </AppContext.Consumer>
       ));
     }
     return (
@@ -80,12 +84,10 @@ class ConsequenceChoice extends Component {
     localStorage.setItem('activeGame', JSON.stringify(storedConsequences));
     /* eslint-enable no-undef */
 
-    this.setState({ activeConsequence: i });
-    // NOTE: set timeout is just so people don't tab a consequence then immediately
-    // - choose something else, increase time when done testing
-    setTimeout(() => {
-      this.setState({ unselectedConsequence: false });
-    }, 100);
+    this.setState({
+      unselectedConsequence: false,
+      activeConsequence: i
+    });
   }
 
   gameBoard() {
@@ -102,19 +104,34 @@ class ConsequenceChoice extends Component {
     );
   }
 
+  hatBtn() {
+    const message = 'you must select a consequence before pulling from the hat again';
+    if (this.state.unselectedConsequence) {
+      return (
+        <AppContext.Consumer>
+          {context => (
+            <HatButton
+              disabled={this.state.unselectedConsequence}
+              // eslint-disable-next-line react/jsx-no-bind
+              handleClick={context.updateMessage.bind(AppProvider, message)}
+            />
+          )}
+        </AppContext.Consumer>
+      );
+    }
+    return (
+      <HatButton
+        disabled={this.state.unselectedConsequence}
+        handleClick={() => this.getRandomConsequences()}
+      />
+    );
+  }
+
   render() {
     return (
       <div className="game-consequences">
-
         {this.gameBoard()}
-
-        <button
-          onClick={() => this.getRandomConsequences()}
-          disabled={this.state.unselectedConsequence}
-          className="hat-btn no-select"
-        >
-          <img src={hat} alt="logo" />
-        </button>
+        {this.hatBtn()}
       </div>
     );
   }
