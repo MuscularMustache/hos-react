@@ -5,6 +5,7 @@ import Header from './Header';
 import Snackbar from './Snackbar';
 import CurrentUser from '../queries/CurrentUser';
 
+// TODO: refactor this to use react context then pull the instance here and req auth
 const App = props => {
   const isSignup = props.location.pathname === '/signup';
   let theme = '';

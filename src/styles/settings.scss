@@ -1,0 +1,36 @@
+@import 'variables';
+
+.container.settings {
+  .content {
+    margin: 0;
+    .standard-btn {
+      margin: 0 10% 30px;
+      width: 80%;
+    }
+  }
+  .themes {
+    .flex-row {
+      background: white;
+      padding: 10px 12%;
+      a.theme-btn {
+        width: 50px;
+        height: 50px;
+        background: red;
+        border-radius: 50%;
+        text-indent: -9999px;
+        &.default {
+          background: linear-gradient(to bottom, $gradient-top 0%, $gradient-bottom 100%);
+        }
+        &.green-blue {
+          background: linear-gradient(to bottom, #A4E79C 0%, #00C1f2 100%);
+        }
+        &.orange-magenta {
+          background: linear-gradient(to bottom, #FFCE40 0%, #BB29AA 100%);
+        }
+        &.blue-pink {
+          background: linear-gradient(to bottom, #60fae6 0%, #F067B4 100%);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+.container.settings .content {
+  margin: 0; }
+  .container.settings .content .standard-btn {
+    margin: 0 10% 30px;
+    width: 80%; }
+
+.container.settings .themes .flex-row {
+  background: white;
+  padding: 10px 12%; }
+  .container.settings .themes .flex-row a.theme-btn {
+    width: 50px;
+    height: 50px;
+    background: red;
+    border-radius: 50%;
+    text-indent: -9999px; }
+    .container.settings .themes .flex-row a.theme-btn.default {
+      background: linear-gradient(to bottom, #54cbe8 0%, #8f59e7 100%); }
+    .container.settings .themes .flex-row a.theme-btn.green-blue {
+      background: linear-gradient(to bottom, #A4E79C 0%, #00C1f2 100%); }
+    .container.settings .themes .flex-row a.theme-btn.orange-magenta {
+      background: linear-gradient(to bottom, #FFCE40 0%, #BB29AA 100%); }
+    .container.settings .themes .flex-row a.theme-btn.blue-pink {
+      background: linear-gradient(to bottom, #60fae6 0%, #F067B4 100%); }

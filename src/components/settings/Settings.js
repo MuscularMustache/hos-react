@@ -4,6 +4,7 @@ import { graphql } from 'react-apollo';
 import Themes from './Themes';
 import CurrentUser from '../../queries/CurrentUser';
 import Logout from '../../mutations/Logout';
+import '../../styles/settings.css';
 
 class Settings extends Component {
   onLogoutClick() {
