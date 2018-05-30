@@ -28,7 +28,7 @@ body * {
     background: -o-linear-gradient(top, #54cbe8 0%, #8f59e7 100%);
     background: -ms-linear-gradient(top, #54cbe8 0%, #8f59e7 100%);
     background: linear-gradient(to bottom, #54cbe8 0%, #8f59e7 100%); }
-  .theme-orange-pink .container {
+  .theme-orange-magenta .container {
     background: #FFCE40;
     background: -moz-linear-gradient(top, #FFCE40 0%, #BB29AA 100%);
     background: -webkit-gradient(left top, left bottom, color-stop(0%, #FFCE40), color-stop(100%, #BB29AA));
@@ -36,7 +36,7 @@ body * {
     background: -o-linear-gradient(top, #FFCE40 0%, #BB29AA 100%);
     background: -ms-linear-gradient(top, #FFCE40 0%, #BB29AA 100%);
     background: linear-gradient(to bottom, #FFCE40 0%, #BB29AA 100%); }
-  .theme-teal .container {
+  .theme-green-blue .container {
     background: #A4E79C;
     background: -moz-linear-gradient(top, #A4E79C 0%, #00C1f2 100%);
     background: -webkit-gradient(left top, left bottom, color-stop(0%, #A4E79C), color-stop(100%, #00C1f2));
@@ -44,6 +44,14 @@ body * {
     background: -o-linear-gradient(top, #A4E79C 0%, #00C1f2 100%);
     background: -ms-linear-gradient(top, #A4E79C 0%, #00C1f2 100%);
     background: linear-gradient(to bottom, #A4E79C 0%, #00C1f2 100%); }
+  .theme-blue-pink .container {
+    background: #60fae6;
+    background: -moz-linear-gradient(top, #60fae6 0%, #F067B4 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, #60fae6), color-stop(100%, #F067B4));
+    background: -webkit-linear-gradient(top, #60fae6 0%, #F067B4 100%);
+    background: -o-linear-gradient(top, #60fae6 0%, #F067B4 100%);
+    background: -ms-linear-gradient(top, #60fae6 0%, #F067B4 100%);
+    background: linear-gradient(to bottom, #60fae6 0%, #F067B4 100%); }
 
 ::selection {
   background: #fff;
@@ -81,10 +89,12 @@ button {
     color: #7291e8; }
     .theme-default .standard-btn:active, .theme-default .standard-btn.active, .theme-default .game-consequence:active, .theme-default .game-consequence.active {
       color: #7291e8; }
-    .theme-orange-pink .standard-btn:active, .theme-orange-pink .standard-btn.active, .theme-orange-pink .game-consequence:active, .theme-orange-pink .game-consequence.active {
+    .theme-orange-magenta .standard-btn:active, .theme-orange-magenta .standard-btn.active, .theme-orange-magenta .game-consequence:active, .theme-orange-magenta .game-consequence.active {
       color: #dd7e79; }
-    .theme-teal .standard-btn:active, .theme-teal .standard-btn.active, .theme-teal .game-consequence:active, .theme-teal .game-consequence.active {
+    .theme-green-blue .standard-btn:active, .theme-green-blue .standard-btn.active, .theme-green-blue .game-consequence:active, .theme-green-blue .game-consequence.active {
       color: #59d4cb; }
+    .theme-blue-pink .standard-btn:active, .theme-blue-pink .standard-btn.active, .theme-blue-pink .game-consequence:active, .theme-blue-pink .game-consequence.active {
+      color: #93c8d5; }
   .standard-btn[disabled], .game-consequence[disabled] {
     opacity: .5;
     pointer-events: none; }
@@ -106,18 +116,22 @@ button {
   align-items: center; }
   .theme-default .submit-btn {
     color: #8963e7; }
-  .theme-orange-pink .submit-btn {
+  .theme-orange-magenta .submit-btn {
     color: #c13aa1; }
-  .theme-teal .submit-btn {
+  .theme-green-blue .submit-btn {
     color: #1ac5eb; }
+  .theme-blue-pink .submit-btn {
+    color: #e474b8; }
   .submit-btn .material-icons {
     color: #8963e7; }
     .theme-default .submit-btn .material-icons {
       color: #8963e7; }
-    .theme-orange-pink .submit-btn .material-icons {
+    .theme-orange-magenta .submit-btn .material-icons {
       color: #c13aa1; }
-    .theme-teal .submit-btn .material-icons {
+    .theme-green-blue .submit-btn .material-icons {
       color: #1ac5eb; }
+    .theme-blue-pink .submit-btn .material-icons {
+      color: #e474b8; }
   .submit-btn.cancel {
     color: #D04444; }
     .submit-btn.cancel .material-icons {

@@ -25,19 +25,32 @@ $themes: (
     tertiary: $tertiary,
     active: $active,
   ),
-  orange-pink: (
+  orange-magenta: (
     gradientTop: #FFCE40,
     gradientBottom: #BB29AA,
     tertiary: #c13aa1,
     active: #dd7e79,
   ),
-  teal: (
+  green-blue: (
     gradientTop: #A4E79C,
     gradientBottom: #00C1f2,
     tertiary: #1ac5eb,
     active: #59d4cb,
   ),
+  blue-pink: (
+    gradientTop: #60fae6,
+    gradientBottom: #F067B4,
+    tertiary: #e474b8,
+    active: #93c8d5,
+  ),
 );
+
+// THEME CONTENDERS
+// gradientTop: #5ee7df,
+// gradientBottom: #b490ca,
+
+// gradientTop: #74ebd5,
+// gradientBottom: #9face6,
 
 
 @mixin themify($themes: $themes) {

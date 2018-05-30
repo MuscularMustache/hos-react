@@ -31,10 +31,12 @@
   z-index: 10; }
   .theme-default .material-icons.menu-btn {
     background: #8963e7; }
-  .theme-orange-pink .material-icons.menu-btn {
+  .theme-orange-magenta .material-icons.menu-btn {
     background: #c13aa1; }
-  .theme-teal .material-icons.menu-btn {
+  .theme-green-blue .material-icons.menu-btn {
     background: #1ac5eb; }
+  .theme-blue-pink .material-icons.menu-btn {
+    background: #e474b8; }
 
 .menu-items {
   position: fixed;
@@ -59,10 +61,12 @@
       padding: 5px; }
       .theme-default .menu-items li i.material-icons {
         background: #8963e7; }
-      .theme-orange-pink .menu-items li i.material-icons {
+      .theme-orange-magenta .menu-items li i.material-icons {
         background: #c13aa1; }
-      .theme-teal .menu-items li i.material-icons {
+      .theme-green-blue .menu-items li i.material-icons {
         background: #1ac5eb; }
+      .theme-blue-pink .menu-items li i.material-icons {
+        background: #e474b8; }
     .menu-items li .close-tag {
       margin-right: 59px; }
     .menu-items li .standard-btn {
@@ -91,10 +95,12 @@
       white-space: nowrap; }
       .theme-default .menu-items li .standard-btn span, .theme-default .menu-items li .close-tag {
         background: #8963e7; }
-      .theme-orange-pink .menu-items li .standard-btn span, .theme-orange-pink .menu-items li .close-tag {
+      .theme-orange-magenta .menu-items li .standard-btn span, .theme-orange-magenta .menu-items li .close-tag {
         background: #c13aa1; }
-      .theme-teal .menu-items li .standard-btn span, .theme-teal .menu-items li .close-tag {
+      .theme-green-blue .menu-items li .standard-btn span, .theme-green-blue .menu-items li .close-tag {
         background: #1ac5eb; }
+      .theme-blue-pink .menu-items li .standard-btn span, .theme-blue-pink .menu-items li .close-tag {
+        background: #e474b8; }
 
 .menu-items li:nth-child(1) {
   animation-delay: 0.2s; }
