@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'react-apollo';
 import _ from 'lodash';
 import Header from './Header';
+import Snackbar from './Snackbar';
 import CurrentUser from '../queries/CurrentUser';
 
 const App = props => {
@@ -17,6 +18,7 @@ const App = props => {
       <div className={`container ${props.location.pathname.substr(1)}`}>
         <Header isSignup={isSignup} />
         {props.children}
+        <Snackbar />
       </div>
     </div>
   );
