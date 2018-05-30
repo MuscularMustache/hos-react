@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
-import hat from '../../assets/images/hat.svg';
 import EndGame from './EndGame';
+import HatButton from './HatButton';
 import DeleteGame from '../../mutations/DeleteGame';
 import { AppProvider, AppContext } from '../AppProvider';
 
@@ -84,12 +84,10 @@ class ConsequenceChoice extends Component {
     localStorage.setItem('activeGame', JSON.stringify(storedConsequences));
     /* eslint-enable no-undef */
 
-    this.setState({ activeConsequence: i });
-    // NOTE: set timeout is just so people don't tab a consequence then immediately
-    // - choose something else, increase time when done testing
-    setTimeout(() => {
-      this.setState({ unselectedConsequence: false });
-    }, 100);
+    this.setState({
+      unselectedConsequence: false,
+      activeConsequence: i
+    });
   }
 
   gameBoard() {
@@ -112,25 +110,20 @@ class ConsequenceChoice extends Component {
       return (
         <AppContext.Consumer>
           {context => (
-            <button
-              onClick={context.updateMessage.bind(AppProvider, message)}
-              data-disabled={this.state.unselectedConsequence}
-              className="hat-btn no-select"
-            >
-              <img src={hat} alt="logo" />
-            </button>
+            <HatButton
+              disabled={this.state.unselectedConsequence}
+              // eslint-disable-next-line react/jsx-no-bind
+              handleClick={context.updateMessage.bind(AppProvider, message)}
+            />
           )}
         </AppContext.Consumer>
       );
     }
     return (
-      <button
-        onClick={() => this.getRandomConsequences()}
-        data-disabled={this.state.unselectedConsequence}
-        className="hat-btn no-select"
-      >
-        <img src={hat} alt="logo" />
-      </button>
+      <HatButton
+        disabled={this.state.unselectedConsequence}
+        handleClick={() => this.getRandomConsequences()}
+      />
     );
   }
 
