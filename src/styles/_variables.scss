@@ -1,3 +1,5 @@
+@import 'mixins';
+
 // GENERAL COLORS
 $red: #D04444;
 $dark-grey: #272F46;
@@ -8,6 +10,15 @@ $gradient-top: #54cbe8; // base theme - light blue
 $gradient-bottom: #8f59e7; // base theme - deep redish purple
 $active: #7291e8; // base theme - mid tone blue
 
+$orange-magenta-top: #FFCE40;
+$orange-magenta-bottom: #BB29AA;
+
+$green-blue-top: #A4E79C;
+$green-blue-bottom: #00C1f2;
+
+$blue-pink-top: #60fae6;
+$blue-pink-bottom: #F067B4;
+
 $shadow: 0px 2px 6px rgba(0,0,0,0.5);
 
 // ANIMATIONS
@@ -17,3 +28,37 @@ $fadeInBottom: fadeInBottom 0.5s $bounce;
 $highlightItem: highlightItem 3s infinite;
 $slideInBottom: slideInBottom 0.3s;
 // $slideOutBottom: slideOutBottom 0.5s;
+
+$themes: (
+  default: (
+    gradientTop: $gradient-top,
+    gradientBottom: $gradient-bottom,
+    tertiary: $tertiary,
+    active: $active,
+  ),
+  orange-magenta: (
+    gradientTop: $orange-magenta-top,
+    gradientBottom: $orange-magenta-bottom,
+    tertiary: #c13aa1,
+    active: #dd7e79,
+  ),
+  green-blue: (
+    gradientTop: $green-blue-top,
+    gradientBottom: $green-blue-bottom,
+    tertiary: #1ac5eb,
+    active: #59d4cb,
+  ),
+  blue-pink: (
+    gradientTop: $blue-pink-top,
+    gradientBottom: $blue-pink-bottom,
+    tertiary: #e474b8,
+    active: #93c8d5,
+  ),
+);
+
+// THEME CONTENDERS
+// gradientTop: #5ee7df,
+// gradientBottom: #b490ca,
+
+// gradientTop: #74ebd5,
+// gradientBottom: #9face6,

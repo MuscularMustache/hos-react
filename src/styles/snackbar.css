@@ -22,6 +22,14 @@
     display: block;
     width: 100%;
     margin-right: 10px; }
+    .theme-default .snackbar span {
+      color: #aa8fee; }
+    .theme-orange-magenta .snackbar span {
+      color: #cf5fb4; }
+    .theme-green-blue .snackbar span {
+      color: #49d1ef; }
+    .theme-blue-pink .snackbar span {
+      color: #ec9fce; }
   .snackbar i.material-icons {
     background: #aa8fee;
     border-radius: 50%;
@@ -31,6 +39,14 @@
     max-width: 24px;
     min-height: 24px;
     max-height: 24px; }
+    .theme-default .snackbar i.material-icons {
+      background: #aa8fee; }
+    .theme-orange-magenta .snackbar i.material-icons {
+      background: #cf5fb4; }
+    .theme-green-blue .snackbar i.material-icons {
+      background: #49d1ef; }
+    .theme-blue-pink .snackbar i.material-icons {
+      background: #ec9fce; }
 
 @-webkit-keyframes slideInBottom {
   0% {

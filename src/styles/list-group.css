@@ -37,6 +37,14 @@
   right: 0;
   left: 0;
   padding: 0 10% 15px; }
+  .theme-default .add-list .add-content, .theme-default .add-consequence .add-content {
+    background: #8963e7; }
+  .theme-orange-magenta .add-list .add-content, .theme-orange-magenta .add-consequence .add-content {
+    background: #c13aa1; }
+  .theme-green-blue .add-list .add-content, .theme-green-blue .add-consequence .add-content {
+    background: #1ac5eb; }
+  .theme-blue-pink .add-list .add-content, .theme-blue-pink .add-consequence .add-content {
+    background: #e474b8; }
   .add-list .add-content .errors:not(:empty), .add-consequence .add-content .errors:not(:empty) {
     margin: -13px 0 6px 0; }
     .add-list .add-content .errors:not(:empty) .error, .add-consequence .add-content .errors:not(:empty) .error {

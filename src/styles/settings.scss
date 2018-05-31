@@ -1,0 +1,36 @@
+@import 'variables';
+
+.container.settings {
+  .content {
+    margin: 0;
+    .standard-btn {
+      margin: 0 10% 30px;
+      width: 80%;
+    }
+  }
+  .themes {
+    .flex-row {
+      background: white;
+      padding: 10px 12%;
+      a.theme-btn {
+        width: 50px;
+        height: 50px;
+        background: red;
+        border-radius: 50%;
+        text-indent: -9999px;
+        &.default {
+          @include gradient($gradient-top, $gradient-bottom);
+        }
+        &.green-blue {
+          @include gradient($green-blue-top, $green-blue-bottom);
+        }
+        &.orange-magenta {
+          @include gradient($orange-magenta-top, $orange-magenta-bottom);
+        }
+        &.blue-pink {
+          @include gradient($blue-pink-top, $blue-pink-bottom);
+        }
+      }
+    }
+  }
+}

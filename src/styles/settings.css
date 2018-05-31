@@ -1,0 +1,47 @@
+.container.settings .content {
+  margin: 0; }
+  .container.settings .content .standard-btn {
+    margin: 0 10% 30px;
+    width: 80%; }
+
+.container.settings .themes .flex-row {
+  background: white;
+  padding: 10px 12%; }
+  .container.settings .themes .flex-row a.theme-btn {
+    width: 50px;
+    height: 50px;
+    background: red;
+    border-radius: 50%;
+    text-indent: -9999px; }
+    .container.settings .themes .flex-row a.theme-btn.default {
+      background: #54cbe8;
+      background: -moz-linear-gradient(top, #54cbe8 0%, #8f59e7 100%);
+      background: -webkit-gradient(left top, left bottom, color-stop(0%, #54cbe8), color-stop(100%, #8f59e7));
+      background: -webkit-linear-gradient(top, #54cbe8 0%, #8f59e7 100%);
+      background: -o-linear-gradient(top, #54cbe8 0%, #8f59e7 100%);
+      background: -ms-linear-gradient(top, #54cbe8 0%, #8f59e7 100%);
+      background: linear-gradient(to bottom, #54cbe8 0%, #8f59e7 100%); }
+    .container.settings .themes .flex-row a.theme-btn.green-blue {
+      background: #A4E79C;
+      background: -moz-linear-gradient(top, #A4E79C 0%, #00C1f2 100%);
+      background: -webkit-gradient(left top, left bottom, color-stop(0%, #A4E79C), color-stop(100%, #00C1f2));
+      background: -webkit-linear-gradient(top, #A4E79C 0%, #00C1f2 100%);
+      background: -o-linear-gradient(top, #A4E79C 0%, #00C1f2 100%);
+      background: -ms-linear-gradient(top, #A4E79C 0%, #00C1f2 100%);
+      background: linear-gradient(to bottom, #A4E79C 0%, #00C1f2 100%); }
+    .container.settings .themes .flex-row a.theme-btn.orange-magenta {
+      background: #FFCE40;
+      background: -moz-linear-gradient(top, #FFCE40 0%, #BB29AA 100%);
+      background: -webkit-gradient(left top, left bottom, color-stop(0%, #FFCE40), color-stop(100%, #BB29AA));
+      background: -webkit-linear-gradient(top, #FFCE40 0%, #BB29AA 100%);
+      background: -o-linear-gradient(top, #FFCE40 0%, #BB29AA 100%);
+      background: -ms-linear-gradient(top, #FFCE40 0%, #BB29AA 100%);
+      background: linear-gradient(to bottom, #FFCE40 0%, #BB29AA 100%); }
+    .container.settings .themes .flex-row a.theme-btn.blue-pink {
+      background: #60fae6;
+      background: -moz-linear-gradient(top, #60fae6 0%, #F067B4 100%);
+      background: -webkit-gradient(left top, left bottom, color-stop(0%, #60fae6), color-stop(100%, #F067B4));
+      background: -webkit-linear-gradient(top, #60fae6 0%, #F067B4 100%);
+      background: -o-linear-gradient(top, #60fae6 0%, #F067B4 100%);
+      background: -ms-linear-gradient(top, #60fae6 0%, #F067B4 100%);
+      background: linear-gradient(to bottom, #60fae6 0%, #F067B4 100%); }
