@@ -19,16 +19,16 @@
         border-radius: 50%;
         text-indent: -9999px;
         &.default {
-          background: linear-gradient(to bottom, $gradient-top 0%, $gradient-bottom 100%);
+          @include gradient($gradient-top, $gradient-bottom);
         }
         &.green-blue {
-          background: linear-gradient(to bottom, #A4E79C 0%, #00C1f2 100%);
+          @include gradient($green-blue-top, $green-blue-bottom);
         }
         &.orange-magenta {
-          background: linear-gradient(to bottom, #FFCE40 0%, #BB29AA 100%);
+          @include gradient($orange-magenta-top, $orange-magenta-bottom);
         }
         &.blue-pink {
-          background: linear-gradient(to bottom, #60fae6 0%, #F067B4 100%);
+          @include gradient($blue-pink-top, $blue-pink-bottom);
         }
       }
     }

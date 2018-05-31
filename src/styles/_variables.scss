@@ -1,3 +1,5 @@
+@import 'mixins';
+
 // GENERAL COLORS
 $red: #D04444;
 $dark-grey: #272F46;
@@ -7,6 +9,15 @@ $tertiary: #8963e7; // base theme - purple
 $gradient-top: #54cbe8; // base theme - light blue
 $gradient-bottom: #8f59e7; // base theme - deep redish purple
 $active: #7291e8; // base theme - mid tone blue
+
+$orange-magenta-top: #FFCE40;
+$orange-magenta-bottom: #BB29AA;
+
+$green-blue-top: #A4E79C;
+$green-blue-bottom: #00C1f2;
+
+$blue-pink-top: #60fae6;
+$blue-pink-bottom: #F067B4;
 
 $shadow: 0px 2px 6px rgba(0,0,0,0.5);
 
@@ -26,20 +37,20 @@ $themes: (
     active: $active,
   ),
   orange-magenta: (
-    gradientTop: #FFCE40,
-    gradientBottom: #BB29AA,
+    gradientTop: $orange-magenta-top,
+    gradientBottom: $orange-magenta-bottom,
     tertiary: #c13aa1,
     active: #dd7e79,
   ),
   green-blue: (
-    gradientTop: #A4E79C,
-    gradientBottom: #00C1f2,
+    gradientTop: $green-blue-top,
+    gradientBottom: $green-blue-bottom,
     tertiary: #1ac5eb,
     active: #59d4cb,
   ),
   blue-pink: (
-    gradientTop: #60fae6,
-    gradientBottom: #F067B4,
+    gradientTop: $blue-pink-top,
+    gradientBottom: $blue-pink-bottom,
     tertiary: #e474b8,
     active: #93c8d5,
   ),
@@ -51,25 +62,3 @@ $themes: (
 
 // gradientTop: #74ebd5,
 // gradientBottom: #9face6,
-
-
-@mixin themify($themes: $themes) {
-  @each $theme, $map in $themes {
-
-    .theme-#{$theme} & {
-      $theme-map: () !global;
-      @each $key, $submap in $map {
-        $value: map-get(map-get($themes, $theme), '#{$key}');
-        $theme-map: map-merge($theme-map, ($key: $value)) !global;
-      }
-
-      @content;
-      $theme-map: null !global;
-    }
-
-  }
-}
-
-@function themed($key) {
-  @return map-get($theme-map, $key);
-}

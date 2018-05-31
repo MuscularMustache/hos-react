@@ -15,21 +15,10 @@ body {
 
 .container {
   // currently vertical
-  background: $gradient-top;
-  background: -moz-linear-gradient(top, $gradient-top 0%, $gradient-bottom 100%);
-  background: -webkit-gradient(left top, left bottom, color-stop(0%, $gradient-top), color-stop(100%, $gradient-bottom));
-  background: -webkit-linear-gradient(top, $gradient-top 0%, $gradient-bottom 100%);
-  background: -o-linear-gradient(top, $gradient-top 0%, $gradient-bottom 100%);
-  background: -ms-linear-gradient(top, $gradient-top 0%, $gradient-bottom 100%);
-  background: linear-gradient(to bottom, $gradient-top 0%, $gradient-bottom 100%);
+  @include gradient($gradient-top, $gradient-bottom);
+
   @include themify($themes) {
-    background: themed('gradientTop');
-    background: -moz-linear-gradient(top, themed('gradientTop') 0%, themed('gradientBottom') 100%);
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, themed('gradientTop')), color-stop(100%, themed('gradientBottom')));
-    background: -webkit-linear-gradient(top, themed('gradientTop') 0%, themed('gradientBottom') 100%);
-    background: -o-linear-gradient(top, themed('gradientTop') 0%, themed('gradientBottom') 100%);
-    background: -ms-linear-gradient(top, themed('gradientTop') 0%, themed('gradientBottom') 100%);
-    background: linear-gradient(to bottom, themed('gradientTop') 0%, themed('gradientBottom') 100%);
+    @include gradient(themed('gradientTop'), themed('gradientBottom'));
   }
   position: absolute;
   width: 100%;
