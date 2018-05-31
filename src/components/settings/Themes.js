@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
+import ThemeButton from './ThemeButton';
 import CurrentUser from '../../queries/CurrentUser';
 import SetTheme from '../../mutations/SetTheme';
 
@@ -14,14 +15,15 @@ class Themes extends Component {
     });
   }
   render() {
+    const activeTheme = this.props.theme;
     return (
       <div className="themes">
         <h2>Themes</h2>
         <div className="flex-row between mb">
-          <a className="theme-btn default" onClick={() => this.onSetTheme('default')}>default</a>
-          <a className="theme-btn green-blue" onClick={() => this.onSetTheme('green-blue')}>blue</a>
-          <a className="theme-btn orange-magenta" onClick={() => this.onSetTheme('orange-magenta')}>orange/pink</a>
-          <a className="theme-btn blue-pink" onClick={() => this.onSetTheme('blue-pink')}>other1</a>
+          <ThemeButton activeTheme={activeTheme} buttonTheme="default" onSetTheme={() => this.onSetTheme('default')} />
+          <ThemeButton activeTheme={activeTheme} buttonTheme="green-blue" onSetTheme={() => this.onSetTheme('green-blue')} />
+          <ThemeButton activeTheme={activeTheme} buttonTheme="orange-magenta" onSetTheme={() => this.onSetTheme('orange-magenta')} />
+          <ThemeButton activeTheme={activeTheme} buttonTheme="blue-pink" onSetTheme={() => this.onSetTheme('blue-pink')} />
         </div>
       </div>
     );
