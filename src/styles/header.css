@@ -1,11 +1,15 @@
 .app-header {
   width: 250px;
   text-align: center;
-  margin: 40px auto; }
-  .app-header img {
-    max-width: 100%; }
+  margin: 40px auto;
+  transition: .4s; }
   .app-header .logo-hat {
     width: 81px;
+    height: 51px;
     margin-bottom: 10px; }
   .app-header .logo-text {
-    width: 248px; }
+    width: 248px;
+    height: 36px; }
+
+[class$="container "] .app-header {
+  margin: 100px auto 40px; }

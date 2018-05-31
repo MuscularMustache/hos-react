@@ -159,6 +159,7 @@ textarea, .standard-input {
 
 .content {
   margin: 0 10%;
+  animation: contentFade 0.6s;
   h2 {
     font-weight: 400;
     text-align: center;
@@ -191,5 +192,17 @@ textarea, .standard-input {
   }
   &.mb {
     margin-bottom: 20px;
+  }
+}
+
+@-webkit-keyframes contentFade {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

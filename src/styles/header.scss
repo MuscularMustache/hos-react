@@ -2,14 +2,20 @@
   width: 250px;
   text-align: center;
   margin: 40px auto;
-  img {
-    max-width: 100%;
-  }
+  transition: .4s;
   .logo-hat {
     width: 81px;
+    height: 51px;
     margin-bottom: 10px;
   }
   .logo-text {
     width: 248px;
+    height: 36px;
+  }
+}
+
+[class$="container "] {
+  .app-header {
+    margin: 100px auto 40px;
   }
 }
