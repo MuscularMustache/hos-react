@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import LoadingIndicator from '../LoadingIndicator';
 import ListCreate from './ListCreate';
 import Menu from '../menu/Menu';
+import { AppProvider, AppContext } from '../AppProvider';
 import FetchLists from '../../queries/FetchLists';
 import ToggleList from '../../mutations/ToggleList';
 import userIcon from '../../assets/images/icons/list_icon_user.svg';
@@ -31,7 +32,8 @@ class ListGroup extends Component {
   }
 
   renderLists() {
-    // TODO break this into its own component
+    const message = 'For these changes to take effect, please reset game';
+
     if (_.get(this.props, 'data.error.message')) {
       return <p>There was an error retrieving the lists</p>;
     }
@@ -41,14 +43,23 @@ class ListGroup extends Component {
     }
 
     return this.props.data.lists.map(({ id, title, pullForGame }) => (
-      <li key={id} className="collection-item">
-        <button onClick={() => this.onToggleList(id)} className={pullForGame ? 'active' : 'inactive'}>
-          <img src={pullForGame ? userIconActive : userIcon} className="list-icon" alt="user icon" />
-        </button>
-        <Link to={`lists/${id}`}>
-          {title}
-        </Link>
-      </li>
+      <AppContext.Consumer key={id}>
+        {context => (
+          <li className="collection-item">
+            <button onClick={() => this.onToggleList(id)} className={pullForGame ? 'active' : 'inactive'}>
+              {/* eslint-disable-next-line react/jsx-no-bind */}
+              <span onClick={context.updateMessage.bind(AppProvider, message)}>
+                <img src={pullForGame ? userIconActive : userIcon} className="list-icon" alt="user icon" />
+              </span>
+            </button>
+            <Link to={`lists/${id}`}>
+              <span onClick={context.hideSnackbar}>
+                {title}
+              </span>
+            </Link>
+          </li>
+        )}
+      </AppContext.Consumer>
     ));
   }
 
