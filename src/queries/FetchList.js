@@ -6,6 +6,7 @@ export default gql`
     list(id: $id) {
       id
       title
+      pullForGame
       consequences {
         id
         content

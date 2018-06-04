@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
-import { graphql } from 'react-apollo';
+import { graphql, compose } from 'react-apollo';
 import { Link } from 'react-router-dom';
 import FetchList from '../../queries/FetchList';
 import FetchLists from '../../queries/FetchLists';
 import DeleteList from '../../mutations/DeleteList';
+import ToggleList from '../../mutations/ToggleList';
 import ConsequenceList from '../consequences/ConsequenceList';
 import ConsequenceCreate from '../consequences/ConsequenceCreate';
 import LoadingIndicator from '../LoadingIndicator';
+import ListToggle from './ListToggle';
 import Menu from '../menu/Menu';
+import { AppProvider, AppContext } from '../AppProvider';
+import '../../styles/list-detail.css';
 
 class ListDetail extends Component {
   constructor(props) {
@@ -20,7 +24,7 @@ class ListDetail extends Component {
     // eslint-disable-next-line no-alert, no-undef
     const confirmed = window.confirm(`Are you sure you want to delete the ${title} list?`);
     if (!confirmed) { return; }
-    this.props.mutate({
+    this.props.DeleteList({
       variables: { id },
       refetchQueries: [{
         query: FetchLists,
@@ -31,6 +35,18 @@ class ListDetail extends Component {
     });
   }
 
+  onToggleList(id) {
+    this.props.ToggleList({
+      variables: { id },
+      refetchQueries: [{
+        query: FetchList,
+        variables: { id }
+      }]
+    }).catch(() => {
+      // gotta handle errors - I should be doing this everywhere
+    });
+  }
+
   render() {
     const { list } = this.props.data;
 
@@ -38,7 +54,20 @@ class ListDetail extends Component {
 
     return (
       <div className="content">
-        <h2>{list.title}</h2>
+        <header className="flex-row mb">
+          <AppContext.Consumer>
+            {context => (
+              <ListToggle
+                pullForGame={list.pullForGame}
+                AppProvider={AppProvider}
+                context={context}
+                onToggleList={() => this.onToggleList(list.id)}
+              />
+            )}
+          </AppContext.Consumer>
+
+          <h2>{list.title}</h2>
+        </header>
         <ConsequenceList
           consequences={list.consequences}
           refetchConequences={() => this.props.data.refetch()}
@@ -59,6 +88,10 @@ class ListDetail extends Component {
   }
 }
 
-export default graphql(DeleteList)(graphql(FetchList, {
-  options: props => ({ variables: { id: props.match.params.id } })
-})(ListDetail));
+export default compose(
+  graphql(ToggleList, { name: 'ToggleList' }),
+  graphql(DeleteList, { name: 'DeleteList' }),
+  graphql(FetchList, {
+    options: props => ({ variables: { id: props.match.params.id } })
+  })
+)(ListDetail);

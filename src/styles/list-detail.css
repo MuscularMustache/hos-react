@@ -1,0 +1,5 @@
+[class*="lists/"] .content header.flex-row {
+  border-top: 1px solid white;
+  justify-content: center;
+  margin: -20px 0 20px;
+  padding-top: 20px; }
