@@ -1,0 +1,16 @@
+.list-toggle-btn {
+  line-height: 32px; }
+  .list-toggle-btn img {
+    width: 32px;
+    height: 32px; }
+  .list-toggle-btn + a, .list-toggle-btn + h2 {
+    font-size: 18px;
+    display: inline-block;
+    line-height: 32px;
+    margin: 0 0 0 15px;
+    vertical-align: top;
+    text-decoration: none; }
+  .list-toggle-btn.inactive {
+    opacity: .5; }
+    .list-toggle-btn.inactive + h2, .list-toggle-btn.inactive + a {
+      opacity: .5; }

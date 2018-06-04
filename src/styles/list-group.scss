@@ -2,28 +2,8 @@
 
 .collection {
   .collection-item {
-    // margin-bottom: 20px;
     width: 80%;
     margin: 0 auto 20px;
-    img {
-      width: 32px;
-      height: 32px;
-    }
-    button, a {
-      font-size: 18px;
-      display: inline-block;
-      line-height: 32px;
-      margin-left: 15px;
-      vertical-align: top;
-      text-decoration: none;
-      &.inactive {
-        opacity: .5;
-        + a {
-          opacity: .5;
-          text-decoration: none;
-        }
-      }
-    }
   }
 }
 

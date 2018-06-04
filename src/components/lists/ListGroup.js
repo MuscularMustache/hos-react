@@ -5,11 +5,10 @@ import { Link } from 'react-router-dom';
 import LoadingIndicator from '../LoadingIndicator';
 import ListCreate from './ListCreate';
 import Menu from '../menu/Menu';
+import ListToggle from './ListToggle';
 import { AppProvider, AppContext } from '../AppProvider';
 import FetchLists from '../../queries/FetchLists';
 import ToggleList from '../../mutations/ToggleList';
-import userIcon from '../../assets/images/icons/list_icon_user.svg';
-import userIconActive from '../../assets/images/icons/list_icon_user_checked.svg';
 import '../../styles/list-group.css';
 
 class ListGroup extends Component {
@@ -26,14 +25,12 @@ class ListGroup extends Component {
         query: FetchLists,
         variables: { userId: this.props.userId }
       }]
-    }).catch(res => {
-        // gotta handle errors - I should be doing this everywhere
-      });
+    }).catch(() => {
+      // gotta handle errors - I should be doing this everywhere
+    });
   }
 
   renderLists() {
-    const message = 'For these changes to take effect, please reset game';
-
     if (_.get(this.props, 'data.error.message')) {
       return <p>There was an error retrieving the lists</p>;
     }
@@ -46,12 +43,12 @@ class ListGroup extends Component {
       <AppContext.Consumer key={id}>
         {context => (
           <li className="collection-item">
-            <button onClick={() => this.onToggleList(id)} className={pullForGame ? 'active' : 'inactive'}>
-              {/* eslint-disable-next-line react/jsx-no-bind */}
-              <span onClick={context.updateMessage.bind(AppProvider, message)}>
-                <img src={pullForGame ? userIconActive : userIcon} className="list-icon" alt="user icon" />
-              </span>
-            </button>
+            <ListToggle
+              pullForGame={pullForGame}
+              AppProvider={AppProvider}
+              context={context}
+              onToggleList={() => this.onToggleList(id)}
+            />
             <Link to={`lists/${id}`}>
               <span onClick={context.hideSnackbar}>
                 {title}
