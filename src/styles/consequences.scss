@@ -1,3 +1,58 @@
+@import "variables";
+
+.consequence-list {
+  margin-bottom: 70px;
+  .consequence {
+    position: relative;
+    min-height: 36px;
+    &.open, &.closed {
+      .consequence-content, .actions {
+        transition: .25s;
+      }
+    }
+    &:last-child .consequence-content {
+      border-bottom: 1px solid rgba(255,255,255,0.5);
+    }
+  }
+  .consequence-content {
+    background: rgba(255,255,255,.08);
+    border-top: 1px solid rgba(255,255,255,0.5);
+    position: relative;
+    display: block;
+    text-align: center;
+    padding: 10px 25px;
+  }
+  .actions {
+    position: absolute;
+    height: 100%;
+    left: 0;
+    right: 100%;
+    bottom: 0;
+    top: 0;
+    > span {
+      width: 100%;
+      height: 100%;
+      color: white;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .delete {
+      background: $red;
+    }
+    .edit {
+      background: white;
+      i {
+        color: $tertiary;
+        @include themify($themes) {
+          color: themed('tertiary');
+        }
+      }
+    }
+  }
+}
+
 .add-consequence {
   .add-content {
     height: 240px;
