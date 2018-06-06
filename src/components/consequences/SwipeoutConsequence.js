@@ -35,16 +35,13 @@ class SwipeoutConsequence extends Component {
   }
 
   slideEnd() {
-    // console.log(this.state.left);
     if (this.state.left >= 120) {
-      // console.log('uhh?');
       this.setState({
         left: 120,
         currentStatus: 'open',
         initStatus: 'open'
       });
     } else {
-      // console.log('how the fuck is this called?');
       this.setState({
         left: 0,
         currentStatus: 'closed',
@@ -80,7 +77,8 @@ class SwipeoutConsequence extends Component {
               onClick={() => {
                 this.props.mutate({ variables: { id } }).then(() => {
                   this.setState({ left: -400 });
-                  // not sure if this is worth it, might take longer than css transition to load
+                  // NOTE: not sure if this is worth it, might take longer than css transition to load
+                  // maybe check out predictive ui stuff
                   setTimeout(() => {
                     this.props.refetchConequences();
                   }, 200);
