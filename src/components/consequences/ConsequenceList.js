@@ -1,6 +1,5 @@
 import React from 'react';
-import { graphql } from 'react-apollo';
-import DeleteConsequence from '../../mutations/DeleteConsequence';
+import SwipeoutConsequence from './SwipeoutConsequence';
 import '../../styles/consequences.css';
 
 const ConsequenceList = props => {
@@ -10,22 +9,17 @@ const ConsequenceList = props => {
     );
   }
   return (
-    <ul className="collection">
+    <ul className="consequence-list">
       {props.consequences.map(({ id, content }) => (
-        <li key={id} className="collection-item">
-          <i
-            className="material-icons"
-            onClick={() => {
-              props.mutate({ variables: { id } }).then(() => props.refetchConequences());
-            }}
-          >
-            delete_forever
-          </i>
-          {content}
-        </li>
+        <SwipeoutConsequence
+          key={id}
+          id={id}
+          content={content}
+          refetchConequences={() => props.refetchConequences()}
+        />
       ))}
     </ul>
   );
 };
 
-export default graphql(DeleteConsequence)(ConsequenceList);
+export default ConsequenceList;

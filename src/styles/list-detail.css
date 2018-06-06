@@ -1,5 +1,23 @@
-[class*="lists/"] .content header.flex-row {
-  border-top: 1px solid white;
-  justify-content: center;
-  margin: -20px 0 20px;
-  padding-top: 20px; }
+[class*="lists/"] {
+  overflow-x: hidden; }
+  [class*="lists/"] .content {
+    margin: 0; }
+    [class*="lists/"] .content header.flex-row {
+      border-top: 1px solid white;
+      justify-content: center;
+      margin: -20px 10% 20px;
+      padding-top: 20px; }
+    [class*="lists/"] .content .no-data {
+      margin: 40px 10% 20px; }
+    [class*="lists/"] .content .menu-wrapper .hidden + .menu-btn {
+      background: white;
+      color: #8963e7;
+      box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.5); }
+      .theme-default [class*="lists/"] .content .menu-wrapper .hidden + .menu-btn {
+        color: #8963e7; }
+      .theme-orange-magenta [class*="lists/"] .content .menu-wrapper .hidden + .menu-btn {
+        color: #c13aa1; }
+      .theme-green-blue [class*="lists/"] .content .menu-wrapper .hidden + .menu-btn {
+        color: #1ac5eb; }
+      .theme-blue-pink [class*="lists/"] .content .menu-wrapper .hidden + .menu-btn {
+        color: #e474b8; }

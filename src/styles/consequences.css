@@ -1,3 +1,49 @@
+.consequence-list {
+  margin-bottom: 70px; }
+  .consequence-list .consequence {
+    position: relative;
+    min-height: 36px; }
+    .consequence-list .consequence.open .consequence-content, .consequence-list .consequence.open .actions, .consequence-list .consequence.closed .consequence-content, .consequence-list .consequence.closed .actions {
+      transition: .25s; }
+    .consequence-list .consequence:last-child .consequence-content {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.5); }
+  .consequence-list .consequence-content {
+    background: rgba(255, 255, 255, 0.08);
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    position: relative;
+    display: block;
+    text-align: center;
+    padding: 10px 25px; }
+  .consequence-list .actions {
+    position: absolute;
+    height: 100%;
+    left: 0;
+    right: 100%;
+    bottom: 0;
+    top: 0; }
+    .consequence-list .actions > span {
+      width: 100%;
+      height: 100%;
+      color: white;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+    .consequence-list .actions .delete {
+      background: #D04444; }
+    .consequence-list .actions .edit {
+      background: white; }
+      .consequence-list .actions .edit i {
+        color: #8963e7; }
+        .theme-default .consequence-list .actions .edit i {
+          color: #8963e7; }
+        .theme-orange-magenta .consequence-list .actions .edit i {
+          color: #c13aa1; }
+        .theme-green-blue .consequence-list .actions .edit i {
+          color: #1ac5eb; }
+        .theme-blue-pink .consequence-list .actions .edit i {
+          color: #e474b8; }
+
 .add-consequence .add-content {
   height: 240px; }
   .add-consequence .add-content textarea {

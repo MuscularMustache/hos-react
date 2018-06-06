@@ -1,10 +1,25 @@
-// @import 'variables';
+@import 'variables';
 
-[class*="lists/"] .content {
-  header.flex-row {
-    border-top: 1px solid white;
-    justify-content: center;
-    margin: -20px 0 20px;
-    padding-top: 20px;
+[class*="lists/"] {
+  overflow-x: hidden;
+  .content {
+    margin: 0;
+    header.flex-row {
+      border-top: 1px solid white;
+      justify-content: center;
+      margin: -20px 10% 20px;
+      padding-top: 20px;
+    }
+    .no-data {
+      margin: 40px 10% 20px;
+    }
+    .menu-wrapper .hidden + .menu-btn {
+      background: white;
+      color: $tertiary;
+      @include themify($themes) {
+        color: themed('tertiary');
+      }
+      box-shadow: $shadow;
+    }
   }
 }
