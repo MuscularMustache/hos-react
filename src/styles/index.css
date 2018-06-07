@@ -63,6 +63,9 @@ body * {
 
 button {
   -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   background: transparent;
   outline: none;
   border: 0;
@@ -133,9 +136,9 @@ button {
     .theme-blue-pink .submit-btn .material-icons {
       color: #e474b8; }
   .submit-btn.cancel {
-    color: #D04444; }
+    color: #E56666; }
     .submit-btn.cancel .material-icons {
-      color: #D04444; }
+      color: #E56666; }
 
 ul {
   list-style: none;
@@ -150,11 +153,13 @@ ul {
     background: transparent;
     border: none;
     border-bottom: 2px solid white;
+    border-radius: 0;
     box-sizing: border-box;
     color: white;
     height: 30px;
     margin-bottom: 0;
     outline: none;
+    padding-left: 0;
     width: 100%; }
     .input-field input + label {
       color: white;

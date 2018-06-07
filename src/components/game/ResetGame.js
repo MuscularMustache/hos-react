@@ -9,12 +9,12 @@ const ResetGame = props => {
   const { id } = props.game[0];
 
   return (
-    <button
+    <a
       className="standard-btn"
       onClick={() => { props.mutate({ variables: { id } }).then(() => props.refetchGame()); }}
     >
       <span>Reset Game</span>
-    </button>
+    </a>
   );
 };
 

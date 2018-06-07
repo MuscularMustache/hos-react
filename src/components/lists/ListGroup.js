@@ -36,7 +36,12 @@ class ListGroup extends Component {
     }
 
     if (!this.props.data.lists.length) {
-      return <h4 className="no-data">There are no lists. Click on the options button below start adding them.</h4>;
+      return (
+        <div>
+          <h4 className="no-data">There are no lists. Click on the options button below start adding them</h4>
+          <h4 className="no-data">After creating a new list, tap on the icon to enable/disable for games</h4>
+        </div>
+      );
     }
 
     return this.props.data.lists.map(({ id, title, pullForGame }) => (
@@ -75,7 +80,7 @@ class ListGroup extends Component {
           closeAddList={() => this.setState({ addListOpen: false })}
         />
         <Menu highlight={!this.props.data.lists.length}>
-          <button icon="add" className="standard-btn" onClick={() => this.setState({ addListOpen: true })}><span>create new list</span></button>
+          <a icon="add" className="standard-btn" onClick={() => this.setState({ addListOpen: true })}><span>create new list</span></a>
           <Link icon="arrow_back" className="standard-btn" to="/"><span>back to menu</span></Link>
         </Menu>
       </div>

@@ -50,14 +50,14 @@ class ConsequenceCreate extends Component {
             {this.state.errors.map(error => <p className="error" key={error}>{error}</p>)}
           </div>
           <div className="flex-row">
-            <button className="submit-btn cancel no-select" onClick={() => this.cancel()}>
+            <a className="submit-btn cancel no-select" onClick={() => this.cancel()}>
               <i className="material-icons">close</i>
               cancel
-            </button>
-            <button className="submit-btn no-select" onClick={() => this.onSubmit()}>
+            </a>
+            <a className="submit-btn no-select" onClick={() => this.onSubmit()}>
               add
               <i className="material-icons">add</i>
-            </button>
+            </a>
           </div>
         </div>
       </div>

@@ -72,10 +72,9 @@
     .menu-items li .standard-btn {
       border: none;
       background: transparent;
-      display: flex;
-      justify-content: flex-end;
       padding: 0 60px 0 0;
       margin: 0 -60px 0 0;
+      width: auto;
       z-index: 5; }
       .menu-items li .standard-btn:active {
         color: white; }

@@ -1,5 +1,5 @@
 .consequence-list {
-  margin-bottom: 70px; }
+  margin-bottom: 80px; }
   .consequence-list .consequence {
     position: relative;
     min-height: 36px; }
@@ -30,7 +30,7 @@
       align-items: center;
       justify-content: center; }
     .consequence-list .actions .delete {
-      background: #D04444; }
+      background: #E56666; }
     .consequence-list .actions .edit {
       background: white; }
       .consequence-list .actions .edit i {
