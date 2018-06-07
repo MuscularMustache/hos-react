@@ -89,7 +89,7 @@ class SwipeoutConsequence extends Component {
             </span>
             <span
               className="edit"
-              onClick={() => window.confirm('Editing')} // eslint-disable-line no-alert, no-undef
+              onClick={() => window.confirm('Edit consequence under construction')} // eslint-disable-line no-alert, no-undef
             >
               <i className="material-icons">edit</i>
             </span>

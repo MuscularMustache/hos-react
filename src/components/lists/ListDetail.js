@@ -66,7 +66,7 @@ class ListDetail extends Component {
             )}
           </AppContext.Consumer>
 
-          <h2>{list.title}</h2>
+          <h3>{list.title}</h3>
         </header>
         <ConsequenceList
           consequences={list.consequences}

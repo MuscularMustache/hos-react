@@ -187,9 +187,16 @@ textarea, .standard-input {
   margin: 0 10%;
   animation: contentFade 0.6s; }
   .content h2 {
+    border-bottom: 1px solid white;
+    display: table;
+    font-size: 22px;
     font-weight: 400;
+    margin: 0 auto 20px;
+    padding: 0 20px 5px;
     text-align: center;
-    font-size: 22px; }
+    text-transform: lowercase; }
+  .content h3 {
+    font-weight: 400; }
 
 .hidden {
   display: none !important; }

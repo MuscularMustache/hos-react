@@ -166,9 +166,17 @@ textarea, .standard-input {
   margin: 0 10%;
   animation: contentFade 0.6s;
   h2 {
-    font-weight: 400;
-    text-align: center;
+    border-bottom: 1px solid white;
+    display: table; // NOTE: this is weird AF but its the only way it displays as expected
     font-size: 22px;
+    font-weight: 400;
+    margin: 0 auto 20px;
+    padding: 0 20px 5px;
+    text-align: center;
+    text-transform: lowercase;
+  }
+  h3 {
+    font-weight: 400;
   }
 }
 

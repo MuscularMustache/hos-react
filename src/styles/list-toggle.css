@@ -3,7 +3,7 @@
   .list-toggle-btn img {
     width: 32px;
     height: 32px; }
-  .list-toggle-btn + a, .list-toggle-btn + h2 {
+  .list-toggle-btn + a, .list-toggle-btn + h3 {
     font-size: 18px;
     display: inline-block;
     line-height: 32px;

@@ -17,10 +17,10 @@ class Settings extends Component {
   render() {
     return (
       <div className="content">
-        <h2>Settings</h2>
-        <a className="standard-btn" onClick={() => this.onLogoutClick()}>logout</a>
+        {/* <h2>Settings</h2> */}
         <Themes userId={this.props.userId} theme={_.get(this.props, 'data.user.theme')} />
-        <Link className="standard-btn" to="/">Back</Link>
+        <a className="standard-btn" onClick={() => this.onLogoutClick()}>logout</a>
+        <Link className="standard-btn" to="/">back</Link>
       </div>
     );
   }
