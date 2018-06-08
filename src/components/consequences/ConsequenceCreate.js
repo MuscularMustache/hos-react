@@ -11,29 +11,28 @@ class ConsequenceCreate extends Component {
   }
 
   onSubmit() {
-    // If adding consequence from game
-    // TODO: refactor this... its soooooo wet
+    // When adding consequence from game
     if (!this.props.listId) {
       /* eslint-disable no-undef */
-      const activeGame = JSON.parse(localStorage.getItem('activeGame'));
-      const tempConsequences = JSON.parse(localStorage.getItem('tempConsequences')) || [];
-
       if (!this.state.content) {
         this.setState({ errors: ['Consequence cannot be blank'] });
         return;
       }
 
-      activeGame.push({ content: this.state.content });
-      tempConsequences.push({ content: this.state.content });
+      const localItems = ['activeGame', 'tempConsequences'];
 
-      localStorage.setItem('activeGame', JSON.stringify(activeGame));
-      localStorage.setItem('tempConsequences', JSON.stringify(tempConsequences));
+      localItems.forEach(item => {
+        const arr = JSON.parse(localStorage.getItem(item)) || [];
+        arr.push({ content: this.state.content });
+        localStorage.setItem(item, JSON.stringify(arr));
+      });
 
       this.setState({ content: '', errors: [] });
       this.props.closeAddConsequence();
       return;
       /* eslint-enable no-undef */
     }
+
     this.props.mutate({
       variables: {
         content: this.state.content,
