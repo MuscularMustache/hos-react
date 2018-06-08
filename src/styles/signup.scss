@@ -38,4 +38,15 @@
       color: #8A63E7;
     }
   }
+
+  .login-form {
+    margin-top: -20px;
+  }
+
+  .login-form .input-field {
+    margin-bottom: 30px;
+    &.confirm ~ .standard-btn {
+      margin: 40px 0 10px;
+    }
+  }
 }

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class AuthForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { email: '', password: '' };
+    this.state = { email: '', password: '', confirm: '' };
   }
 
   onSubmit(event) {
@@ -11,6 +11,22 @@ class AuthForm extends Component {
 
     const { email, password } = this.state;
     this.props.onSubmit({ email, password });
+  }
+
+  hasConfirm() {
+    if (this.props.formType === 'sign up') {
+      return (
+        <div className="input-field confirm">
+          <input
+            className={this.state.confirm ? 'has-text' : 'empty'}
+            type="password"
+            value={this.state.confirm}
+            onChange={e => this.setState({ confirm: e.target.value })}
+          />
+          <label>confirm password</label>
+        </div>
+      );
+    }
   }
 
   // the bind method is only used because we're using a preventDefault because the delayed invoction
@@ -38,6 +54,8 @@ class AuthForm extends Component {
             />
             <label>password</label>
           </div>
+
+          {this.hasConfirm()}
 
           <div className="errors">
             {this.props.errors.map(error => <div key={error}>{error}</div>)}

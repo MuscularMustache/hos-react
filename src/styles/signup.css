@@ -20,3 +20,9 @@
     color: #8A63E7; }
     .container.signup .login-link a {
       color: #8A63E7; }
+  .container.signup .login-form {
+    margin-top: -20px; }
+  .container.signup .login-form .input-field {
+    margin-bottom: 30px; }
+    .container.signup .login-form .input-field.confirm ~ .standard-btn {
+      margin: 40px 0 10px; }
