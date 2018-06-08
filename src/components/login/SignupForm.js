@@ -34,13 +34,17 @@ class SignupForm extends Component {
     });
   }
 
+  modalPopup(strategy) {
+    window.confirm(`${strategy} hasn't been implemented yet. Use regular login. I don't even care if you use a fake email, its a local instance that I'm going to clear out anyways.`);
+  }
+
   // since we're maping over errors, we have to pass in errors when calling AuthForm
   render() {
     return (
       <div className="login-content">
         <AuthForm errors={this.state.errors} onSubmit={this.onSubmit.bind(this)} formType="sign up" />
-        <img src={facebookIcon} className="login-icon" alt="facebook login" />
-        <img src={googleIcon} className="login-icon" alt="google login" />
+        <img src={facebookIcon} className="login-icon" onClick={() => this.modalPopup('Facebook')} alt="fb login" />
+        <img src={googleIcon} className="login-icon" onClick={() => this.modalPopup('Google')} alt="google login" />
         <p className="login-link">Already have an account? <Link to="/login">Login</Link></p>
       </div>
     );

@@ -27,6 +27,7 @@ class LoginForm extends Component {
     }
   }
 
+
   onSubmit({ email, password }) {
     this.props.mutate({
       variables: { email, password },
@@ -38,13 +39,17 @@ class LoginForm extends Component {
     });
   }
 
+  modalPopup(strategy) {
+    window.confirm(`${strategy} hasn't been implemented yet. Use regular login. I don't even care if you use a fake email, its a local instance that I'm going to clear out anyways.`);
+  }
+
   // NOTE: very similar to signup form, look into refactoring these 2 components
   render() {
     return (
       <div className="login-content">
         <AuthForm errors={this.state.errors} onSubmit={this.onSubmit.bind(this)} formType="login" />
-        <img src={facebookIcon} className="login-icon" alt="facebook login" />
-        <img src={googleIcon} className="login-icon" alt="google login" />
+        <img src={facebookIcon} className="login-icon" onClick={() => this.modalPopup('Facebook')} alt="fb login" />
+        <img src={googleIcon} className="login-icon" onClick={() => this.modalPopup('Google')} alt="google login" />
         <p className="login-link">Don&apos;t have an account? <Link to="/signup">Sign Up</Link></p>
       </div>
     );
