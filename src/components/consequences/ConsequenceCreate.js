@@ -11,6 +11,29 @@ class ConsequenceCreate extends Component {
   }
 
   onSubmit() {
+    // If adding consequence from game
+    // TODO: refactor this... its soooooo wet
+    if (!this.props.listId) {
+      /* eslint-disable no-undef */
+      const activeGame = JSON.parse(localStorage.getItem('activeGame'));
+      const tempConsequences = JSON.parse(localStorage.getItem('tempConsequences')) || [];
+
+      if (!this.state.content) {
+        this.setState({ errors: ['Consequence cannot be blank'] });
+        return;
+      }
+
+      activeGame.push({ content: this.state.content });
+      tempConsequences.push({ content: this.state.content });
+
+      localStorage.setItem('activeGame', JSON.stringify(activeGame));
+      localStorage.setItem('tempConsequences', JSON.stringify(tempConsequences));
+
+      this.setState({ content: '', errors: [] });
+      this.props.closeAddConsequence();
+      return;
+      /* eslint-enable no-undef */
+    }
     this.props.mutate({
       variables: {
         content: this.state.content,
@@ -40,7 +63,7 @@ class ConsequenceCreate extends Component {
         <div className="bg-cover" />
 
         <div className="add-content">
-          <h2>Create New Consequence</h2>
+          <h2>{`${!this.props.listId ? 'Add Consequence to game' : 'Create New Consequence'}`}</h2>
           <textarea
             onChange={event => this.setState({ content: event.target.value })}
             value={this.state.content}

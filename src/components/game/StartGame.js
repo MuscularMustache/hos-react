@@ -4,12 +4,19 @@ import { Link } from 'react-router-dom';
 import { graphql } from 'react-apollo';
 import ResetGame from './ResetGame';
 import ConsequenceChoice from './ConsequenceChoice';
+import ConsequenceCreate from '../consequences/ConsequenceCreate';
 import Menu from '../menu/Menu';
 import mutation from '../../mutations/StartGame';
 import FetchGame from '../../queries/FetchGame';
 import '../../styles/game.css';
 
 class StartGame extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { addConsequenceOpen: false };
+  }
+
   // TODO: REFACTOR THIS - still looks like crap
   componentDidUpdate() {
     const { game, loading } = this.props.data;
@@ -36,7 +43,7 @@ class StartGame extends Component {
         query: FetchGame,
         variables: { userId }
       }]
-    }).catch(res => {
+    }).catch(() => {
       // gotta handle errors - I should be doing this everywhere
     });
   }
@@ -54,9 +61,13 @@ class StartGame extends Component {
     return (
       <div className="content">
         <ConsequenceChoice game={this.props.data.game} />
-
+        <ConsequenceCreate
+          isOpen={this.state.addConsequenceOpen}
+          closeAddConsequence={() => this.setState({ addConsequenceOpen: false })}
+        />
         <Menu>
           <ResetGame icon="sync" game={this.props.data.game} refetchGame={() => this.resetGame()} />
+          <a icon="add" className="standard-btn" onClick={() => this.setState({ addConsequenceOpen: true })}><span>add consequence</span></a>
           <Link icon="arrow_back" className="standard-btn" to="/"><span>back to menu</span></Link>
         </Menu>
       </div>
