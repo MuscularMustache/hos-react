@@ -97,10 +97,11 @@ class ConsequenceChoice extends Component {
     localStorage.removeItem('randomNumbers');
     /* eslint-enable no-undef */
 
-    this.setState({
-      unselectedConsequence: false,
-      activeConsequence: i
-    });
+    this.setState({ activeConsequence: i });
+
+    setTimeout(() => {
+      this.setState({ unselectedConsequence: false });
+    }, 10);
   }
 
   gameBoard() {
