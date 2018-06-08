@@ -9,6 +9,8 @@ import '../../styles/settings.css';
 
 class Settings extends Component {
   onLogoutClick() {
+    // NOTE: prevents mid game account switching errors
+    localStorage.clear(); // eslint-disable-line no-undef
     this.props.mutate({
       refetchQueries: [{ query: CurrentUser }]
     });
