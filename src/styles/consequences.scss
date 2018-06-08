@@ -6,7 +6,7 @@
     position: relative;
     min-height: 36px;
     &.open, &.closed {
-      .consequence-content, .actions {
+      .consequence-content, .actions, .hidden-message {
         transition: .25s;
       }
     }
@@ -22,11 +22,42 @@
     text-align: center;
     padding: 10px 25px;
   }
-  .actions {
+  .hidden-message {
+    background: white;
     position: absolute;
     height: 100%;
     left: 0;
     right: 100%;
+    bottom: 0;
+    top: 0;
+    overflow: hidden;
+    background: white;
+    span {
+      display: -webkit-flex;
+      display: -ms-flex;
+      display: flex;
+      align-items: center;
+      // justify-content: center;
+      white-space: nowrap;
+      padding-left: 20px;
+      height: 100%;
+      color: $tertiary;
+      @include themify($themes) {
+        color: themed('tertiary');
+      }
+      i {
+        color: $tertiary;
+        @include themify($themes) {
+          color: themed('tertiary');
+        }
+      }
+    }
+  }
+  .actions {
+    position: absolute;
+    height: 100%;
+    right: 0;
+    left: 100%;
     bottom: 0;
     top: 0;
     > span {

@@ -9,24 +9,25 @@ class SwipeoutConsequence extends Component {
     super(props);
 
     this.state = {
-      left: 0,
+      right: 0,
       currentStatus: 'closed',
       initStatus: 'closed'
     };
   }
 
-  slideRight(slide) {
-    const dist = slide.moveStatus.x;
-    this.setState({ left: this.state.initStatus === 'open' ? dist + 120 : dist });
+  slideLeft(slide) {
+    const dist = slide.moveStatus.x * -1;
+    this.setState({ right: this.state.initStatus === 'open' ? dist + 120 : dist });
   }
 
   // slide to close
-  slideLeft(slide) {
-    let dontSlide = slide.moveStatus.x < 0 && this.state.left === 0;
+  slideRight(slide) {
+    // let dontSlide = slide.moveStatus.x < 0 && this.state.right === 0;
+    let dontSlide;
     let dist = 0;
-    if (this.state.left <= 0) { dontSlide = true; }
+    // if (this.state.right <= 0) { dontSlide = true; }
     if (this.state.initStatus === 'open') { dist = 120; }
-    this.setState({ left: dontSlide ? 0 : slide.moveStatus.x + dist });
+    this.setState({ right: dontSlide ? 0 : (slide.moveStatus.x * -1) + dist });
   }
 
 
@@ -35,15 +36,15 @@ class SwipeoutConsequence extends Component {
   }
 
   slideEnd() {
-    if (this.state.left >= 120) {
+    if (this.state.right >= 120) {
       this.setState({
-        left: 120,
+        right: 120,
         currentStatus: 'open',
         initStatus: 'open'
       });
     } else {
       this.setState({
-        left: 0,
+        right: 0,
         currentStatus: 'closed',
         initStatus: 'closed'
       });
@@ -52,7 +53,7 @@ class SwipeoutConsequence extends Component {
 
   resetPosition() {
     this.setState({
-      left: 0,
+      right: 0,
       currentStatus: 'closed',
       initStatus: 'closed'
     });
@@ -71,12 +72,17 @@ class SwipeoutConsequence extends Component {
         onTap={() => this.resetPosition()}
       >
         <li className={`consequence no-select ${this.state.currentStatus}`}>
-          <div className="flex-row actions" style={{ right: `calc(100% - ${this.state.left}px)` }}>
+          <div className="hidden-message" style={{ right: `calc(100% - ${this.state.right * -1}px)` }}>
+            <span>
+              other fucking way <i className="material-icons">chevron_right</i>
+            </span>
+          </div>
+          <div className="flex-row actions" style={{ left: `calc(100% - ${this.state.right}px)` }}>
             <span
               className="delete"
               onClick={() => {
                 this.props.mutate({ variables: { id } }).then(() => {
-                  this.setState({ left: -400 });
+                  this.setState({ right: -400 });
                   // NOTE: not sure if this is worth it, might take longer than css transition to load
                   // maybe check out predictive ui stuff
                   setTimeout(() => {
@@ -94,7 +100,7 @@ class SwipeoutConsequence extends Component {
               <i className="material-icons">edit</i>
             </span>
           </div>
-          <div className="consequence-content no-select" style={{ left: `${this.state.left}px` }}>
+          <div className="consequence-content no-select" style={{ right: `${this.state.right}px` }}>
             {content}
           </div>
         </li>
