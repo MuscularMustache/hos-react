@@ -22,7 +22,7 @@ import registerServiceWorker from './registerServiceWorker';
 // NOTE: if i pass id back from requests
 // - dataIdFromObject will update data without having to re-request it
 const client = new ApolloClient({
-  link: new HttpLink({ uri: 'http://localhost:4000/graphql', credentials: 'include' }),
+  link: new HttpLink({ uri: 'http://192.168.1.240:4000/graphql', credentials: 'include' }),
   cache: new InMemoryCache(),
   dataIdFromObject: o => o.id
 });

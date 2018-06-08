@@ -50,8 +50,10 @@ class StartGame extends Component {
 
   // remove game and go back to menu - currently doesn't clear out cache and it probably should
   resetGame() {
-    // eslint-disable-next-line no-undef
+    /* eslint-disable no-undef */
     localStorage.removeItem('activeGame');
+    localStorage.removeItem('randomNumbers');
+    /* eslint-enable no-undef */
     this.props.history.push('/');
     this.props.data.refetch();
   }

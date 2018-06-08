@@ -10,19 +10,28 @@ class ConsequenceChoice extends Component {
     super(props);
     // when i used storedConsequences as the state then edited the state
     // - it cleared the consequence out immediately on click
+
+    /* eslint-disable no-undef */
+    const consequences = JSON.parse(localStorage.getItem('activeGame')) || [];
+    const randomNumbers = JSON.parse(localStorage.getItem('randomNumbers')) || [];
+    /* eslint-enable no-undef */
+
     this.state = {
-      consequences: [],
-      randomNumbers: [],
+      consequences,
+      randomNumbers,
       unselectedConsequence: false,
       activeConsequence: false,
       endGame: false
     };
+
+    if (randomNumbers.length) {
+      this.displayConsequences();
+    }
   }
 
   // TODO: REFACTOR THIS
   getRandomConsequences() {
-    // eslint-disable-next-line no-undef
-    const storedConsequences = JSON.parse(localStorage.getItem('activeGame'));
+    const storedConsequences = JSON.parse(localStorage.getItem('activeGame')); // eslint-disable-line no-undef
     const arr = [];
     let whileLength = 2;
 
@@ -44,6 +53,8 @@ class ConsequenceChoice extends Component {
 
     arr.sort((a, b) => b - a);
 
+    localStorage.setItem('randomNumbers', JSON.stringify(arr)); // eslint-disable-line no-undef
+
     this.setState({
       consequences: storedConsequences,
       randomNumbers: arr,
@@ -62,7 +73,7 @@ class ConsequenceChoice extends Component {
               onClick={() => { context.hideSnackbar(); this.selectConsequence(i); }}
               className={`game-consequence ${this.state.activeConsequence === i ? 'active' : ''}`}
             >
-              {consequences[i].content}
+              {consequences[i] ? consequences[i].content : 'fuck'}
             </li>
           )}
         </AppContext.Consumer>
@@ -82,6 +93,8 @@ class ConsequenceChoice extends Component {
     const storedConsequences = JSON.parse(localStorage.getItem('activeGame'));
     storedConsequences.splice(i, 1);
     localStorage.setItem('activeGame', JSON.stringify(storedConsequences));
+    // NOTE: this isn't how i want this to work
+    localStorage.removeItem('randomNumbers');
     /* eslint-enable no-undef */
 
     this.setState({
