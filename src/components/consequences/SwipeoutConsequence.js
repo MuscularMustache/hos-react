@@ -74,7 +74,7 @@ class SwipeoutConsequence extends Component {
         <li className={`consequence no-select ${this.state.currentStatus}`}>
           <div className="hidden-message" style={{ right: `calc(100% - ${this.state.right * -1}px)` }}>
             <span>
-              other fucking way <i className="material-icons">chevron_right</i>
+              {this.state.deleting ? 'cya nerd' : 'other fucking way'} <i className="material-icons">chevron_right</i>
             </span>
           </div>
           <div className="flex-row actions" style={{ left: `calc(100% - ${this.state.right}px)` }}>
@@ -82,7 +82,7 @@ class SwipeoutConsequence extends Component {
               className="delete"
               onClick={() => {
                 this.props.mutate({ variables: { id } }).then(() => {
-                  this.setState({ right: -400 });
+                  this.setState({ right: -400, deleting: true });
                   // NOTE: not sure if this is worth it, might take longer than css transition to load
                   // maybe check out predictive ui stuff
                   setTimeout(() => {
