@@ -13,24 +13,22 @@ class ConsequenceCreate extends Component {
   onSubmit() {
     // When adding consequence from game
     if (!this.props.listId) {
-      /* eslint-disable no-undef */
       if (!this.state.content) {
         this.setState({ errors: ['Consequence cannot be blank'] });
         return;
       }
 
       const localItems = ['activeGame', 'tempConsequences'];
-
+      /* eslint-disable no-undef */
       localItems.forEach(item => {
         const arr = JSON.parse(localStorage.getItem(item)) || [];
         arr.push({ content: this.state.content });
         localStorage.setItem(item, JSON.stringify(arr));
       });
-
+      /* eslint-enable no-undef */
       this.setState({ content: '', errors: [] });
       this.props.closeAddConsequence();
       return;
-      /* eslint-enable no-undef */
     }
 
     this.props.mutate({
