@@ -39,7 +39,7 @@ class ListGroup extends Component {
       return (
         <div>
           <h4 className="no-data">There are no lists. Click on the options button below start adding them</h4>
-          <h4 className="no-data">After creating a new list, tap on the icon to enable/disable for games</h4>
+          <h4 className="no-data">After creating a new list, tap on the icon to enable/disable for games or tap on the name to add consequences to your new list</h4>
         </div>
       );
     }

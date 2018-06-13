@@ -57,6 +57,10 @@
     margin-top: 60px;
     margin-bottom: 50px; }
 
+.container.game .loader + .hat-btn {
+  pointer-events: none;
+  opacity: .5; }
+
 .container.game .hat-btn {
   cursor: pointer;
   display: block;

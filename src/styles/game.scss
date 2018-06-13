@@ -78,6 +78,11 @@
     }
   }
 
+  .loader + .hat-btn {
+    pointer-events: none;
+    opacity: .5;
+  }
+
   .hat-btn {
     cursor: pointer;
     display: block;

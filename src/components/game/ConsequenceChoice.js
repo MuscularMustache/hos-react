@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import _ from 'lodash';
 import { graphql } from 'react-apollo';
 import EndGame from './EndGame';
 import HatButton from './HatButton';
+import LoadingIndicator from '../LoadingIndicator';
 import DeleteGame from '../../mutations/DeleteGame';
 import { AppProvider, AppContext } from '../AppProvider';
 
@@ -91,9 +93,13 @@ class ConsequenceChoice extends Component {
   }
 
   gameBoard() {
-    if (this.state.endGame) {
-      const { id } = this.props.game[0];
+    const id = _.get(this.props, 'game[0].id') || null;
 
+    if (!id) {
+      return <LoadingIndicator />;
+    }
+
+    if (this.state.endGame) {
       this.props.mutate({ variables: { id } });
       return <EndGame />;
     }
