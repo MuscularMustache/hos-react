@@ -7,6 +7,7 @@ export default gql`
       id
       title
       pullForGame
+      listType
       consequences {
         id
         content

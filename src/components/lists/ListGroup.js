@@ -44,7 +44,12 @@ class ListGroup extends Component {
       );
     }
 
-    return this.props.data.lists.map(({ id, title, pullForGame }) => (
+    return this.props.data.lists.map(({
+      id,
+      title,
+      pullForGame,
+      listType
+    }) => (
       <AppContext.Consumer key={id}>
         {context => (
           <li className="collection-item">
@@ -52,6 +57,7 @@ class ListGroup extends Component {
               pullForGame={pullForGame}
               AppProvider={AppProvider}
               context={context}
+              listType={listType}
               onToggleList={() => this.onToggleList(id)}
             />
             <Link to={`lists/${id}`}>

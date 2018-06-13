@@ -61,6 +61,7 @@ class ListDetail extends Component {
                 pullForGame={list.pullForGame}
                 AppProvider={AppProvider}
                 context={context}
+                listType={list.listType}
                 onToggleList={() => this.onToggleList(list.id)}
               />
             )}
