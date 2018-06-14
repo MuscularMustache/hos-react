@@ -66,8 +66,8 @@ class StartGame extends Component {
           closeAddConsequence={() => this.setState({ addConsequenceOpen: false })}
         />
         <Menu>
-          <ResetGame icon="sync" game={this.props.data.game} refetchGame={() => this.resetGame()} />
           <a icon="add" className="standard-btn" onClick={() => this.setState({ addConsequenceOpen: true })}><span>add consequence</span></a>
+          <ResetGame icon="sync" game={this.props.data.game} refetchGame={() => this.resetGame()} />
           <Link icon="arrow_back" className="standard-btn" to="/"><span>back to menu</span></Link>
         </Menu>
       </div>
