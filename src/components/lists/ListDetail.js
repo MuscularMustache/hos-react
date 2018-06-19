@@ -17,7 +17,11 @@ class ListDetail extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { addConsequenceOpen: false };
+    this.state = {
+      addConsequenceOpen: false,
+      content: '',
+      id: ''
+    };
   }
 
   onListDelete({ id, title }) {
@@ -47,6 +51,10 @@ class ListDetail extends Component {
     });
   }
 
+  editConsequence(id, content) {
+    this.setState({ id, content, addConsequenceOpen: true });
+  }
+
   render() {
     const { list } = this.props.data;
 
@@ -72,11 +80,14 @@ class ListDetail extends Component {
         <ConsequenceList
           consequences={list.consequences}
           refetchConequences={() => this.props.data.refetch()}
+          editConsequence={(id, content) => this.editConsequence(id, content)}
         />
         <ConsequenceCreate
           listId={list.id}
           isOpen={this.state.addConsequenceOpen}
-          closeAddConsequence={() => this.setState({ addConsequenceOpen: false })}
+          content={this.state.content}
+          editId={this.state.id}
+          closeAddConsequence={() => this.setState({ addConsequenceOpen: false, content: '', id: '' })}
         />
         <Menu highlight={!list.consequences.length}>
           <a icon="add" className="standard-btn" onClick={() => this.setState({ addConsequenceOpen: true })}><span>create new consequence</span></a>

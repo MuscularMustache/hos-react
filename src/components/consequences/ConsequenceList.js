@@ -18,6 +18,7 @@ const ConsequenceList = props => {
           key={id}
           id={id}
           content={content}
+          editConsequence={() => props.editConsequence(id, content)}
           refetchConequences={() => props.refetchConequences()}
         />
       ))}
