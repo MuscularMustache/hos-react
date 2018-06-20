@@ -62,6 +62,7 @@ class ConsequenceCreate extends Component {
   }
 
   editConsequence() {
+    // NOTE: the editconsequence and addConsequence mutation .then && .catch are identical, try to combine them
     this.props.EditConsequence({
       variables: {
         content: this.state.content,
@@ -107,7 +108,7 @@ class ConsequenceCreate extends Component {
               cancel
             </a>
             <a className="submit-btn no-select" onClick={() => this.onSubmit()}>
-              add
+              {this.props.editId ? 'edit' : 'add' }
               <i className="material-icons">add</i>
             </a>
           </div>

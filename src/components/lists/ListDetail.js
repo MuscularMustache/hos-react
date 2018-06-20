@@ -9,6 +9,7 @@ import ConsequenceList from '../consequences/ConsequenceList';
 import ConsequenceCreate from '../consequences/ConsequenceCreate';
 import LoadingIndicator from '../LoadingIndicator';
 import ListToggle from './ListToggle';
+import ListCreate from './ListCreate';
 import Menu from '../menu/Menu';
 import { AppProvider, AppContext } from '../AppProvider';
 import '../../styles/list-detail.css';
@@ -19,14 +20,16 @@ class ListDetail extends Component {
 
     this.state = {
       addConsequenceOpen: false,
+      addListOpen: false,
       content: '',
+      title: '',
       id: ''
     };
   }
 
   onListDelete({ id, title }) {
     // eslint-disable-next-line no-alert, no-undef
-    const confirmed = window.confirm(`Are you sure you want to delete the ${title} list?`);
+    const confirmed = window.confirm(`Are you sure you want to delete the "${title}" list?`);
     if (!confirmed) { return; }
     this.props.DeleteList({
       variables: { id },
@@ -36,6 +39,14 @@ class ListDetail extends Component {
       }]
     }).then(() => {
       this.props.history.push('/lists');
+    });
+  }
+
+  onListEdit({ id, title }) {
+    this.setState({
+      id,
+      title,
+      addListOpen: true
     });
   }
 
@@ -89,8 +100,15 @@ class ListDetail extends Component {
           editId={this.state.id}
           closeAddConsequence={() => this.setState({ addConsequenceOpen: false, content: '', id: '' })}
         />
+        <ListCreate
+          listId={list.id}
+          isOpen={this.state.addListOpen}
+          title={this.state.title}
+          closeAddList={() => this.setState({ addListOpen: false, title: '', id: '' })}
+        />
         <Menu highlight={!list.consequences.length}>
-          <a icon="add" className="standard-btn" onClick={() => this.setState({ addConsequenceOpen: true })}><span>create new consequence</span></a>
+          <a icon="add" className="standard-btn" onClick={() => this.setState({ addConsequenceOpen: true })}><span>create consequence</span></a>
+          <a icon="edit" className="standard-btn" onClick={() => this.onListEdit(list)}><span>edit list</span></a>
           <a icon="delete_forever" className="standard-btn" onClick={() => this.onListDelete(list)}><span>delete list</span></a>
           <Link icon="first_page" className="standard-btn" to="/lists"><span>back to lists</span></Link>
           <Link icon="arrow_back" className="standard-btn" to="/"><span>back to menu</span></Link>
