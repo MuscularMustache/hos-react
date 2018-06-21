@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { graphql } from 'react-apollo';
+import { graphql, compose } from 'react-apollo';
 import FetchLists from '../../queries/FetchLists';
 import AddList from '../../mutations/AddList';
+import EditList from '../../mutations/EditList';
 
 class ListCreate extends Component {
   constructor(props) {
@@ -10,8 +11,20 @@ class ListCreate extends Component {
     this.state = { title: '', errors: [] };
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.title !== prevProps.title) {
+      // According to react docs this is fine
+      this.setState({ title: this.props.title }); // eslint-disable-line react/no-did-update-set-state
+    }
+  }
+
   onSubmit() {
-    this.props.mutate({
+    if (this.props.listId) {
+      this.editList();
+      return;
+    }
+
+    this.props.AddList({
       variables: {
         title: this.state.title,
         userId: this.props.userId
@@ -20,6 +33,22 @@ class ListCreate extends Component {
         query: FetchLists,
         variables: { userId: this.props.userId }
       }]
+    }).then(() => {
+      this.setState({ title: '', errors: [] });
+      this.props.closeAddList();
+    }).catch(res => {
+      const errors = res.graphQLErrors.map(err => err.message);
+      this.setState({ errors });
+    });
+  }
+
+  editList() {
+    // NOTE: the editList and addlist mutation .then && .catch are identical, try to combine them
+    this.props.EditList({
+      variables: {
+        title: this.state.title,
+        id: this.props.listId
+      }
     }).then(() => {
       this.setState({ title: '', errors: [] });
       this.props.closeAddList();
@@ -44,7 +73,7 @@ class ListCreate extends Component {
         <div className="bg-cover" />
 
         <div className="add-content">
-          <h2>Create New List</h2>
+          <h2>{this.props.listId ? 'Edit List' : 'Create New List'}</h2>
           <input
             onChange={event => this.setState({ title: event.target.value })}
             value={this.state.title}
@@ -59,7 +88,7 @@ class ListCreate extends Component {
               cancel
             </a>
             <a className="submit-btn no-select" onClick={() => this.onSubmit()}>
-              add list
+              {this.props.listId ? 'update' : 'add list'}
               <i className="material-icons">add</i>
             </a>
           </div>
@@ -69,4 +98,7 @@ class ListCreate extends Component {
   }
 }
 
-export default graphql(AddList)(ListCreate);
+export default compose(
+  graphql(AddList, { name: 'AddList' }),
+  graphql(EditList, { name: 'EditList' })
+)(ListCreate);
