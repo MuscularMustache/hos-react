@@ -1,23 +1,25 @@
 import React from 'react';
-import { graphql } from 'react-apollo';
-import _ from 'lodash';
+// import { graphql } from 'react-apollo';
+// import _ from 'lodash';
 import Header from './Header';
 import Snackbar from './Snackbar';
-import CurrentUser from '../queries/CurrentUser';
+// import CurrentUser from '../queries/CurrentUser';
 
 // TODO: refactor this to use react context then pull the instance here and req auth
 const App = props => {
-  const isSignup = props.location.pathname === '/signup';
-  let theme = '';
+  // NOTE: shouldn't use localstorage to get theme
 
-  if (_.get(props, 'data.user.theme')) {
-    theme = `theme-${props.data.user.theme}`;
+  // TODO: going to need currentUser here
+  let theme = localStorage.getItem('theme'); // eslint-disable-line
+
+  if (theme) {
+    theme = `theme-${theme}`;
   }
 
   return (
     <div className={theme}>
       <div className={`container ${props.location.pathname.substr(1)}`}>
-        <Header isSignup={isSignup} />
+        <Header />
         {props.children}
         <Snackbar />
       </div>
@@ -25,4 +27,4 @@ const App = props => {
   );
 };
 
-export default graphql(CurrentUser)(App);
+export default App;

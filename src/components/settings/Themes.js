@@ -1,21 +1,34 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import ThemeButton from './ThemeButton';
-import CurrentUser from '../../queries/CurrentUser';
+// import CurrentUser from '../../queries/CurrentUser';
 import SetTheme from '../../mutations/SetTheme';
 
 class Themes extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      activeTheme: ''
+    };
+  }
+
+  // TODO: going to need a currentUser here
   onSetTheme(theme) {
     this.props.mutate({
       variables: {
         theme,
         id: this.props.userId
-      },
-      refetchQueries: [{ query: CurrentUser }]
+      }
+      // refetchQueries: [{ query: CurrentUser }]
+    }).then(() => {
+      localStorage.setItem('theme', theme); // eslint-disable-line
+      this.setState({ activeTheme: theme });
     });
   }
   render() {
-    const activeTheme = this.props.theme;
+    // eslint-disable-next-line no-undef
+    const activeTheme = this.state.activeTheme || localStorage.getItem('theme');
     return (
       <div className="themes">
         <h2>Themes</h2>

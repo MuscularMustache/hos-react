@@ -35,7 +35,7 @@ class ListGroup extends Component {
       return <p>There was an error retrieving the lists</p>;
     }
 
-    if (!this.props.data.lists.length) {
+    if (!_.get(this.props, 'data.lists.length')) {
       return (
         <div>
           <h4 className="no-data">There are no lists. Click on the options button below start adding them</h4>
@@ -85,7 +85,7 @@ class ListGroup extends Component {
           isOpen={this.state.addListOpen}
           closeAddList={() => this.setState({ addListOpen: false })}
         />
-        <Menu highlight={!this.props.data.lists.length}>
+        <Menu highlight={!_.get(this.props, 'data.lists.length')}>
           <a icon="add" className="standard-btn" onClick={() => this.setState({ addListOpen: true })}><span>create new list</span></a>
           <Link icon="arrow_back" className="standard-btn" to="/"><span>back to menu</span></Link>
         </Menu>

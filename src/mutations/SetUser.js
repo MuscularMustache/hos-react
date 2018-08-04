@@ -1,11 +1,11 @@
 import gql from 'graphql-tag';
 
 export default gql`
-  {
-    user {
+  mutation SetUser($userID: String!) {
+    setUser(userID: $userID) {
       id
+      userID
       theme
-      premiumMember
     }
   }
 `;
