@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import ThemeButton from './ThemeButton';
-// import CurrentUser from '../../queries/CurrentUser';
+import CurrentUser from '../../queries/CurrentUser';
 import SetTheme from '../../mutations/SetTheme';
 
 class Themes extends Component {
@@ -19,9 +19,13 @@ class Themes extends Component {
       variables: {
         theme,
         id: this.props.userId
-      }
-      // refetchQueries: [{ query: CurrentUser }]
+      },
+      refetchQueries: [{
+        query: CurrentUser,
+        variables: { userId: this.props.userId }
+      }]
     }).then(() => {
+      // note this shouldn't be set it localStorage
       localStorage.setItem('theme', theme); // eslint-disable-line
       this.setState({ activeTheme: theme });
     });
@@ -43,4 +47,6 @@ class Themes extends Component {
   }
 }
 
-export default graphql(SetTheme)(Themes);
+export default graphql(SetTheme)(graphql(CurrentUser, {
+  options: props => ({ variables: { userId: props.userId } })
+})(Themes));

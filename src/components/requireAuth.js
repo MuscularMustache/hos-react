@@ -65,4 +65,7 @@ export default WrappedComponent => {
   }
 
   return graphql(SetUser)(RequireAuth);
+  // return graphql(SetUser)(graphql(CurrentUser, {
+  //   options: props => ({ variables: { userId: props.userId } })
+  // })(RequireAuth));
 };

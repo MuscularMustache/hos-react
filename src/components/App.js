@@ -1,30 +1,53 @@
-import React from 'react';
-// import { graphql } from 'react-apollo';
-// import _ from 'lodash';
+import React, { Component } from 'react';
+import { graphql } from 'react-apollo';
+import _ from 'lodash';
 import Header from './Header';
 import Snackbar from './Snackbar';
-// import CurrentUser from '../queries/CurrentUser';
+import AuthUser from '../queries/AuthUser';
 
 // TODO: refactor this to use react context then pull the instance here and req auth
-const App = props => {
-  // NOTE: shouldn't use localstorage to get theme
-
-  // TODO: going to need currentUser here
-  let theme = localStorage.getItem('theme'); // eslint-disable-line
-
-  if (theme) {
-    theme = `theme-${theme}`;
+class App extends Component {
+  constructor(props) {
+    super(props);
+    const userID = localStorage.getItem('userID') || ''; //eslint-disable-line
+    this.state = { userID, theme: 'default' };
   }
 
-  return (
-    <div className={theme}>
-      <div className={`container ${props.location.pathname.substr(1)}`}>
-        <Header />
-        {props.children}
-        <Snackbar />
-      </div>
-    </div>
-  );
-};
+  // NOTE: - CAN PROBABLY CALL FOR THEME WHENEVER I'M READY
+  render() {
+    console.log(this);
+    // if (!localStorage.getItem('userID')) {
+      // this.props.client.query({
+      //
+      // }).then(res => {
+      //   console.log(res);
+      // });
+    // }
 
-export default App;
+    let theme = '';
+    const localTheme = localStorage.getItem('theme'); // eslint-disable-line
+
+    // NOTE: this prevents a flash of the default theme on reload
+    if (_.get(this.props, 'data.user.theme')) {
+      theme = `theme-${this.props.data.user.theme}`;
+    } else if (localTheme) {
+      theme = `theme-${localTheme}`;
+    }
+
+    // this.setState({ theme });
+
+    return (
+      <div className={theme}>
+        <div className={`container ${this.props.location.pathname.substr(1)}`}>
+          <Header />
+          {this.props.children}
+          <Snackbar />
+        </div>
+      </div>
+    );
+  }
+}
+
+export default graphql(AuthUser, {
+  options: () => ({ variables: { userId: localStorage.getItem('userID') /* eslint-disable-line */ } })
+})(App);

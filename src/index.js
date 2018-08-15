@@ -46,7 +46,9 @@ const Root = () => (
         <AppProvider>
           <Switch>
             <App
-              render={props => <App {...props} auth={auth} />}
+              auth={auth}
+              client={client}
+              render={props => <App {...props} />}
             >
               <Route path="/" exact component={requireAuth(UserNav)} />
               <Route path="/login" render={props => <Login auth={auth} {...props} />} />
