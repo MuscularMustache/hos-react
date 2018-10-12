@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom';
 import ApolloClient from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
 import { HttpLink } from 'apollo-link-http';
+import { ApolloLink } from 'apollo-link';
 import { InMemoryCache } from 'apollo-cache-inmemory';
+import { withClientState } from 'apollo-link-state';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './styles/index.css';
 
@@ -19,11 +21,23 @@ import requireAuth from './components/requireAuth';
 import { AppProvider } from './components/AppProvider';
 import registerServiceWorker from './registerServiceWorker';
 
+const cache = new InMemoryCache();
+const stateLink = withClientState({
+  cache,
+  defaults: {},
+  resolvers: {}
+});
+
+const httpLink = new HttpLink({ uri: 'http://localhost:4000/graphql', credentials: 'include' });
+// NOTE: stateLink should be before httpLink
+// - If i would add the Apollo Link Error package, the stateLink should come after it,
+const link = ApolloLink.from([stateLink, httpLink]);
+
 // NOTE: if i pass id back from requests
 // - dataIdFromObject will update data without having to re-request it
 const client = new ApolloClient({
-  link: new HttpLink({ uri: 'http://localhost:4000/graphql', credentials: 'include' }),
-  cache: new InMemoryCache(),
+  cache,
+  link,
   dataIdFromObject: o => o.id
 });
 
