@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { graphql, compose } from 'react-apollo';
+import { graphql } from 'react-apollo';
+import {flowRight as compose} from 'lodash';
 import FetchLists from '../../queries/FetchLists';
 import AddList from '../../mutations/AddList';
 import EditList from '../../mutations/EditList';
