@@ -45,7 +45,7 @@
       border-bottom: 1px solid white;
       line-height: 0px;
       pointer-events: none;
-      text-indent: 45%; }
+      text-indent: 121%; }
   .container.game .game-consequence:only-of-type::after, .container.game .game-consequence:only-of-type::before {
     display: none; }
 
